@@ -1,0 +1,792 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8182E192BB7030700C0636A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8182E182BB7030700C0636A /* APIClient.m */; };
+		A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B0D2BB6D56100C107CA /* AppDelegate.m */; };
+		A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B102BB6D56100C107CA /* SceneDelegate.m */; };
+		A8C33B142BB6D56100C107CA /* CurrenciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */; };
+		A8C33B172BB6D56100C107CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B152BB6D56100C107CA /* Main.storyboard */; };
+		A8C33B192BB6D56300C107CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B182BB6D56300C107CA /* Assets.xcassets */; };
+		A8C33B1C2BB6D56300C107CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */; };
+		A8C33B1F2BB6D56300C107CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B1E2BB6D56300C107CA /* main.m */; };
+		A8C33B292BB6D56300C107CA /* CurrencyXchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B282BB6D56300C107CA /* CurrencyXchangeTests.m */; };
+		A8C33B332BB6D56300C107CA /* CurrencyXchangeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B322BB6D56300C107CA /* CurrencyXchangeUITests.m */; };
+		A8C33B352BB6D56300C107CA /* CurrencyXchangeUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B342BB6D56300C107CA /* CurrencyXchangeUITestsLaunchTests.m */; };
+		A8C33B502BB6D70300C107CA /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B452BB6D6FB00C107CA /* UIDeviceHardware.m */; };
+		A8C33B512BB6D70300C107CA /* SGAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B462BB6D6FC00C107CA /* SGAPI.m */; };
+		A8C33B522BB6D70300C107CA /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B4C2BB6D6FF00C107CA /* Helper.m */; };
+		A8C33B532BB6D70300C107CA /* LoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B4D2BB6D70100C107CA /* LoadingIndicator.m */; };
+		A8C33B542BB6D70300C107CA /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B4E2BB6D70200C107CA /* NSData+Conversion.m */; };
+		A8C33B5A2BB6D85800C107CA /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B572BB6D85800C107CA /* NotificationService.m */; };
+		A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B5E2BB6D90000C107CA /* NotificationsVC.m */; };
+		A8C33B652BB6D90000C107CA /* AlertCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B5F2BB6D90000C107CA /* AlertCellView.xib */; };
+		A8C33B662BB6D90000C107CA /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B612BB6D90000C107CA /* NotificationVC.m */; };
+		A8C33B672BB6D90000C107CA /* AlertCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B632BB6D90000C107CA /* AlertCellView.m */; };
+		A8C33B842BB6F86C00C107CA /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B762BB6F86C00C107CA /* Oxygen-Regular.ttf */; };
+		A8C33B852BB6F86C00C107CA /* WorkSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B772BB6F86C00C107CA /* WorkSans-Regular.otf */; };
+		A8C33B862BB6F86C00C107CA /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B782BB6F86C00C107CA /* RobotoSlab-Bold.ttf */; };
+		A8C33B872BB6F86C00C107CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B792BB6F86C00C107CA /* NunitoSans-Regular.ttf */; };
+		A8C33B882BB6F86C00C107CA /* WorkSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7A2BB6F86C00C107CA /* WorkSans-Bold.otf */; };
+		A8C33B892BB6F86C00C107CA /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7B2BB6F86C00C107CA /* MavenPro-Regular.ttf */; };
+		A8C33B8A2BB6F86C00C107CA /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7C2BB6F86C00C107CA /* RobotoSlab-Light.ttf */; };
+		A8C33B8B2BB6F86C00C107CA /* WorkSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7D2BB6F86C00C107CA /* WorkSans-Black.otf */; };
+		A8C33B8C2BB6F86C00C107CA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7E2BB6F86C00C107CA /* OpenSans-Bold.ttf */; };
+		A8C33B8D2BB6F86C00C107CA /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B7F2BB6F86C00C107CA /* MavenPro-Medium.ttf */; };
+		A8C33B8E2BB6F86C00C107CA /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B802BB6F86C00C107CA /* NunitoSans-Bold.ttf */; };
+		A8C33B8F2BB6F86C00C107CA /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B812BB6F86C00C107CA /* OpenSans-Regular.ttf */; };
+		A8C33B902BB6F86C00C107CA /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B822BB6F86C00C107CA /* MavenPro-Bold.ttf */; };
+		A8C33B912BB6F86C00C107CA /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */; };
+		A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */; };
+		A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */; };
+		A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B722BB6F35F00C107CA /* ShadowView.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8C33B252BB6D56300C107CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8C33B012BB6D56100C107CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8C33B082BB6D56100C107CA;
+			remoteInfo = CurrencyXchange;
+		};
+		A8C33B2F2BB6D56300C107CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8C33B012BB6D56100C107CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8C33B082BB6D56100C107CA;
+			remoteInfo = CurrencyXchange;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A8182E172BB7030700C0636A /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		A8182E182BB7030700C0636A /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		A8C33B092BB6D56100C107CA /* CurrencyXchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyXchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C33B0C2BB6D56100C107CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A8C33B0D2BB6D56100C107CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A8C33B0F2BB6D56100C107CA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		A8C33B102BB6D56100C107CA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		A8C33B122BB6D56100C107CA /* CurrenciesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrenciesViewController.h; sourceTree = "<group>"; };
+		A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrenciesViewController.m; sourceTree = "<group>"; };
+		A8C33B162BB6D56100C107CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8C33B182BB6D56300C107CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A8C33B1B2BB6D56300C107CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A8C33B1D2BB6D56300C107CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C33B1E2BB6D56300C107CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8C33B242BB6D56300C107CA /* CurrencyXchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyXchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C33B282BB6D56300C107CA /* CurrencyXchangeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeTests.m; sourceTree = "<group>"; };
+		A8C33B2E2BB6D56300C107CA /* CurrencyXchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyXchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C33B322BB6D56300C107CA /* CurrencyXchangeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeUITests.m; sourceTree = "<group>"; };
+		A8C33B342BB6D56300C107CA /* CurrencyXchangeUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeUITestsLaunchTests.m; sourceTree = "<group>"; };
+		A8C33B442BB6D6FB00C107CA /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Conversion.h"; sourceTree = "<group>"; };
+		A8C33B452BB6D6FB00C107CA /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
+		A8C33B462BB6D6FC00C107CA /* SGAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAPI.m; sourceTree = "<group>"; };
+		A8C33B472BB6D6FC00C107CA /* Definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
+		A8C33B482BB6D6FD00C107CA /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		A8C33B492BB6D6FD00C107CA /* JSONDictionaryExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDictionaryExtensions.h; sourceTree = "<group>"; };
+		A8C33B4A2BB6D6FE00C107CA /* LoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingIndicator.h; sourceTree = "<group>"; };
+		A8C33B4B2BB6D6FE00C107CA /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		A8C33B4C2BB6D6FF00C107CA /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		A8C33B4D2BB6D70100C107CA /* LoadingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingIndicator.m; sourceTree = "<group>"; };
+		A8C33B4E2BB6D70200C107CA /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
+		A8C33B4F2BB6D70200C107CA /* SGAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAPI.h; sourceTree = "<group>"; };
+		A8C33B552BB6D78400C107CA /* CurrencyXchange.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurrencyXchange.entitlements; sourceTree = "<group>"; };
+		A8C33B572BB6D85800C107CA /* NotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		A8C33B582BB6D85800C107CA /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		A8C33B5D2BB6D90000C107CA /* NotificationsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsVC.h; sourceTree = "<group>"; };
+		A8C33B5E2BB6D90000C107CA /* NotificationsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsVC.m; sourceTree = "<group>"; };
+		A8C33B5F2BB6D90000C107CA /* AlertCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertCellView.xib; sourceTree = "<group>"; };
+		A8C33B602BB6D90000C107CA /* AlertCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertCellView.h; sourceTree = "<group>"; };
+		A8C33B612BB6D90000C107CA /* NotificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
+		A8C33B622BB6D90000C107CA /* NotificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationVC.h; sourceTree = "<group>"; };
+		A8C33B632BB6D90000C107CA /* AlertCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCellView.m; sourceTree = "<group>"; };
+		A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignableUITextField.m; sourceTree = "<group>"; };
+		A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormTextField.m; sourceTree = "<group>"; };
+		A8C33B722BB6F35F00C107CA /* ShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
+		A8C33B762BB6F86C00C107CA /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		A8C33B772BB6F86C00C107CA /* WorkSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.otf"; sourceTree = "<group>"; };
+		A8C33B782BB6F86C00C107CA /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		A8C33B792BB6F86C00C107CA /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		A8C33B7A2BB6F86C00C107CA /* WorkSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.otf"; sourceTree = "<group>"; };
+		A8C33B7B2BB6F86C00C107CA /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		A8C33B7C2BB6F86C00C107CA /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
+		A8C33B7D2BB6F86C00C107CA /* WorkSans-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.otf"; sourceTree = "<group>"; };
+		A8C33B7E2BB6F86C00C107CA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		A8C33B7F2BB6F86C00C107CA /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		A8C33B802BB6F86C00C107CA /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		A8C33B812BB6F86C00C107CA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		A8C33B822BB6F86C00C107CA /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8C33B062BB6D56100C107CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B212BB6D56300C107CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B2B2BB6D56300C107CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8182E162BB702F000C0636A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A8182E172BB7030700C0636A /* APIClient.h */,
+				A8182E182BB7030700C0636A /* APIClient.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A8C33B002BB6D56100C107CA = {
+			isa = PBXGroup;
+			children = (
+				A8182E162BB702F000C0636A /* Services */,
+				A8C33B752BB6F86C00C107CA /* fonts */,
+				A8C33B6B2BB6F22F00C107CA /* CustomView */,
+				A8C33B5C2BB6D8F300C107CA /* Notifications */,
+				A8C33B562BB6D84B00C107CA /* RichAPNS */,
+				A8C33B432BB6D6E100C107CA /* Library */,
+				A8C33B0B2BB6D56100C107CA /* CurrencyXchange */,
+				A8C33B272BB6D56300C107CA /* CurrencyXchangeTests */,
+				A8C33B312BB6D56300C107CA /* CurrencyXchangeUITests */,
+				A8C33B0A2BB6D56100C107CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8C33B0A2BB6D56100C107CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B092BB6D56100C107CA /* CurrencyXchange.app */,
+				A8C33B242BB6D56300C107CA /* CurrencyXchangeTests.xctest */,
+				A8C33B2E2BB6D56300C107CA /* CurrencyXchangeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8C33B0B2BB6D56100C107CA /* CurrencyXchange */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B552BB6D78400C107CA /* CurrencyXchange.entitlements */,
+				A8C33B0C2BB6D56100C107CA /* AppDelegate.h */,
+				A8C33B0D2BB6D56100C107CA /* AppDelegate.m */,
+				A8C33B0F2BB6D56100C107CA /* SceneDelegate.h */,
+				A8C33B102BB6D56100C107CA /* SceneDelegate.m */,
+				A8C33B122BB6D56100C107CA /* CurrenciesViewController.h */,
+				A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */,
+				A8C33B152BB6D56100C107CA /* Main.storyboard */,
+				A8C33B182BB6D56300C107CA /* Assets.xcassets */,
+				A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */,
+				A8C33B1D2BB6D56300C107CA /* Info.plist */,
+				A8C33B1E2BB6D56300C107CA /* main.m */,
+			);
+			path = CurrencyXchange;
+			sourceTree = "<group>";
+		};
+		A8C33B272BB6D56300C107CA /* CurrencyXchangeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B282BB6D56300C107CA /* CurrencyXchangeTests.m */,
+			);
+			path = CurrencyXchangeTests;
+			sourceTree = "<group>";
+		};
+		A8C33B312BB6D56300C107CA /* CurrencyXchangeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B322BB6D56300C107CA /* CurrencyXchangeUITests.m */,
+				A8C33B342BB6D56300C107CA /* CurrencyXchangeUITestsLaunchTests.m */,
+			);
+			path = CurrencyXchangeUITests;
+			sourceTree = "<group>";
+		};
+		A8C33B432BB6D6E100C107CA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B472BB6D6FC00C107CA /* Definitions.h */,
+				A8C33B4B2BB6D6FE00C107CA /* Helper.h */,
+				A8C33B4C2BB6D6FF00C107CA /* Helper.m */,
+				A8C33B492BB6D6FD00C107CA /* JSONDictionaryExtensions.h */,
+				A8C33B4A2BB6D6FE00C107CA /* LoadingIndicator.h */,
+				A8C33B4D2BB6D70100C107CA /* LoadingIndicator.m */,
+				A8C33B442BB6D6FB00C107CA /* NSData+Conversion.h */,
+				A8C33B4E2BB6D70200C107CA /* NSData+Conversion.m */,
+				A8C33B4F2BB6D70200C107CA /* SGAPI.h */,
+				A8C33B462BB6D6FC00C107CA /* SGAPI.m */,
+				A8C33B482BB6D6FD00C107CA /* UIDeviceHardware.h */,
+				A8C33B452BB6D6FB00C107CA /* UIDeviceHardware.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A8C33B562BB6D84B00C107CA /* RichAPNS */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B582BB6D85800C107CA /* NotificationService.h */,
+				A8C33B572BB6D85800C107CA /* NotificationService.m */,
+			);
+			path = RichAPNS;
+			sourceTree = "<group>";
+		};
+		A8C33B5C2BB6D8F300C107CA /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B602BB6D90000C107CA /* AlertCellView.h */,
+				A8C33B632BB6D90000C107CA /* AlertCellView.m */,
+				A8C33B5F2BB6D90000C107CA /* AlertCellView.xib */,
+				A8C33B5D2BB6D90000C107CA /* NotificationsVC.h */,
+				A8C33B5E2BB6D90000C107CA /* NotificationsVC.m */,
+				A8C33B622BB6D90000C107CA /* NotificationVC.h */,
+				A8C33B612BB6D90000C107CA /* NotificationVC.m */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		A8C33B6B2BB6F22F00C107CA /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */,
+				A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */,
+				A8C33B722BB6F35F00C107CA /* ShadowView.h */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		A8C33B752BB6F86C00C107CA /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A8C33B762BB6F86C00C107CA /* Oxygen-Regular.ttf */,
+				A8C33B772BB6F86C00C107CA /* WorkSans-Regular.otf */,
+				A8C33B782BB6F86C00C107CA /* RobotoSlab-Bold.ttf */,
+				A8C33B792BB6F86C00C107CA /* NunitoSans-Regular.ttf */,
+				A8C33B7A2BB6F86C00C107CA /* WorkSans-Bold.otf */,
+				A8C33B7B2BB6F86C00C107CA /* MavenPro-Regular.ttf */,
+				A8C33B7C2BB6F86C00C107CA /* RobotoSlab-Light.ttf */,
+				A8C33B7D2BB6F86C00C107CA /* WorkSans-Black.otf */,
+				A8C33B7E2BB6F86C00C107CA /* OpenSans-Bold.ttf */,
+				A8C33B7F2BB6F86C00C107CA /* MavenPro-Medium.ttf */,
+				A8C33B802BB6F86C00C107CA /* NunitoSans-Bold.ttf */,
+				A8C33B812BB6F86C00C107CA /* OpenSans-Regular.ttf */,
+				A8C33B822BB6F86C00C107CA /* MavenPro-Bold.ttf */,
+				A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8C33B082BB6D56100C107CA /* CurrencyXchange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8C33B382BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchange" */;
+			buildPhases = (
+				A8C33B052BB6D56100C107CA /* Sources */,
+				A8C33B062BB6D56100C107CA /* Frameworks */,
+				A8C33B072BB6D56100C107CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CurrencyXchange;
+			productName = CurrencyXchange;
+			productReference = A8C33B092BB6D56100C107CA /* CurrencyXchange.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A8C33B232BB6D56300C107CA /* CurrencyXchangeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8C33B3B2BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchangeTests" */;
+			buildPhases = (
+				A8C33B202BB6D56300C107CA /* Sources */,
+				A8C33B212BB6D56300C107CA /* Frameworks */,
+				A8C33B222BB6D56300C107CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8C33B262BB6D56300C107CA /* PBXTargetDependency */,
+			);
+			name = CurrencyXchangeTests;
+			productName = CurrencyXchangeTests;
+			productReference = A8C33B242BB6D56300C107CA /* CurrencyXchangeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A8C33B2D2BB6D56300C107CA /* CurrencyXchangeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8C33B3E2BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchangeUITests" */;
+			buildPhases = (
+				A8C33B2A2BB6D56300C107CA /* Sources */,
+				A8C33B2B2BB6D56300C107CA /* Frameworks */,
+				A8C33B2C2BB6D56300C107CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8C33B302BB6D56300C107CA /* PBXTargetDependency */,
+			);
+			name = CurrencyXchangeUITests;
+			productName = CurrencyXchangeUITests;
+			productReference = A8C33B2E2BB6D56300C107CA /* CurrencyXchangeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8C33B012BB6D56100C107CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					A8C33B082BB6D56100C107CA = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					A8C33B232BB6D56300C107CA = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A8C33B082BB6D56100C107CA;
+					};
+					A8C33B2D2BB6D56300C107CA = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A8C33B082BB6D56100C107CA;
+					};
+				};
+			};
+			buildConfigurationList = A8C33B042BB6D56100C107CA /* Build configuration list for PBXProject "CurrencyXchange" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A8C33B002BB6D56100C107CA;
+			productRefGroup = A8C33B0A2BB6D56100C107CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8C33B082BB6D56100C107CA /* CurrencyXchange */,
+				A8C33B232BB6D56300C107CA /* CurrencyXchangeTests */,
+				A8C33B2D2BB6D56300C107CA /* CurrencyXchangeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8C33B072BB6D56100C107CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8C33B1C2BB6D56300C107CA /* LaunchScreen.storyboard in Resources */,
+				A8C33B892BB6F86C00C107CA /* MavenPro-Regular.ttf in Resources */,
+				A8C33B902BB6F86C00C107CA /* MavenPro-Bold.ttf in Resources */,
+				A8C33B652BB6D90000C107CA /* AlertCellView.xib in Resources */,
+				A8C33B8E2BB6F86C00C107CA /* NunitoSans-Bold.ttf in Resources */,
+				A8C33B862BB6F86C00C107CA /* RobotoSlab-Bold.ttf in Resources */,
+				A8C33B872BB6F86C00C107CA /* NunitoSans-Regular.ttf in Resources */,
+				A8C33B8F2BB6F86C00C107CA /* OpenSans-Regular.ttf in Resources */,
+				A8C33B8A2BB6F86C00C107CA /* RobotoSlab-Light.ttf in Resources */,
+				A8C33B912BB6F86C00C107CA /* Oxygen-Bold.ttf in Resources */,
+				A8C33B852BB6F86C00C107CA /* WorkSans-Regular.otf in Resources */,
+				A8C33B192BB6D56300C107CA /* Assets.xcassets in Resources */,
+				A8C33B842BB6F86C00C107CA /* Oxygen-Regular.ttf in Resources */,
+				A8C33B8D2BB6F86C00C107CA /* MavenPro-Medium.ttf in Resources */,
+				A8C33B172BB6D56100C107CA /* Main.storyboard in Resources */,
+				A8C33B8C2BB6F86C00C107CA /* OpenSans-Bold.ttf in Resources */,
+				A8C33B882BB6F86C00C107CA /* WorkSans-Bold.otf in Resources */,
+				A8C33B8B2BB6F86C00C107CA /* WorkSans-Black.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B222BB6D56300C107CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B2C2BB6D56300C107CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8C33B052BB6D56100C107CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */,
+				A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */,
+				A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */,
+				A8C33B532BB6D70300C107CA /* LoadingIndicator.m in Sources */,
+				A8C33B512BB6D70300C107CA /* SGAPI.m in Sources */,
+				A8C33B672BB6D90000C107CA /* AlertCellView.m in Sources */,
+				A8C33B5A2BB6D85800C107CA /* NotificationService.m in Sources */,
+				A8C33B142BB6D56100C107CA /* CurrenciesViewController.m in Sources */,
+				A8C33B502BB6D70300C107CA /* UIDeviceHardware.m in Sources */,
+				A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */,
+				A8C33B522BB6D70300C107CA /* Helper.m in Sources */,
+				A8C33B662BB6D90000C107CA /* NotificationVC.m in Sources */,
+				A8C33B542BB6D70300C107CA /* NSData+Conversion.m in Sources */,
+				A8C33B1F2BB6D56300C107CA /* main.m in Sources */,
+				A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */,
+				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
+				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B202BB6D56300C107CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8C33B292BB6D56300C107CA /* CurrencyXchangeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C33B2A2BB6D56300C107CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8C33B352BB6D56300C107CA /* CurrencyXchangeUITestsLaunchTests.m in Sources */,
+				A8C33B332BB6D56300C107CA /* CurrencyXchangeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8C33B262BB6D56300C107CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8C33B082BB6D56100C107CA /* CurrencyXchange */;
+			targetProxy = A8C33B252BB6D56300C107CA /* PBXContainerItemProxy */;
+		};
+		A8C33B302BB6D56300C107CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8C33B082BB6D56100C107CA /* CurrencyXchange */;
+			targetProxy = A8C33B2F2BB6D56300C107CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A8C33B152BB6D56100C107CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8C33B162BB6D56100C107CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8C33B1B2BB6D56300C107CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8C33B362BB6D56300C107CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A8C33B372BB6D56300C107CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8C33B392BB6D56300C107CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CurrencyXchange/CurrencyXchange.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CurrencyXchange/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8C33B3A2BB6D56300C107CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CurrencyXchange/CurrencyXchange.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CurrencyXchange/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A8C33B3C2BB6D56300C107CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyXchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CurrencyXchange";
+			};
+			name = Debug;
+		};
+		A8C33B3D2BB6D56300C107CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyXchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CurrencyXchange";
+			};
+			name = Release;
+		};
+		A8C33B3F2BB6D56300C107CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurrencyXchange;
+			};
+			name = Debug;
+		};
+		A8C33B402BB6D56300C107CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwtjo.CurrencyXchangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurrencyXchange;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8C33B042BB6D56100C107CA /* Build configuration list for PBXProject "CurrencyXchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8C33B362BB6D56300C107CA /* Debug */,
+				A8C33B372BB6D56300C107CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8C33B382BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8C33B392BB6D56300C107CA /* Debug */,
+				A8C33B3A2BB6D56300C107CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8C33B3B2BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchangeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8C33B3C2BB6D56300C107CA /* Debug */,
+				A8C33B3D2BB6D56300C107CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8C33B3E2BB6D56300C107CA /* Build configuration list for PBXNativeTarget "CurrencyXchangeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8C33B3F2BB6D56300C107CA /* Debug */,
+				A8C33B402BB6D56300C107CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8C33B012BB6D56100C107CA /* Project object */;
+}
