@@ -4,7 +4,6 @@
 //
 //  Created by Samer Ghanim on 08/02/2024.
 //
-
 #import "SGAPI.h"
 @implementation SGAPI
 - (void)hitAPI

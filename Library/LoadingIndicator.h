@@ -23,7 +23,6 @@
  */
 @property (nonatomic, assign) BOOL hidesWhenStopped;
 
-
 /**
  start animating
  */

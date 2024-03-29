@@ -64,7 +64,6 @@
     else {
         [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
     }
-    
 }
 -(void)updateUI:(BOOL) status {
     [self.btnLogin setEnabled:status];

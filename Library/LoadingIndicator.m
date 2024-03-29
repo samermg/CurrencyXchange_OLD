@@ -94,7 +94,6 @@ typedef void (^DisableImplictBlock) (void) ;
 }
 
 #pragma mark - create animation
-
 - (CAAnimationGroup *)strokeStartAndEndAnimation {
     if (!_strokeStartAndEndAnimation) {
         CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];

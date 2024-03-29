@@ -31,4 +31,3 @@
    andParams:(NSDictionary*_Nullable)params
                      res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler;
 @end
-

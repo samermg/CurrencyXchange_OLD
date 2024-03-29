@@ -10,9 +10,7 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
-
 #import "UIDeviceHardware.h"
-
 @implementation UIDevice (Hardware)
 /*
  Platforms

@@ -10,6 +10,7 @@
 
 @implementation NSData (Conversion)
 
+
 #pragma mark - String Conversion
 - (NSString *)hexadecimalString {
     /* Returns hexadecimal string of NSData. Empty string if data is empty.   */

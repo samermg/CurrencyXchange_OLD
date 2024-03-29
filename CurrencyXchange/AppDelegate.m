@@ -13,7 +13,6 @@
 #import "CurrenciesViewController.h"
 @import UIKit;
 
-
 // Hide deprecated warning
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

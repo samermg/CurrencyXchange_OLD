@@ -72,6 +72,7 @@ SystemSoundID completeSound;
         [userDefaults synchronize];
     }
 }
+
 +(void) removeFromUserDefaultsWithObject:(id)key {
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:key] != nil) {

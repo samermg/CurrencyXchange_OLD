@@ -18,7 +18,6 @@ typedef void (^notificationsBlock)(NSDictionary* notifications);
     UIApplication *app;
     NSString* appName;
 }
-
 @property (assign) BOOL isDidReceiveRemoteNotificationCalled;
 @property (strong, nonatomic) NSString *strDeviceToken;
 @property (nonatomic,assign) bool isResuming;

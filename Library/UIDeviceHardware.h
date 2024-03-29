@@ -7,7 +7,6 @@
 #import <UIKit/UIKit.h>
 
 #define IFPGA_NAMESTRING                @"iFPGA"
-
 #define IPHONE_1G_NAMESTRING            @"iPhone 1G"
 #define IPHONE_3G_NAMESTRING            @"iPhone 3G"
 #define IPHONE_3GS_NAMESTRING           @"iPhone 3GS"

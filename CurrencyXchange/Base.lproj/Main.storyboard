@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login-->
+        <!--Login CV-->
         <scene sceneID="DI5-Pr-0QA">
             <objects>
-                <viewController title="Login" id="gx4-LN-JSQ" customClass="CurrenciesViewController" sceneMemberID="viewController">
+                <viewController title="Login CV" id="gx4-LN-JSQ" customClass="CurrenciesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2e5-f8-wDb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
                                 </state>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" id="00f-sn-y02" userLabel="tableSpinner" customClass="LoadingIndicator">
-                                <rect key="frame" x="155" y="425" width="80" height="78"/>
+                                <rect key="frame" x="154" y="425" width="81" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -134,10 +134,10 @@
     </scenes>
     <designables>
         <designable name="42N-oT-FyO">
-            <size key="intrinsicContentSize" width="97" height="22"/>
+            <size key="intrinsicContentSize" width="71" height="22"/>
         </designable>
         <designable name="rnn-nn-r0L">
-            <size key="intrinsicContentSize" width="102" height="24"/>
+            <size key="intrinsicContentSize" width="73" height="24"/>
         </designable>
     </designables>
     <resources>

@@ -13,4 +13,5 @@
 #pragma mark - String Conversion
 - (NSString *)hexadecimalString;
 
+
 @end

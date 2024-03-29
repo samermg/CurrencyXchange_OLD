@@ -47,6 +47,7 @@
 -(BOOL)getIsFinishedDownloading {
     return _isFinishedDownloading;
 }
+
 -(NSURL*)url {
     return [[NSURL alloc]initWithString:_FileURL];
 }
