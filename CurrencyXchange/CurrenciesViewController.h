@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APIClient.h"
+#import "CurrencyXchangeViewController.h"
 @interface CurrenciesViewController : UIViewController <UITextFieldDelegate, APIClientDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;

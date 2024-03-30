@@ -23,15 +23,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a3b-VN-bOO">
-                                <rect key="frame" x="46" y="564" width="301" height="60"/>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="C3E-iz-wnc">
-                                <rect key="frame" x="29.333333333333343" y="59" width="334.66666666666663" height="179"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-WP-LAa">
                                 <rect key="frame" x="46" y="520" width="301" height="60"/>
-                                <color key="backgroundColor" red="0.86925405259999999" green="0.79216217990000004" blue="0.46632498500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30066573619999998" green="0.68006539340000005" blue="0.99593991039999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="i4o-AQ-U7z"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="pQz-x7-euX"/>
@@ -44,7 +38,7 @@
                                     <action selector="login:" destination="gx4-LN-JSQ" eventType="touchUpInside" id="PvT-R8-TIX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-nn-r0L" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-nn-r0L" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="272" width="301" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ItO-JO-MtX"/>
@@ -66,7 +60,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42N-oT-FyO" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42N-oT-FyO" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="352" width="301" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Y6J-7u-UZJ"/>
@@ -92,30 +86,31 @@
                                 </state>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" id="00f-sn-y02" userLabel="tableSpinner" customClass="LoadingIndicator">
-                                <rect key="frame" x="154" y="425" width="81" height="78"/>
+                                <rect key="frame" x="153" y="425" width="81" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="C3E-iz-wnc" userLabel="LoginImage">
+                                <rect key="frame" x="76" y="30" width="237" height="240"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V17-4O-gaa"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0QY-pQ-Y7e" firstAttribute="centerX" secondItem="a3b-VN-bOO" secondAttribute="centerX" id="4sM-CE-bfl"/>
-                            <constraint firstItem="0QY-pQ-Y7e" firstAttribute="top" secondItem="a3b-VN-bOO" secondAttribute="bottom" constant="8" id="6Of-iO-rGp"/>
-                            <constraint firstItem="NEf-WP-LAa" firstAttribute="leading" secondItem="a3b-VN-bOO" secondAttribute="leading" id="81A-Je-R2q"/>
+                            <constraint firstItem="C3E-iz-wnc" firstAttribute="leading" secondItem="V17-4O-gaa" secondAttribute="leading" constant="76" id="8XO-Mr-OzD"/>
+                            <constraint firstItem="C3E-iz-wnc" firstAttribute="centerX" secondItem="rnn-nn-r0L" secondAttribute="centerX" constant="-2" id="8pu-7B-ykd"/>
                             <constraint firstItem="42N-oT-FyO" firstAttribute="top" secondItem="rnn-nn-r0L" secondAttribute="bottom" constant="20" id="AjM-7K-yc5"/>
-                            <constraint firstItem="C3E-iz-wnc" firstAttribute="centerX" secondItem="2e5-f8-wDb" secondAttribute="centerX" id="BFp-1r-0mh"/>
-                            <constraint firstItem="a3b-VN-bOO" firstAttribute="top" secondItem="C3E-iz-wnc" secondAttribute="bottom" constant="326" id="GCt-Zx-ck2"/>
-                            <constraint firstItem="NEf-WP-LAa" firstAttribute="centerX" secondItem="C3E-iz-wnc" secondAttribute="centerX" id="Hu2-F4-pqf"/>
+                            <constraint firstItem="rnn-nn-r0L" firstAttribute="top" secondItem="C3E-iz-wnc" secondAttribute="bottom" constant="2" id="Cwb-Mg-xSk"/>
+                            <constraint firstItem="NEf-WP-LAa" firstAttribute="centerX" secondItem="0QY-pQ-Y7e" secondAttribute="centerX" id="GJe-vv-fSm"/>
                             <constraint firstItem="NEf-WP-LAa" firstAttribute="leading" secondItem="42N-oT-FyO" secondAttribute="leading" id="J45-7L-B6B"/>
                             <constraint firstItem="NEf-WP-LAa" firstAttribute="leading" secondItem="rnn-nn-r0L" secondAttribute="leading" id="K8Y-az-rBu"/>
-                            <constraint firstItem="NEf-WP-LAa" firstAttribute="centerX" secondItem="a3b-VN-bOO" secondAttribute="centerX" id="Pqg-zQ-9Qe"/>
-                            <constraint firstItem="a3b-VN-bOO" firstAttribute="top" secondItem="2e5-f8-wDb" secondAttribute="top" constant="564" id="Q04-Hz-LZH"/>
+                            <constraint firstItem="C3E-iz-wnc" firstAttribute="top" secondItem="2e5-f8-wDb" secondAttribute="topMargin" constant="-29" id="Oa8-5u-bmk"/>
+                            <constraint firstItem="NEf-WP-LAa" firstAttribute="top" secondItem="00f-sn-y02" secondAttribute="bottom" constant="17" id="S1L-s7-IEz"/>
                             <constraint firstItem="NEf-WP-LAa" firstAttribute="centerX" secondItem="42N-oT-FyO" secondAttribute="centerX" id="cf4-aV-Zgr"/>
                             <constraint firstItem="NEf-WP-LAa" firstAttribute="leading" secondItem="V17-4O-gaa" secondAttribute="leading" constant="46" id="d9C-IW-Ojs"/>
                             <constraint firstItem="NEf-WP-LAa" firstAttribute="centerX" secondItem="rnn-nn-r0L" secondAttribute="centerX" id="mCs-TC-4BW"/>
-                            <constraint firstItem="NEf-WP-LAa" firstAttribute="top" secondItem="a3b-VN-bOO" secondAttribute="bottom" constant="-104" id="mfw-XM-bvI"/>
                             <constraint firstItem="42N-oT-FyO" firstAttribute="top" secondItem="2e5-f8-wDb" secondAttribute="top" constant="352" id="rF2-JN-e8k"/>
+                            <constraint firstItem="C3E-iz-wnc" firstAttribute="centerX" secondItem="2e5-f8-wDb" secondAttribute="centerX" constant="-2" id="rm3-PX-SwF"/>
                             <constraint firstItem="V17-4O-gaa" firstAttribute="bottom" secondItem="0QY-pQ-Y7e" secondAttribute="bottom" constant="152" id="vcy-1v-zEK"/>
                         </constraints>
                     </view>
@@ -131,17 +126,63 @@
             </objects>
             <point key="canvasLocation" x="1831.2977099236641" y="579.57746478873241"/>
         </scene>
+        <!--CurrencyXchange-->
+        <scene sceneID="wdr-jR-fvk">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" title="CurrencyXchange" id="LeE-oN-Ei2" customClass="CurrencyXchangeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lYI-VV-NeB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFw-eE-wDY">
+                                <rect key="frame" x="16" y="103" width="361" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rug-m8-FvD"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="16v-Zl-T8Y"/>
+                    <connections>
+                        <outlet property="lblTitle" destination="KFw-eE-wDY" id="fqA-jd-8NX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgL-wt-37z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3559.5419847328244" y="594.36619718309862"/>
+        </scene>
+        <!--cXchange-->
+        <scene sceneID="eCR-nR-XsR">
+            <objects>
+                <navigationController title="cXchange" automaticallyAdjustsScrollViewInsets="NO" id="v8f-8e-6MP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OMV-CZ-OZh">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LeE-oN-Ei2" kind="relationship" relationship="rootViewController" id="PYR-XL-cW8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0g9-GP-HSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2632.8244274809158" y="594.36619718309862"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="42N-oT-FyO">
-            <size key="intrinsicContentSize" width="71" height="22"/>
+            <size key="intrinsicContentSize" width="97" height="22"/>
         </designable>
         <designable name="rnn-nn-r0L">
-            <size key="intrinsicContentSize" width="73" height="24"/>
+            <size key="intrinsicContentSize" width="102" height="23.666666666666668"/>
         </designable>
     </designables>
     <resources>
-        <image name="Home" width="334.66665649414062" height="179"/>
+        <image name="icon" width="1024" height="1024"/>
         <image name="pass" width="11" height="14"/>
         <image name="username" width="14" height="14"/>
     </resources>

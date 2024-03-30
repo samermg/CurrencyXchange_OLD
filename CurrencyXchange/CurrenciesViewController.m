@@ -62,9 +62,11 @@
         [client Login];
     }
     else {
+        
         [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
     }
 }
+
 -(void)updateUI:(BOOL) status {
     [self.btnLogin setEnabled:status];
     [self.username setEnabled:status];
@@ -91,12 +93,22 @@
         //NSString*userID = [user objectForKey:@"userID"];
         NSString*first = [user objectForKey:@"firstName"];
         NSString*last = [user objectForKey:@"lastName"];
-        [self showAlert:@"Login" andWithMessage:[NSString stringWithFormat:@"[%@]  Login - Welcome, %@ %@", isValidLogin? @"Valid" : @"Invalid", first,last]];
+        [self showCurrencyXchangeViewController:first last:last];
+        //[self showAlert:@"Login" andWithMessage:[NSString stringWithFormat:@"[%@]  Login - Welcome, %@ %@", isValidLogin? @"Valid" : @"Invalid", first,last]];
     } else {
         [self showAlert:@"Login" andWithMessage:@"Incorrect username or password. Please verify your credentials."];
     }
     //NSLog(@"%@",data);
     [self updateUI:true];
+}
+- (void)showCurrencyXchangeViewController:(NSString*)first last:(NSString*)last{
+    // Instantiate home view controller from storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; // Assuming your storyboard name is "Main"
+    CurrencyXchangeViewController *CurrencyXVC = [storyboard instantiateViewControllerWithIdentifier:@"HomeVC"]; // Make sure to set the Storyboard ID in the storyboard
+    CurrencyXVC.firstName=first;
+    CurrencyXVC.lastName=last;
+    // Present home view controller
+    [self presentViewController:CurrencyXVC animated:YES completion:nil];
 }
 - (void)APIRequest:(APIClient * _Nullable)call didFinishRequestWithError:(NSString * _Nullable)error {
     [self.loadingMe stopAnimating];

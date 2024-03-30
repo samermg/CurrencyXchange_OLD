@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A8182E192BB7030700C0636A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8182E182BB7030700C0636A /* APIClient.m */; };
+		A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */; };
 		A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B0D2BB6D56100C107CA /* AppDelegate.m */; };
 		A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B102BB6D56100C107CA /* SceneDelegate.m */; };
 		A8C33B142BB6D56100C107CA /* CurrenciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */; };
@@ -67,6 +68,8 @@
 /* Begin PBXFileReference section */
 		A8182E172BB7030700C0636A /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8182E182BB7030700C0636A /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyXchangeViewController.h; sourceTree = "<group>"; };
+		A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeViewController.m; sourceTree = "<group>"; };
 		A8C33B092BB6D56100C107CA /* CurrencyXchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyXchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C33B0C2BB6D56100C107CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8C33B0D2BB6D56100C107CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				A8C33B102BB6D56100C107CA /* SceneDelegate.m */,
 				A8C33B122BB6D56100C107CA /* CurrenciesViewController.h */,
 				A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */,
+				A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */,
+				A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */,
 				A8C33B152BB6D56100C107CA /* Main.storyboard */,
 				A8C33B182BB6D56300C107CA /* Assets.xcassets */,
 				A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */,
@@ -453,6 +458,7 @@
 				A8C33B662BB6D90000C107CA /* NotificationVC.m in Sources */,
 				A8C33B542BB6D70300C107CA /* NSData+Conversion.m in Sources */,
 				A8C33B1F2BB6D56300C107CA /* main.m in Sources */,
+				A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */,
 				A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */,
 				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
 				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
