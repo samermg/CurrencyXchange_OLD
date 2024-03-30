@@ -51,7 +51,8 @@
 -(NSURL*)url {
     return [[NSURL alloc]initWithString:_FileURL];
 }
--(void)Login {
+
+-(void)Featch {
     if ([_FileURL isEqual:@""] || [_FileURL length]<10) {
         if ([[self delegate] respondsToSelector:@selector(APIRequest:didFinishRequestWithError:)]) {
             NSString* err =@"URL is not valid or URL is not found";
@@ -60,7 +61,7 @@
     } else {
         dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
         dispatch_async(dwnQueue, ^ {
-            [SGAPI QueryRequestCall:LOGIN_API method:self->_HttpMethod headers:self->_HttpHeaderFields andParams:self->_AdditionalParameters res:^(NSDictionary * _Nullable json, NSError * _Nullable error) {
+            [SGAPI QueryRequestCall:self->_FileURL method:self->_HttpMethod headers:self->_HttpHeaderFields andParams:self->_AdditionalParameters res:^(NSDictionary * _Nullable json, NSError * _Nullable error) {
                 //NSLog(@"JSON: %@",json);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if ([[self delegate] respondsToSelector:@selector(APIRequest:didFinishRequestWithContent:)]) {
@@ -73,4 +74,5 @@
         });
     }
 }
+
 @end

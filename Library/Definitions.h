@@ -9,11 +9,16 @@
 #ifndef Dragons_Definitions_h
 #define Dragons_Definitions_h
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#define CXChange_API               @"https://v6.exchangerate-api.com/v6"
+#define CXChange_KEY               @"7781b567323cc3cb1bb5b036"
+
 #define LOGIN_API                     @"https://webapi.cwtjo.org/restfull/v1/user/login"
+#define API_KEY                         @"6CBxzdYcEgNDrRhMbDpkBF7e4d4Kib46dwL9ZE5egiL0iL5Y3dzREUBSUYVUwUkN"
 #define READALL                         @"http://www.cwtjo.org/VBNET/APIs/students/rest-api/items/read.php"
 #define NOTIFICATION_REG_URL            @"https://webapi.cwtjo.org/restfull/v1/register/device"
 #define API_URL                         @"http://cwtapps.com/CFOs/APIs/securedRequest.php"
-#define API_KEY                         @"6CBxzdYcEgNDrRhMbDpkBF7e4d4Kib46dwL9ZE5egiL0iL5Y3dzREUBSUYVUwUkN"
+
 #define NO_INTERNT                      @"الجهاز غير متصل بشبكة الإنترنت"
 #define pListFile                       @"Contacts.plist"
 #define plist                           @"Contacts"

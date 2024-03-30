@@ -565,6 +565,12 @@ SystemSoundID completeSound;
         return @"00:00:00";
     }
 }
++(NSString*)doubleToString:(double)number withPrecision:(int)precision {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.minimumFractionDigits = precision;
+    formatter.maximumFractionDigits = precision;
+    return [formatter stringFromNumber:@(number)];
+}
 + (NSDate*)convertTOUTCDate:(NSString*)timeString {
     NSDate* prayDateForCalculation = [NSDate date];
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];

@@ -10,7 +10,7 @@
 #import "NotificationService.h"
 #import "NotificationsVC.h"
 #import "NotificationVC.h"
-#import "CurrenciesViewController.h"
+#import "LoginViewController.h"
 @import UIKit;
 
 // Hide deprecated warning

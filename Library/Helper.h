@@ -39,7 +39,7 @@ typedef enum {
 +(float) loadUserDefaultsFloatValueForKey:(NSString *)key;
 +(void)setUserDefaultsIntValue:(int)intValue forKey:(NSString *)key;
 +(int)loadUserDefaultsIntValueForKey:(NSString *)key;
-
++(NSString*)doubleToString:(double)number withPrecision:(int)precision;
 //Date
 +(NSString *)formatDate:(NSDate *)dateToFormat formatString:(NSString *)format twelveHourEnabled:(BOOL)enabled showTimeZone:(BOOL)showZone;
 +(NSString *)timeFormatted:(int)totalSeconds forElapsed:(BOOL)isElapsed;

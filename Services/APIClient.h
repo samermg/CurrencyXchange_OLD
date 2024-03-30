@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma API HTTP Parameters
 -(void)setAdditionalParameters:(NSDictionary*)additionalParameters;
 -(NSDictionary*)getAdditionalParameter;
--(void)Login ;
+-(void)Featch;
 @end
 
 NS_ASSUME_NONNULL_END

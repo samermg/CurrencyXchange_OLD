@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		A8182E192BB7030700C0636A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8182E182BB7030700C0636A /* APIClient.m */; };
 		A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */; };
+		A89CD3392BB85DF700C333FF /* ListCountriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD3382BB85DF700C333FF /* ListCountriesViewController.m */; };
+		A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD33C2BB8605900C333FF /* CurrencyCellView.m */; };
+		A89CD33F2BB8605900C333FF /* CurrencyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */; };
+		A89CD3422BB8B95900C333FF /* MainNavigationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */; };
 		A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B0D2BB6D56100C107CA /* AppDelegate.m */; };
 		A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B102BB6D56100C107CA /* SceneDelegate.m */; };
-		A8C33B142BB6D56100C107CA /* CurrenciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */; };
+		A8C33B142BB6D56100C107CA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B132BB6D56100C107CA /* LoginViewController.m */; };
 		A8C33B172BB6D56100C107CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B152BB6D56100C107CA /* Main.storyboard */; };
 		A8C33B192BB6D56300C107CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B182BB6D56300C107CA /* Assets.xcassets */; };
 		A8C33B1C2BB6D56300C107CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */; };
@@ -46,6 +50,7 @@
 		A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */; };
 		A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */; };
 		A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B722BB6F35F00C107CA /* ShadowView.h */; };
+		A8F147FE2BB8C99A00D673B5 /* GlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F147FD2BB8C99A00D673B5 /* GlobalSingleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +75,20 @@
 		A8182E182BB7030700C0636A /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyXchangeViewController.h; sourceTree = "<group>"; };
 		A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeViewController.m; sourceTree = "<group>"; };
+		A89CD3372BB85DF700C333FF /* ListCountriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCountriesViewController.h; sourceTree = "<group>"; };
+		A89CD3382BB85DF700C333FF /* ListCountriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCountriesViewController.m; sourceTree = "<group>"; };
+		A89CD33B2BB8605900C333FF /* CurrencyCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyCellView.h; sourceTree = "<group>"; };
+		A89CD33C2BB8605900C333FF /* CurrencyCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyCellView.m; sourceTree = "<group>"; };
+		A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCellView.xib; sourceTree = "<group>"; };
+		A89CD3402BB8B95900C333FF /* MainNavigationContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationContoller.h; sourceTree = "<group>"; };
+		A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavigationContoller.m; sourceTree = "<group>"; };
 		A8C33B092BB6D56100C107CA /* CurrencyXchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyXchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C33B0C2BB6D56100C107CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8C33B0D2BB6D56100C107CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A8C33B0F2BB6D56100C107CA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		A8C33B102BB6D56100C107CA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		A8C33B122BB6D56100C107CA /* CurrenciesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrenciesViewController.h; sourceTree = "<group>"; };
-		A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrenciesViewController.m; sourceTree = "<group>"; };
+		A8C33B122BB6D56100C107CA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A8C33B132BB6D56100C107CA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A8C33B162BB6D56100C107CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8C33B182BB6D56300C107CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8C33B1B2BB6D56300C107CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,6 +138,8 @@
 		A8C33B812BB6F86C00C107CA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		A8C33B822BB6F86C00C107CA /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		A8F147FC2BB8C99A00D673B5 /* GlobalSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalSingleton.h; sourceTree = "<group>"; };
+		A8F147FD2BB8C99A00D673B5 /* GlobalSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +176,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A89CD33A2BB8600700C333FF /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				A89CD33B2BB8605900C333FF /* CurrencyCellView.h */,
+				A89CD33C2BB8605900C333FF /* CurrencyCellView.m */,
+				A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
 		A8C33B002BB6D56100C107CA = {
 			isa = PBXGroup;
 			children = (
@@ -191,15 +215,20 @@
 		A8C33B0B2BB6D56100C107CA /* CurrencyXchange */ = {
 			isa = PBXGroup;
 			children = (
+				A89CD33A2BB8600700C333FF /* Currency */,
 				A8C33B552BB6D78400C107CA /* CurrencyXchange.entitlements */,
 				A8C33B0C2BB6D56100C107CA /* AppDelegate.h */,
 				A8C33B0D2BB6D56100C107CA /* AppDelegate.m */,
 				A8C33B0F2BB6D56100C107CA /* SceneDelegate.h */,
 				A8C33B102BB6D56100C107CA /* SceneDelegate.m */,
-				A8C33B122BB6D56100C107CA /* CurrenciesViewController.h */,
-				A8C33B132BB6D56100C107CA /* CurrenciesViewController.m */,
+				A8C33B122BB6D56100C107CA /* LoginViewController.h */,
+				A8C33B132BB6D56100C107CA /* LoginViewController.m */,
+				A89CD3402BB8B95900C333FF /* MainNavigationContoller.h */,
+				A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */,
 				A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */,
 				A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */,
+				A89CD3372BB85DF700C333FF /* ListCountriesViewController.h */,
+				A89CD3382BB85DF700C333FF /* ListCountriesViewController.m */,
 				A8C33B152BB6D56100C107CA /* Main.storyboard */,
 				A8C33B182BB6D56300C107CA /* Assets.xcassets */,
 				A8C33B1A2BB6D56300C107CA /* LaunchScreen.storyboard */,
@@ -241,6 +270,8 @@
 				A8C33B462BB6D6FC00C107CA /* SGAPI.m */,
 				A8C33B482BB6D6FD00C107CA /* UIDeviceHardware.h */,
 				A8C33B452BB6D6FB00C107CA /* UIDeviceHardware.m */,
+				A8F147FC2BB8C99A00D673B5 /* GlobalSingleton.h */,
+				A8F147FD2BB8C99A00D673B5 /* GlobalSingleton.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -404,6 +435,7 @@
 			files = (
 				A8C33B1C2BB6D56300C107CA /* LaunchScreen.storyboard in Resources */,
 				A8C33B892BB6F86C00C107CA /* MavenPro-Regular.ttf in Resources */,
+				A89CD33F2BB8605900C333FF /* CurrencyCellView.xib in Resources */,
 				A8C33B902BB6F86C00C107CA /* MavenPro-Bold.ttf in Resources */,
 				A8C33B652BB6D90000C107CA /* AlertCellView.xib in Resources */,
 				A8C33B8E2BB6F86C00C107CA /* NunitoSans-Bold.ttf in Resources */,
@@ -450,18 +482,22 @@
 				A8C33B532BB6D70300C107CA /* LoadingIndicator.m in Sources */,
 				A8C33B512BB6D70300C107CA /* SGAPI.m in Sources */,
 				A8C33B672BB6D90000C107CA /* AlertCellView.m in Sources */,
+				A8F147FE2BB8C99A00D673B5 /* GlobalSingleton.m in Sources */,
 				A8C33B5A2BB6D85800C107CA /* NotificationService.m in Sources */,
-				A8C33B142BB6D56100C107CA /* CurrenciesViewController.m in Sources */,
+				A8C33B142BB6D56100C107CA /* LoginViewController.m in Sources */,
 				A8C33B502BB6D70300C107CA /* UIDeviceHardware.m in Sources */,
 				A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */,
+				A89CD3392BB85DF700C333FF /* ListCountriesViewController.m in Sources */,
 				A8C33B522BB6D70300C107CA /* Helper.m in Sources */,
 				A8C33B662BB6D90000C107CA /* NotificationVC.m in Sources */,
 				A8C33B542BB6D70300C107CA /* NSData+Conversion.m in Sources */,
 				A8C33B1F2BB6D56300C107CA /* main.m in Sources */,
 				A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */,
+				A89CD3422BB8B95900C333FF /* MainNavigationContoller.m in Sources */,
 				A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */,
 				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
 				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
+				A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,10 +676,9 @@
 				INFOPLIST_FILE = CurrencyXchange/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,10 +704,9 @@
 				INFOPLIST_FILE = CurrencyXchange/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

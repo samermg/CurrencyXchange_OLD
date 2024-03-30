@@ -6,6 +6,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>https://v6.exchangerate-api.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>https://webapi.cwtjo.org</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
