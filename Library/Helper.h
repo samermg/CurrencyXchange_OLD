@@ -100,6 +100,7 @@ typedef enum {
 
 
 //Data
++(NSString*)formateNumber:(double)number;
 + (NSData *)base64DataFromString: (NSString *)string;
 + (NSArray*)Countries;
 + (NSArray*)_Symbols;

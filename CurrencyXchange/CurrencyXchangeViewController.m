@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet LoadingIndicator *loadingMe;
 @property (strong,nonatomic) NSDictionary* rates;
 @property (strong,nonatomic) NSArray* sourceCurrencies;
-@property (strong,nonatomic) NSArray* filteredCurrencies;
 @property (strong,nonatomic) NSArray* destinationCurrencies;
 @property (strong,nonatomic) NSString* baseCurrency;
 @property (strong,nonatomic) NSDictionary* baseCurrencyDictionary;
@@ -69,7 +68,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     ListCountriesViewController *ListViewController = [storyboard instantiateViewControllerWithIdentifier:@"CurrenciesVC"];
     ListViewController.CurrencyFlag = FromCurrency;
     ListViewController.UpdateFlagDelegate = self;
-    ListViewController.rates = self.rates;
+    ListViewController.symbols = _symbols;
     self.SenderDelegate = FromCurrency;
     [self.navigationController pushViewController:ListViewController animated:YES];
 }
@@ -78,7 +77,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     ListCountriesViewController *ListViewController = [storyboard instantiateViewControllerWithIdentifier:@"CurrenciesVC"];
     ListViewController.CurrencyFlag = ToCurrency;
     ListViewController.UpdateFlagDelegate = self;
-    ListViewController.rates = self.rates;
+    ListViewController.symbols = self.symbols;
     self.SenderDelegate = ToCurrency;
     
     [self.navigationController pushViewController:ListViewController animated:YES];
@@ -160,7 +159,6 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 
         }
         _sourceCurrencies = [[NSArray alloc]initWithArray:keys];
-        _filteredCurrencies = [[NSArray alloc]initWithArray:_sourceCurrencies];
         _destinationCurrencies = [[NSArray alloc]initWithArray:keys];
         [_sourcePicker reloadComponent:0];
         [_destinationPicker reloadComponent:0];
@@ -233,41 +231,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     NSString* rateKey   = self.destinationCurrencies[selectedRowInDestination];
     double rateValue = [[_rates valueForKey:rateKey] doubleValue];
     double converted = amount * rateValue;
-    _toAmount.text = [self formateNumber:converted];
-}
--(NSString*)formateNumber:(double)number {
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    formatter.maximumFractionDigits = 3; // Set the maximum number of decimal places
-    NSString *formattedString = [formatter stringFromNumber:@(number)];
-    return formattedString;
-}
-#pragma mark - UISearchBarDelegate
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self filterDataWithSearchQuery:_fromSearch.text];
-}
-- (BOOL)keyExistsInDictionary:(NSDictionary *)dictionary forKey:(NSString *)key {
-    NSArray *allKeys = [dictionary allKeys];
-    BOOL isKeyFound = [allKeys containsObject:key];
-    return isKeyFound;
-}
-    
-- (void)filterDataWithSearchQuery:(NSString*)query {
-    query = [query uppercaseString];
-    if (query.length == 0) {
-        self.filteredCurrencies = self.sourceCurrencies; // Reset to original data if search query is empty
-    } else {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", query];
-        self.filteredCurrencies = [self.sourceCurrencies filteredArrayUsingPredicate:predicate];
-        [self.sourcePicker reloadAllComponents];
-        if (query.length==3) {
-            BOOL isKeyFound = [self keyExistsInDictionary:_rates forKey:query];
-            if (isKeyFound) {
-                //[self GetConversationRatesForBase:query];
-            }
-        }
-    }
+    _toAmount.text = [Helper formateNumber:converted];
 }
 #pragma Surce Currencies Delegate Methods
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -281,15 +245,10 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     }
     NSString *title;
     if (pickerView == self.sourcePicker) {
-        if (_fromSearch.text.length == 0) {
-            title= _sourceCurrencies[row];
-        } else {
-            title = _filteredCurrencies[row];
-        }
+        title= _sourceCurrencies[row];
     } else if (pickerView == self.destinationPicker) {
         title= _destinationCurrencies[row];
     }
-    
     // Customize the row content (assuming you have an array of strings named data)
     label.text = title;
     
@@ -308,11 +267,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 // Number of rows in the pickerView
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (pickerView == self.sourcePicker) {
-        if (_fromSearch.text.length == 0) {
-            return _sourceCurrencies.count;
-        } else {
-            return _filteredCurrencies.count;
-        }
+        return _sourceCurrencies.count;
     } else if (pickerView == self.destinationPicker) {
         return self.destinationCurrencies.count;
     }
@@ -321,11 +276,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 // Title for each row in the pickerView
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (pickerView == self.sourcePicker) {
-        if (_fromSearch.text.length == 0) {
-            return _sourceCurrencies[row];
-        } else {
-            return _filteredCurrencies[row];
-        }
+        return _sourceCurrencies[row];
     } else if (pickerView == self.destinationPicker) {
         return _destinationCurrencies[row];
     }

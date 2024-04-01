@@ -20,11 +20,11 @@ const CGFloat cornerRadius = 22;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.countries.delegate = self;
     self.countries.dataSource=self;
     self.fromSearch.delegate = self;
-
+    
     //#############################################################//
     //##############Expand the Cell on rotation ###################//
     //#############################################################//
@@ -35,11 +35,11 @@ const CGFloat cornerRadius = 22;
     [self.countries registerNib:nib forCellReuseIdentifier:@"CurrencyCV"];
     dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
     dispatch_async(dwnQueue, ^ {
-        self->_symbols = [NSArray arrayWithArray:[Helper Symbols]];
+        //self->_symbols = [NSArray arrayWithArray:[Helper Symbols]];
         self->_filteredCurrencies = [[NSArray alloc]initWithArray:self->_symbols];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self->ratesKeys  =[[NSMutableArray alloc]initWithArray:[self.rates allKeys]];
-            self->ratesValues=[[NSMutableArray alloc]initWithArray:[self.rates allValues]];
+            //            self->ratesKeys  =[[NSMutableArray alloc]initWithArray:[self.rates allKeys]];
+            //            self->ratesValues=[[NSMutableArray alloc]initWithArray:[self.rates allValues]];
             [self.countries reloadData];
         });
     });
@@ -47,9 +47,9 @@ const CGFloat cornerRadius = 22;
 }
 #pragma TableView
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     return 55;
- }
+{
+    return 70;
+}
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_fromSearch.text.length > 0) {
         return _filteredCurrencies.count;
@@ -75,14 +75,17 @@ const CGFloat cornerRadius = 22;
 {
     static NSString *cellIdentifier = @"CurrencyCV";
     CurrencyCellView *cell;
-
+    
     cell = (CurrencyCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     int row = (int)indexPath.row;
     NSDictionary *country = (_fromSearch.text.length == 0) ? [_symbols objectAtIndex:row] : [_filteredCurrencies objectAtIndex:row] ;
-    NSString* currency = [country objectForKey:@"Code"];
-    NSString* symbol = [country objectForKey:@"Symbol"];
-    cell.currency.text = currency;
-    cell.country.text = [country objectForKey:@"CountryName"];
+    NSArray* keys = [country allKeys];
+    NSString* key = keys[0]; // Currency
+    NSString* currency = [[country objectForKey:key] objectForKey:@"code"];
+    NSString* symbol = [[country objectForKey:key] objectForKey:@"symbol"];
+    int decimal = [[[country objectForKey:key] objectForKey:@"decimal_digits"] intValue];
+    cell.name.text = [[country objectForKey:key] objectForKey:@"name"];
+    cell.popularName.text = [[country objectForKey:key] objectForKey:@"name_plural"];
     
     //Flag View
     cell.flagView.layer.cornerRadius = cornerRadius;
@@ -91,17 +94,17 @@ const CGFloat cornerRadius = 22;
     cell.flagView.layer.borderWidth = 1.0;
     double rate=0.000000;
     @try {
-         rate = [[_rates objectForKey:currency] doubleValue];
+        rate = [[[country objectForKey:key] objectForKey:@"rate"] doubleValue];
     }
     @catch (NSException *exception) {
         NSLog(@"%@ currency not found",currency);
     }
     @finally {
-        cell.rate.text =[NSString stringWithFormat:@"%@ %@",symbol,[Helper doubleToString:rate withPrecision:3]];
+        cell.rate.text =[NSString stringWithFormat:@"%@ %@",symbol,[Helper doubleToString:rate withPrecision:decimal]];
     }
     
     cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg",[currency  lowercaseString]]];
-   
+    
     return cell;
 }
 
@@ -124,25 +127,29 @@ const CGFloat cornerRadius = 22;
     BOOL isKeyFound = [allKeys containsObject:key];
     return isKeyFound;
 }
-    
+
 - (void)filterDataWithSearchQuery:(NSString*)query {
     query = [query uppercaseString];
+    NSMutableArray* filtered = [NSMutableArray array];
     if (query.length == 0) {
         self.filteredCurrencies = self.symbols;
     } else {
+        NSMutableArray* filtered = [NSMutableArray array];
+        for (NSDictionary *dictionary in _symbols) {
+            NSArray* keys = [dictionary allKeys];
+            NSString* key = keys[0]; // Currency
+            NSString* name = [[dictionary objectForKey:key] objectForKey:@"name"];
+            NSRange range = [name rangeOfString:query];
 
-        NSArray *filtered = [_symbols filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"CountryName CONTAINS[cd] %@", query]];
-        if (filtered.count > 0) {
-            NSLog(@"Matching dictionaries found:");
-            for (NSDictionary *dictionary in filtered) {
-                NSLog(@"%@", dictionary);
+            if (range.location != NSNotFound) {
+                [filtered addObject:dictionary];
             }
-        } else {
-            NSLog(@"No matching dictionaries found");
         }
-        //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Code == %@", query];
-        _filteredCurrencies = filtered;
-        [self.countries reloadData];
+        if(filtered.count) {
+            _filteredCurrencies = filtered;
+            [self.countries reloadData];
+        }
     }
 }
+
 @end

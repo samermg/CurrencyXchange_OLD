@@ -4872,4 +4872,11 @@ SystemSoundID completeSound;
         @"continentName": @"Africa"
     }, nil];
 }
++(NSString*)formateNumber:(double)number {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 3; // Set the maximum number of decimal places
+    NSString *formattedString = [formatter stringFromNumber:@(number)];
+    return formattedString;
+}
 @end

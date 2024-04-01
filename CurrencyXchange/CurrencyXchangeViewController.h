@@ -11,7 +11,7 @@
 #import "LoginViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CurrencyXchangeViewController : UIViewController <APIClientDelegate, UISearchBarDelegate, UIPickerViewDelegate>
+@interface CurrencyXchangeViewController : UIViewController <APIClientDelegate, UIPickerViewDelegate>
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
 @property (weak, nonatomic) IBOutlet UIPickerView *sourcePicker;
@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *lblTo;
 @property (weak, nonatomic) IBOutlet UIImageView *fromCurrencyFlag;
 @property (weak, nonatomic) IBOutlet UIImageView *toCurrencyFlag;
-@property (weak, nonatomic) IBOutlet UISearchBar *fromSearch;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelecte;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnLogout;
 @property (weak, nonatomic) IBOutlet UILabel *fromSymbol;
