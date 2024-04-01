@@ -86,7 +86,7 @@
     BOOL isValidLogin = ([[validation objectForKey:@"status"]  isEqual: @"SUCCESS"]) ? TRUE : FALSE;
     
     if (isValidLogin) {
-        NSDictionary* user = [NSDictionary dictionaryWithDictionary:[data objectForKey:@"user"]];
+        //NSDictionary* user = [NSDictionary dictionaryWithDictionary:[data objectForKey:@"user"]];
         //NSString*userID = [user objectForKey:@"userID"];
         //NSString*first = [user objectForKey:@"firstName"];
         //NSString*last = [user objectForKey:@"lastName"];

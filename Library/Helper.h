@@ -19,6 +19,10 @@ typedef enum {
         GET,
         POST
     } HttpMethod;
+typedef enum {
+        FromCurrency,
+        ToCurrency
+    } CurrencyCode;
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 // Dictionary Static Methods
 +(void) saveUserDefaultsForBooleanKey:(BOOL)value forKey:(NSString *)key;
@@ -97,4 +101,6 @@ typedef enum {
 
 //Data
 + (NSData *)base64DataFromString: (NSString *)string;
++ (NSArray*)Countries;
++ (NSArray*)Symbols;
 @end

@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CurrencyCellView : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *rate;
 @property (weak, nonatomic) IBOutlet UILabel *currency;
+@property (weak, nonatomic) IBOutlet UILabel *country;
 @property (weak, nonatomic) IBOutlet UIImageView *flag;
+@property (weak, nonatomic) IBOutlet UIView *flagView;
 
 @end
 

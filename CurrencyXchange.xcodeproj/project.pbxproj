@@ -138,6 +138,8 @@
 		A8C33B812BB6F86C00C107CA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		A8C33B822BB6F86C00C107CA /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		A8DC83C12BB99BA30008A607 /* DollarBill-5EwZ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DollarBill-5EwZ.ttf"; sourceTree = "<group>"; };
+		A8DC83C22BB99BA30008A607 /* Dollarbill-YKJO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dollarbill-YKJO.otf"; sourceTree = "<group>"; };
 		A8F147FC2BB8C99A00D673B5 /* GlobalSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalSingleton.h; sourceTree = "<group>"; };
 		A8F147FD2BB8C99A00D673B5 /* GlobalSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -312,6 +314,8 @@
 		A8C33B752BB6F86C00C107CA /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				A8DC83C12BB99BA30008A607 /* DollarBill-5EwZ.ttf */,
+				A8DC83C22BB99BA30008A607 /* Dollarbill-YKJO.otf */,
 				A8C33B762BB6F86C00C107CA /* Oxygen-Regular.ttf */,
 				A8C33B772BB6F86C00C107CA /* WorkSans-Regular.otf */,
 				A8C33B782BB6F86C00C107CA /* RobotoSlab-Bold.ttf */,

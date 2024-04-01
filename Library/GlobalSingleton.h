@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GlobalSingleton : NSObject
 @property (nonatomic, strong) NSDictionary *CurrenciesRates;
+@property (nonatomic,strong) NSDictionary  *Countries;
 
 + (instancetype)sharedInstance;
 @end

@@ -6,7 +6,6 @@
 //
 
 #import "GlobalSingleton.h"
-
 @implementation GlobalSingleton
 + (instancetype)sharedInstance {
     static GlobalSingleton *sharedInstance = nil;
@@ -16,4 +15,5 @@
     });
     return sharedInstance;
 }
+
 @end

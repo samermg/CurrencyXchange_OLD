@@ -9,7 +9,8 @@
 #ifndef Dragons_Definitions_h
 #define Dragons_Definitions_h
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-
+#define COUNTRIES_API              @"https://www.cwtjo.org/countries.json"
+#define SYMBOLS_API              @"https://www.cwtjo.org/symbols.json"
 #define CXChange_API               @"https://v6.exchangerate-api.com/v6"
 #define CXChange_KEY               @"7781b567323cc3cb1bb5b036"
 
