@@ -886,7 +886,1157 @@ SystemSoundID completeSound;
     
     return theData;
 }
++ (NSDictionary*)SupportedSymboles {
+    NSDictionary* symboles = @{@"AGLD@":@"Adventure Gold@",@"FJD@":@"Fiji Dollar@",@"MXN@":@"Mexican Peso@",@"TET@":@"Tectum@",@"LVL@":@"Latvian Lats@",@"SCR@":@"Seychellois Rupee@",@"CDF@":@"Congolese Franc@",@"BBD@":@"Barbadian Dollar@",@"HNL@":@"Honduran Lempira@",@"UGX@":@"Uganda Shilling@",@"GLM@":@"Golem@",@"KUJI@":@"Kujira@",@"RAY@":@"Raydium@",@"NEAR@":@"NEAR Protocol@",@"BTC.B@":@"Bitcoin Avalanche Bridged@",@"AIOZ@":@"Aioz Network@",@"AUDIO@":@"Audius@",@"WLD@":@"Worldcoin@",@"HNT@":@"Helium@",@"ETHFI@":@"ether.fi@",@"CDT@":@"Blox@",@"FDUSD@":@"First Digital USD@",@"FARM@":@"Harvest Finance@",@"SDG@":@"Sudanese Pound@",@"KUB@":@"Bitkub@",@"NPXS@":@"Pundi X [OLD]@",@"IQD@":@"Iraqi Dinar@",@"GMD@":@"Gambian Dalasi@",@"RBN@":@"Ribbon FInance@",@"ZRX@":@"ZRX 0x@",@"BCH@":@"Bitcoin Cash@",@"MYR@":@"Malaysian Ringgit@",@"AI@":@"Sleepless AI@",@"FKP@":@"Falkland Islands Pound@",@"JST@":@"JUST@",@"HOT@":@"Holo@",@"XOF@":@"West African CFA Franc@",@"GMT@":@"Stepn@",@"SWETH@":@"Swell Ethereum@",@"AR@":@"Arweave@",@"GMX@":@"GMX@",@"SEI@":@"Sei@",@"SEK@":@"Swedish Krona@",@"GNF@":@"Guinean Franc@",@"MZN@":@"Mozambican Metical@",@"QAR@":@"Qatari Rial@",@"JTO@":@"Jito@",@"WEMIX@":@"WEMIX@",@"CFG@":@"Centrifuge@",@"IRR@":@"Iranian Rial@",@"GNO@":@"Gnosis@",@"GNT@":@"GreenTrust@",@"FLR@":@"FLARE@",@"GNS@":@"Gains Network@",@"XPD@":@"Palladium (troy ounce)@",@"THB@":@"Thai Baht@",@"XPF@":@"CFP Franc@",@"VANRY@":@"Vanar Chain@",@"BIGTIME@":@"Big Time@",@"ABT@":@"Arcblock@",@"BDT@":@"Bangladeshi Taka@",@"T@":@"Threshold@",@"CFX@":@"Conflux@",@"LYD@":@"Libyan Dinar@",@"CDAI@":@"Compound Dai@",@"BDX@":@"Beldex@",@"BABYDOGE@":@"Baby Doge Coin@",@"KWD@":@"Kuwaiti Dinar@",@"VELO@":@"Velo@",@"SFP@":@"SafePal@",@"DIA@":@"Dia@",@"XPT@":@"Platinum (troy ounce)@",@"PORK@":@"PepeFork@",@"ISK@":@"Iceland Krona@",@"JUP@":@"Jupiter@",@"ACH@":@"Alchemy Pay@",@"RSS3@":@"RSS3@",@"LYX@":@"LUKSO@",@"MINA@":@"Mina@",@"TIA@":@"Celestia@",@"VTHO@":@"VeThor Token@",@"SGB@":@"Songbird@",@"PAB@":@"Panamanian Balboa@",@"ACS@":@"ACryptoS@",@"SGD@":@"Singapore Dollar@",@"STRD@":@"Stride@",@"WOO@":@"WOO Network@",@"REI@":@"REI Network@",@"BLUR@":@"Blur@",@"REN@":@"renBTC@",@"ELA@":@"Elastos@",@"REP@":@"Augur@",@"STRK@":@"Starknet@",@"ADA@":@"Cardano@",@"ELF@":@"aelf@",@"REQ@":@"Request@",@"STORJ@":@"Storj@",@"CHF@":@"Swiss Franc@",@"HRK@":@"Croatian Kuna@",@"RARI@":@"Rarible@",@"DJF@":@"Djibouti Franc@",@"ELG@":@"Escoin@",@"RARE@":@"SuperRare@",@"LADYS@":@"Milady Meme Coin@",@"PAXG@":@"PAX Gold@",@"PAX@":@"Paxos Standard Token@",@"XRD@":@"Radix@",@"CHR@":@"Chromia@",@"VND@":@"Vietnamese Dong@",@"$WEN@":@"Wen@",@"WAVES@":@"Waves@",@"CHZ@":@"Chiliz@",@"KYD@":@"Cayman Islands Dollar@",@"XRP@":@"Ripple@",@"FLOKI@":@"FLOKI@",@"JASMY@":@"Jasmy@",@"SHP@":@"Saint Helena Pound@",@"INDEX@":@"Index Cooperative@",@"BGB@":@"Bitget Token@",@"TJS@":@"Tajikistani Somoni@",@"AED@":@"UAE Dirham@",@"FIDA@":@"Bonfida@",@"SAND@":@"The Sandbox@",@"DKK@":@"Danish Krone@",@"WCFG@":@"Wrapped Centrifuge@",@"ZWD@":@"Zimbabwean Dollar@",@"OCEAN@":@"Ocean Protocol@",@"BGN@":@"Bulgarian Lev@",@"UMA@":@"Universal Market Access@",@"FOX@":@"Shapeshift FOX Token@",@"ZWL@":@"Zimbabwean Dollar@",@"TUSD@":@"TrueUSD@",@"HTG@":@"Haitian Gourde@",@"RGT@":@"Rari Governance Token@",@"BHD@":@"Bahraini Dinar@",@"ENJ@":@"Enjin Coin@",@"OAS@":@"Oasys@",@"TKX@":@"Tokenize Xchange@",@"COVAL@":@"COVAL@",@"CGLD@":@"Celo Gold@",@"KZT@":@"Kazakhstani Tenge@",@"YFII@":@"DFI.Money@",@"DIMO@":@"DIMO@",@"GRT@":@"The Graph@",@"HBTC@":@"Huobi BTC@",@"AFN@":@"Afghan Afghani@",@"TFUEL@":@"Theta Fuel@",@"ENS@":@"Ethereum Name Service@",@"UNI@":@"Uniswap@",@"DEGEN@":@"Degen (BASE)@",@"FX@":@"Function X@",@"XTS@":@"Xaviera Techno Solutions@",@"HUF@":@"Hungarian Forint@",@"CKB@":@"Nervos Network@",@"LUNC@":@"Terra Luna Classic@",@"BIF@":@"Burundian Franc@",@"XTZ@":@"Tezos@",@"LUNA@":@"Terra@",@"AURORA@":@"Aurora@",@"GF@":@"GuildFi@",@"AGI@":@"Delysium@",@"EOS@":@"EOS@",@"GST@":@"Green Satoshi Token@",@"FORT@":@"Forta@",@"SWFTC@":@"SwftCoin@",@"BIT@":@"BitDAO@",@"GT@":@"GateToken@",@"RIF@":@"RSK Infrastructure Framework@",@"WHRH@":@"White Rhinoceros@",@"NAD@":@"Namibian Dollar@",@"SKK@":@"Slovak Koruna@",@"FRXETH@":@"Frax Finance - Frax Ether@",@"SKL@":@"SKALE Network@",@"TMM@":@"Turkmenistan Manat@",@"SLERF@":@"SLERF@",@"GTC@":@"Gitcoin@",@"PEN@":@"Peruvian Sol@",@"UOS@":@"Ultra@",@"WST@":@"Samoan Tālā@",@"SHPING@":@"Shping Coin@",@"TMT@":@"Turkmenistani Manat@",@"CLF@":@"Chilean Unit of Account (UF)@",@"BRETT@":@"Brett@",@"EUROC@":@"Euro Coin@",@"GTQ@":@"Guatemalan Quetzal@",@"CLP@":@"Chilean Peso@",@"DNT@":@"District0x@",@"TND@":@"Tunisian Dinar@",@"HT@":@"Huobi Token@",@"CLV@":@"Clover Finance@",@"SLE@":@"Sierra Leonean Leone@",@"FLOW@":@"Flow@",@"UPI@":@"Pawtocol@",@"SLL@":@"Sierra Leonean Leone@",@"$MYRO@":@"Myro@",@"XVS@":@"Venus@",@"MEME@":@"Memecoin@",@"SLP@":@"Smooth Love Potion@",@"LYXE@":@"LUKSO (Old)@",@"ID@":@"SPACE ID@",@"DOP@":@"Dominican Peso@",@"UQC@":@"Uquid Coin@",@"DOT@":@"Polkadot@",@"IQ@":@"IQ@",@"SFUND@":@"Seedify.fund@",@"OSAK@":@"Osaka Protocol@",@"1INCH@":@"1inch@",@"MAD@":@"Moroccan Dirham@",@"TON@":@"Toncoin@",@"TOP@":@"Tongan Paʻanga@",@"PGK@":@"Papua New Guinean Kina@",@"TOR@":@"TOR@",@"FNSA@":@"FINSCHIA@",@"GYEN@":@"GYEN@",@"BLD@":@"Agoric@",@"UNFI@":@"Unifi Protocol DAO@",@"CNH@":@"Chinese Yuan Renminbi Offshore@",@"APEX@":@"ApeX Protocol@",@"FTM@":@"Fantom@",@"NCT@":@"Polyswarm@",@"EVER@":@"Everscale@",@"WLUNA@":@"Wrapped LUNA@",@"POWR@":@"Powerledger@",@"ERN@":@"Eritrean Nakfa@",@"FTN@":@"Fasttoken@",@"MAV@":@"Maverick Protocol@",@"CORGIAI@":@"CorgiAI@",@"VOXEL@":@"Voxies@",@"RLC@":@"iExec RLC@",@"ARKM@":@"Arkham@",@"CNY@":@"Chinese Yuan Renminbi@",@"ATOM@":@"Cosmos@",@"SAVAX@":@"BENQI Liquid Staked AVAX@",@"QUICK@":@"QuickSwap@",@"PENDLE@":@"Pendle@",@"BLZ@":@"Bluzelle@",@"BOBA@":@"Boba Network@",@"TONE@":@"TE-FOOD@",@"BMD@":@"Bermudian Dollar@",@"SNT@":@"Status Network@",@"PHP@":@"Philippine Piso@",@"SNX@":@"Synthetix Network@",@"RLY@":@"Rally@",@"OX_OLD@":@"Open Exchange Token@",@"COQ@":@"Coq Inu@",@"COP@":@"Colombian Peso@",@"USD@":@"US Dollar@",@"API3@":@"API3@",@"HOPR@":@"HOPR@",@"ROSE@":@"Oasis Network@",@"AKT@":@"Akash Network@",@"GLMR@":@"Moonbeam@",@"SATS@":@"SATS (Ordinals)@",@"ORAI@":@"Oraichain@",@"XYO@":@"XYO Network@",@"PORTAL@":@"Portal@",@"SOL@":@"Solana@",@"ETB@":@"Ethiopian Birr@",@"GXC@":@"GXChain@",@"ETC@":@"Ethereum Classic@",@"SOS@":@"Somali Shilling@",@"VUV@":@"Vanuatu Vatu@",@"BNB@":@"BNB@",@"LAK@":@"Laotian Kip@",@"OGN@":@"Origin Token@",@"UST@":@"TerraUSD@",@"CELR@":@"Celer Network@",@"ETH@":@"Ethereum@",@"BND@":@"Brunei Dollar@",@"NEO@":@"Neo@",@"CELO@":@"Celo@",@"KLAY@":@"Klaytn@",@"AUCTION@":@"Bounce Token AUCTION@",@"MANTA@":@"Manta Network@",@"BADGER@":@"Badger DAO@",@"MULTI@":@"Multichain@",@"AERO@":@"Aerodrome Finance@",@"ALL@":@"Albanian Lek@",@"MAVIA@":@"Heroes of Mavia@",@"HIGH@":@"Highstreet@",@"SPA@":@"Sperax@",@"TRB@":@"Tellor@",@"ALT@":@"AltLayer@",@"BNT@":@"Bancor Network@",@"ORDI@":@"Ordinals@",@"SHDW@":@"Shadow Token@",@"GYD@":@"Guyana Dollar@",@"BOB@":@"Bolivian Boliviano@",@"MDL@":@"Moldovan Leu@",@"OHM@":@"Olympus@",@"TRU@":@"TrueFi@",@"AMD@":@"Armenian Dram@",@"DREP@":@"Drep [new]@",@"ETHDYDX@":@"dYdX@",@"TRY@":@"Turkish Lira@",@"LBP@":@"Lebanese Pound@",@"TRX@":@"TRON@",@"MDT@":@"Measurable Data Token@",@"NFT@":@"APENFT@",@"AERGO@":@"Aergo@",@"EUR@":@"Euro@",@"AMP@":@"Amp@",@"ORCA@":@"Orca@",@"CQT@":@"Covalent@",@"USTC@":@"TerraClassicUSD@",@"MX@":@"MX Token@",@"RON@":@"Romanian Leu@",@"NGN@":@"Nigerian Naira@",@"CRC@":@"Costa Rican Colon@",@"PKR@":@"Pakistani Rupee@",@"LUSD@":@"Liquity USD@",@"ANG@":@"Netherlands Antillean Guilder@",@"EGLD@":@"Elrond@",@"KAS@":@"Kaspa@",@"TRUMP@":@"MAGA@",@"MEW@":@"cat in a dogs world@",@"SPELL@":@"Spell Token@",@"PUNDIX@":@"Pundi X (New)@",@"FXS@":@"Frax Share@",@"LCX@":@"LCX@",@"CRO@":@"Cronos@",@"AEVO@":@"Aevo@",@"PLA@":@"PlayDapp@",@"SRD@":@"Surinamese Dollar@",@"TTD@":@"Trinidad and Tobago Dollar@",@"SFRXETH@":@"Frax Staked Ether@",@"CRV@":@"Curve DAO Token@",@"MNDE@":@"Marinade@",@"NU@":@"NuCypher@",@"ANT@":@"Aragon@",@"BAKE@":@"BakeryToken@",@"FLUX@":@"Flux@",@"TOPIA@":@"HYTOPIA@",@"RPL@":@"Rocket Pool@",@"AOA@":@"Angolan Kwanza@",@"PLN@":@"Polish Zloty@",@"AZERO@":@"Aleph Zero@",@"LDO@":@"Lido DAO Token@",@"QNT@":@"Quant@",@"MAGIC@":@"MAGIC@",@"ALICE@":@"My Neighbor Alice@",@"PLU@":@"Pluton@",@"SEAM@":@"Seamless@",@"MUSD@":@"mStableUSD@",@"OM@":@"MANTRA@",@"ETHW@":@"EthereumPoW@",@"MUSE@":@"Muse@",@"ETHX@":@"Stader ETHx@",@"OP@":@"Optimism@",@"CANTO@":@"CANTO@",@"MGA@":@"Malagasy Ariary@",@"OKB@":@"OKB@",@"OX@":@"Open Exchange Token@",@"SSP@":@"South Sudanese Pound@",@"NEON@":@"Neon EVM@",@"CTC@":@"Creditcoin@",@"NIO@":@"Nicaraguan Córdoba@",@"APE@":@"ApeCoin@",@"LEO@":@"UNUS SED LEO@",@"SSV@":@"SSV Network@",@"OKT@":@"OKT Chain@",@"ETH2@":@"Ethereum 2.0@",@"PAAL@":@"PAAL AI@",@"KCS@":@"KuCoin Token@",@"BUSD@":@"Binance USD@",@"ARPA@":@"ARPA Chain@",@"BRL@":@"Brazilian Real@",@"MCO2@":@"Moss Carbon Credit@",@"APL@":@"Apollo@",@"ALCX@":@"Alchemix@",@"00@":@"00 Token@",@"ALEX@":@"ALEX Lab@",@"MATIC@":@"Polygon@",@"STD@":@"São Tomé and Príncipe Dobra@",@"APT@":@"Aptos@",@"CTX@":@"Cryptex Finance@",@"STG@":@"Stargate Finance@",@"PNG@":@"Pangolin@",@"TVK@":@"Terra Virtua Kolect@",@"IOTX@":@"IoTeX@",@"SHIB@":@"Shiba Inu@",@"KDA@":@"Kadena@",@"ZAR@":@"South African Rand@",@"STN@":@"São Tomé and Príncipe Dobra@",@"CUC@":@"Cuban Convertible Peso@",@"BSD@":@"Bahamian Dollar@",@"STX@":@"Stacks@",@"QI@":@"BENQI@",@"PYTH@":@"Pyth Network@",@"CUP@":@"Cuban Peso@",@"TWD@":@"New Taiwan Dollar@",@"RSD@":@"Serbian Dinar@",@"FRAX@":@"Frax@",@"BSV@":@"Bitcoin SV@",@"IOST@":@"IOST@",@"SUI@":@"Sui@",@"CAKE@":@"PancakeSwap@",@"MSOL@":@"Marinade Staked SOL@",@"WBETH@":@"Wrapped Beacon ETH@",@"OMG@":@"Omisego@",@"METH@":@"Mantle Staked Ether@",@"OMI@":@"ECOMI@",@"BAND@":@"Band Protocol@",@"PYUSD@":@"PayPal USD@",@"ASTR@":@"Astar@",@"BTC@":@"Bitcoin@",@"NKN@":@"NKN@",@"TWT@":@"Trust Wallet Token@",@"UYU@":@"Uruguayan Peso@",@"RSR@":@"Reserve Rights@",@"ARB@":@"Arbitrum@",@"CVC@":@"Civic@",@"IOTA@":@"IOTA@",@"VARA@":@"Vara Network @",@"CVE@":@"Cape Verdean Escudo@",@"BTG@":@"Bitcoin Gold@",@"OMR@":@"Omani Rial@",@"MIR@":@"Mirror Protocol@",@"KES@":@"Kenyan Shilling@",@"ARK@":@"Ark@",@"LOKA@":@"League of Kingdoms Arena@",@"BTN@":@"Bhutanese Ngultrum@",@"RONIN@":@"Ronin@",@"SVC@":@"Salvadoran Colón@",@"ARS@":@"Argentine Peso@",@"BTT@":@"BitTorrent@",@"CVX@":@"Convex Finance@",@"ONE@":@"Harmony@",@"RENDER@":@"Render@",@"CETH@":@"Compound Ether@",@"ANKR@":@"Ankr Network@",@"SUSHI@":@"SushiSwap@",@"ALGO@":@"Algorand@",@"SYLO@":@"Sylo@",@"UZS@":@"Uzbekistani Som@",@"SC@":@"Siacoin@",@"WBTC@":@"Wrapped Bitcoin@",@"ONT@":@"Ontology@",@"DYM@":@"Dymension@",@"DYP@":@"DeFi Yield Protocol@",@"ASM@":@"Assemble Protocol@",@"RUB@":@"Russian Ruble@",@"AST@":@"AirSwap@",@"MANA@":@"Mana Coin Decentraland@",@"MKD@":@"Macedonian Denar@",@"CSPR@":@"Casper@",@"ATA@":@"Automata Network@",@"DZD@":@"Algerian Dinar@",@"QSP@":@"Quantstamp@",@"NMR@":@"Numeraire Network@",@"JEP@":@"Jersey Pound@",@"MKR@":@"Maker@",@"KGS@":@"Kyrgyzstani Som@",@"LIT@":@"Litentry@",@"ICP@":@"Internet Computer@",@"ZEC@":@"ZCash@",@"XAF@":@"Central African CFA franc@",@"NEST@":@"NEST Protocol@",@"ICX@":@"ICON@",@"XAG@":@"Silver (troy ounce)@",@"POLYX@":@"Polymesh@",@"XAI@":@"Xai@",@"ZEN@":@"Horizen@",@"DESO@":@"Decentralized Social@",@"LOOM@":@"Loom Network@",@"DOGE@":@"Dogecoin@",@"HBAR@":@"Hedera@",@"RVN@":@"Ravencoin@",@"PRO@":@"Propy@",@"TZS@":@"Tanzanian Shilling@",@"XAU@":@"Gold (troy ounce)@",@"MLN@":@"Enzyme@",@"PRQ@":@"PARSIQ@",@"ONDO@":@"Ondo@",@"PEPE@":@"Pepe@",@"AUD@":@"Australian Dollar@",@"KHR@":@"Cambodian Riel@",@"IDR@":@"Indonesian Rupiah@",@"XBA@":@"XBank@",@"CTSI@":@"Cartesi@",@"BWP@":@"Botswanan Pula@",@"COMAI@":@"Commune AI@",@"RWF@":@"Rwandan Franc@",@"KAVA@":@"Kava@",@"C98@":@"Coin98@",@"OSMO@":@"Osmosis@",@"NTRN@":@"Neutron@",@"SYN@":@"Synapse@",@"MMK@":@"Burmese Kyat@",@"NOK@":@"Norwegian Krone@",@"SYP@":@"Syrian Pound@",@"CRPT@":@"Crypterium@",@"GAJ@":@"Gaj Finance@",@"STRAX@":@"Stratis@",@"LKR@":@"Sri Lankan Rupee@",@"GAL@":@"Project Galaxy@",@"NOS@":@"Nosana@",@"CZK@":@"Czech Koruna@",@"GAS@":@"Gas@",@"XCD@":@"East Caribbean Dollar@",@"BOME@":@"BOOK OF MEME@",@"VR@":@"Victoria VR@",@"XCH@":@"Chia@",@"SYNC@":@"Syncus@",@"AVT@":@"Aventus@",@"THETA@":@"Theta Network@",@"PANDORA@":@"Pandora@",@"XCN@":@"Chain@",@"SZL@":@"Swazi Lilangeni@",@"YER@":@"Yemeni Rial@",@"LSETH@":@"Liquid Staked Ethereum@",@"ORN@":@"Orion Protocol@",@"NEXO@":@"Nexo@",@"MASK@":@"Mask Network@",@"AWG@":@"Aruban Florin@",@"NPR@":@"Nepalese Rupee@",@"AAVE@":@"Aave@",@"MNT@":@"Mongolian Tögrög@",@"PRIME@":@"Echelon Prime@",@"GBP@":@"Pound Sterling@",@"BONK@":@"Bonk@",@"BYN@":@"New Belarusian Ruble@",@"XDC@":@"XDC Network@",@"PERP@":@"Perpetual Protocol@",@"BYR@":@"Belarusian Ruble@",@"BONE@":@"Bone ShibaSwap@",@"GBX@":@"Penny Sterling@",@"BOND@":@"BarnBridge@",@"YFI@":@"Yearn Finance@",@"MOG@":@"MOG Coin@",@"CWBTC@":@"Compound Wrapped BTC@",@"XDR@":@"Special Drawing Rights@",@"POPCAT@":@"Popcat@",@"WBT@":@"WhiteBIT Coin@",@"LQTY@":@"Liquity@",@"OLAS@":@"Autonolas@",@"TIME@":@"Chrono.tech@",@"BICO@":@"Biconomy@",@"ALUSD@":@"Alchemix USD@",@"BZD@":@"Belize Dollar@",@"MOP@":@"Macau Pataca@",@"PIXEL@":@"Pixels@",@"MONA@":@"Monavale@",@"ZETA@":@"ZetaChain@",@"AXL@":@"Axelar@",@"CHEEL@":@"Cheelee@",@"XEC@":@"eCash@",@"YGG@":@"Yield Guild Games@",@"PEOPLE@":@"ConstitutionDAO@",@"AXS@":@"Axie Infinity@",@"ZIL@":@"Zilliqa@",@"HONEY@":@"Hivemapper@",@"XEM@":@"NEM@",@"WEETH@":@"Wrapped eETH@",@"TRAC@":@"OriginTrail@",@"MPL@":@"Maple@",@"0X0@":@"0x0.ai: AI Smart Contract@",@"COMP@":@"Compound@",@"WAXL@":@"Axelar@",@"HFT@":@"Hashflow@",@"WAMPL@":@"Wrapped Ampleforth@",@"OOKI@":@"Ooki Protocol@",@"RUNE@":@"THORChain@",@"DEXT@":@"DEXTools@",@"FORTH@":@"Ampleforth Governance Token@",@"BORA@":@"BORA@",@"GHST@":@"Aavegotchi@",@"KMF@":@"Comorian Franc@",@"MATH@":@"MATH@",@"IDEX@":@"IDEX@",@"GEL@":@"Georgian Lari@",@"DEXE@":@"DeXe@",@"VNST@":@"VNST Stablecoin@",@"AVAX@":@"Avalanche@",@"RSETH@":@"Kelp DAO Restaked ETH@",@"EETH@":@"ether.fi Staked ETH@",@"AZN@":@"Azerbaijani Manat@",@"AMPL@":@"Ampleforth@",@"UAH@":@"Ukrainian Hryvnia@",@"KNC@":@"Kyber Network Crystals@",@"PROM@":@"Prom@",@"ALEPH@":@"Aleph.im@",@"GFI@":@"Goldfinch@",@"MRO@":@"Mauritanian Ouguiya@",@"MRS@":@"Metars Genesis@",@"LPT@":@"Livepeer (LPT)@",@"MRU@":@"Mauritanian Ouguiya@",@"GODS@":@"Gods Unchained@",@"EDUM@":@"EDUM@",@"BORG@":@"SwissBorg@",@"PYG@":@"Paraguayan Guaraní@",@"JMD@":@"Jamaican Dollar@",@"XAUT@":@"Tether Gold@",@"PYR@":@"Vulcan Forged PYR@",@"BTRST@":@"Braintrust@",@"MKUSD@":@"Prisma mkUSD@",@"WAXP@":@"WAX@",@"DAG@":@"Constellation@",@"SUKU@":@"SUKU@",@"DAI@":@"DAI@",@"GGP@":@"Guernsey Pound@",@"GRIN@":@"Grin@",@"DAO@":@"DAO Maker@",@"DAR@":@"Mines of Dalarnia@",@"FET@":@"Fetch.ai@",@"CBETH@":@"Coinbase Wrapped Staked ETH@",@"VEF@":@"Venezuelan Bolívar Fuerte@",@"ZMK@":@"Zambian Kwacha@",@"LRC@":@"Loopring@",@"ALPH@":@"Alephium@",@"REPV2@":@"REPv2@",@"LRD@":@"Liberian Dollar@",@"MOBILE@":@"Helium Mobile@",@"CORE@":@"Core@",@"TAO@":@"Bittensor@",@"MTL@":@"Maltese Lira@",@"VET@":@"VeChain@",@"VES@":@"Venezuelan Bolívar@",@"ZMW@":@"Zambian Kwacha@",@"USDT@":@"Tether@",@"OXT@":@"Orchid Network@",@"DASH@":@"Digital Cash@",@"POKT@":@"Pocket Network@",@"USDP@":@"Pax Dollar@",@"ILS@":@"New Israeli Sheqel@",@"ILV@":@"Illuvium@",@"GHS@":@"Ghanaian Cedi@",@"KPW@":@"North Korean Won@",@"EDU@":@"Open Campus@",@"MEDIA@":@"Media Network@",@"LSD@":@"L7DEX@",@"JOD@":@"Jordanian Dinar@",@"GUSD@":@"Gemini US Dollar@",@"HKD@":@"Hong Kong Dollar@",@"JOE@":@"JOE@",@"LSL@":@"Lesotho Loti@",@"LSK@":@"Lisk@",@"KEEP@":@"Keep Network@",@"CAD@":@"Canadian Dollar@",@"CAF@":@"Childrens Aid Foundation@",@"EEK@":@"Estonian Kroon@",@"MUR@":@"Mauritius Rupee@",@"IMP@":@"Isle of Man Pound@",@"GIP@":@"Gibraltar Pound@",@"BEAM@":@"Beam@",@"DCR@":@"Decred@",@"IMX@":@"Immutable X@",@"WIF@":@"dogwifhat@",@"USDE@":@"Ethena USDe@",@"USDD@":@"USDD@",@"LTC@":@"Litecoin@",@"USDC@":@"USDC@",@"METIS@":@"MetisDAO@",@"XMON@":@"XMON@",@"STETH@":@"Lido Staked Ether@",@"RETH@":@"Rocket Pool ETH@",@"NXM@":@"Nexus Mutual@",@"INJ@":@"Injective@",@"KRL@":@"Kryll@",@"LTL@":@"Lithuanian Litas@",@"SAR@":@"Saudi Riyal@",@"VGX@":@"Voyager Token@",@"MVR@":@"Maldivian Rufiyaa@",@"TRIBE@":@"Tribe@",@"DYDX@":@"dYdX@",@"AGIX@":@"SingularityNET@",@"MUBI@":@"Multibit@",@"INR@":@"Indian Rupee@",@"INV@":@"Inverse Finance@",@"POND@":@"Marlin@",@"KRW@":@"South Korean Won@",@"JPY@":@"Japanese Yen@",@"SBD@":@"Solomon Islands Dollar@",@"STSOL@":@"Lido for Solana@",@"XLM@":@"Stellar@",@"DDX@":@"DerivaDAO@",@"LINK@":@"Chainlink@",@"DORA@":@"Dora Factory@",@"QTUM@":@"Qtum@",@"MWK@":@"Malawian Kwacha@",@"SUPER@":@"SuperFarm@",@"POLS@":@"Polkastarter@",@"KSM@":@"Kusama@",@"FIL@":@"Filecoin@",@"POLY@":@"Polymath@",@"RNDR@":@"Render Token@",@"BAL@":@"Balancer@",@"BAM@":@"Bosnia-Herzegovina Convertible Mark@",@"GALA@":@"Gala@",@"EGP@":@"Egyptian Pound@",@"FIS@":@"Stafi@",@"RAD@":@"Radicle@",@"BAT@":@"Basic Attention Token@",@"MXC@":@"MXC@",@"NZD@":@"New Zealand Dollar@",@"MOVR@":@"Moonriver@",@"TEL@":@"Telcoin@",@"RAI@":@"Rai Reflex Index@",@"XMR@":@"Monero@",@"COTI@":@"COTI@"};
+    return  symboles;
+}
 + (NSArray*)Symbols {
+    
+    NSArray *symbole = @[
+        @{@"USD": @{
+                @"symbol": @"$",
+                @"name": @"US Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"USD",
+                @"name_plural": @"US dollars",
+                @"rate": @"0"
+                }},
+        @{@"CAD": @{
+                @"symbol": @"CA$",
+                @"name": @"Canadian Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"CAD",
+                @"name_plural": @"Canadian dollars",
+                @"rate": @"0"
+                }},
+        @{@"EUR": @{
+                @"symbol": @"€",
+                @"name": @"Euro",
+                @"symbol_native": @"€",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"EUR",
+                @"name_plural": @"euros",
+                @"rate": @"0"
+                }},
+        @{@"AED": @{
+                @"symbol": @"AED",
+                @"name": @"United Arab Emirates Dirham",
+                @"symbol_native": @"د.إ.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"AED",
+                @"name_plural": @"UAE dirhams",
+                @"rate": @"0"
+                }},
+        @{@"AFN": @{
+                @"symbol": @"Af",
+                @"name": @"Afghan Afghani",
+                @"symbol_native": @"؋",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"AFN",
+                @"name_plural": @"Afghan Afghanis",
+                @"rate": @"0"
+                }},
+        @{@"ALL": @{
+                @"symbol": @"ALL",
+                @"name": @"Albanian Lek",
+                @"symbol_native": @"Lek",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"ALL",
+                @"name_plural": @"Albanian lekë",
+                @"rate": @"0"
+                }},
+        @{@"AMD": @{
+                @"symbol": @"AMD",
+                @"name": @"Armenian Dram",
+                @"symbol_native": @"դր.",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"AMD",
+                @"name_plural": @"Armenian drams",
+                @"rate": @"0"
+                }},
+        @{@"ARS": @{
+                @"symbol": @"AR$",
+                @"name": @"Argentine Peso",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"ARS",
+                @"name_plural": @"Argentine pesos",
+                @"rate": @"0"
+                }},
+        @{@"AUD": @{
+                @"symbol": @"AU$",
+                @"name": @"Australian Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"AUD",
+                @"name_plural": @"Australian dollars",
+                @"rate": @"0"
+                }},
+        @{@"AZN": @{
+                @"symbol": @"man.",
+                @"name": @"Azerbaijani Manat",
+                @"symbol_native": @"ман.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"AZN",
+                @"name_plural": @"Azerbaijani manats",
+                @"rate": @"0"
+                }},
+        @{@"BAM": @{
+                @"symbol": @"KM",
+                @"name": @"Bosnia-Herzegovina Convertible Mark",
+                @"symbol_native": @"KM",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BAM",
+                @"name_plural": @"Bosnia-Herzegovina convertible marks",
+                @"rate": @"0"
+                }},
+        @{@"BDT": @{
+                @"symbol": @"Tk",
+                @"name": @"Bangladeshi Taka",
+                @"symbol_native": @"৳",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BDT",
+                @"name_plural": @"Bangladeshi takas",
+                @"rate": @"0"
+                }},
+        @{@"BGN": @{
+                @"symbol": @"BGN",
+                @"name": @"Bulgarian Lev",
+                @"symbol_native": @"лв.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BGN",
+                @"name_plural": @"Bulgarian leva",
+                @"rate": @"0"
+                }},
+        @{@"BHD": @{
+                @"symbol": @"BD",
+                @"name": @"Bahraini Dinar",
+                @"symbol_native": @"د.ب.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"BHD",
+                @"name_plural": @"Bahraini dinars",
+                @"rate": @"0"
+                }},
+        @{@"BIF": @{
+                @"symbol": @"FBu",
+                @"name": @"Burundian Franc",
+                @"symbol_native": @"FBu",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"BIF",
+                @"name_plural": @"Burundian francs",
+                @"rate": @"0"
+                }},
+        @{@"BND": @{
+                @"symbol": @"BN$",
+                @"name": @"Brunei Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BND",
+                @"name_plural": @"Brunei dollars",
+                @"rate": @"0"
+                }},
+        @{@"BOB": @{
+                @"symbol": @"Bs",
+                @"name": @"Bolivian Boliviano",
+                @"symbol_native": @"Bs",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BOB",
+                @"name_plural": @"Bolivian bolivianos",
+                @"rate": @"0"
+                }},
+        @{@"BRL": @{
+                @"symbol": @"R$",
+                @"name": @"Brazilian Real",
+                @"symbol_native": @"R$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BRL",
+                @"name_plural": @"Brazilian reals",
+                @"rate": @"0"
+                }},
+        @{@"BWP": @{
+                @"symbol": @"BWP",
+                @"name": @"Botswanan Pula",
+                @"symbol_native": @"P",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BWP",
+                @"name_plural": @"Botswanan pulas",
+                @"rate": @"0"
+                }},
+        @{@"BYN": @{
+                @"symbol": @"Br",
+                @"name": @"Belarusian Ruble",
+                @"symbol_native": @"руб.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BYN",
+                @"name_plural": @"Belarusian rubles",
+                @"rate": @"0"
+                }},
+        @{@"BZD": @{
+                @"symbol": @"BZ$",
+                @"name": @"Belize Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"BZD",
+                @"name_plural": @"Belize dollars",
+                @"rate": @"0"
+                }},
+        @{@"CDF": @{
+                @"symbol": @"CDF",
+                @"name": @"Congolese Franc",
+                @"symbol_native": @"FrCD",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"CDF",
+                @"name_plural": @"Congolese francs",
+                @"rate": @"0"
+                }},
+        @{@"CHF": @{
+                @"symbol": @"CHF",
+                @"name": @"Swiss Franc",
+                @"symbol_native": @"CHF",
+                @"decimal_digits": @"2",
+                @"rounding": @"0.05",
+                @"code": @"CHF",
+                @"name_plural": @"Swiss francs",
+                @"rate": @"0"
+                }},
+        @{@"CLP": @{
+                @"symbol": @"CL$",
+                @"name": @"Chilean Peso",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"CLP",
+                @"name_plural": @"Chilean pesos",
+                @"rate": @"0"
+                }},
+        @{@"CNY": @{
+                @"symbol": @"CN¥",
+                @"name": @"Chinese Yuan",
+                @"symbol_native": @"CN¥",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"CNY",
+                @"name_plural": @"Chinese yuan",
+                @"rate": @"0"
+                }},
+        @{@"COP": @{
+                @"symbol": @"CO$",
+                @"name": @"Colombian Peso",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"COP",
+                @"name_plural": @"Colombian pesos",
+                @"rate": @"0"
+                }},
+        @{@"CRC": @{
+                @"symbol": @"₡",
+                @"name": @"Costa Rican Colón",
+                @"symbol_native": @"₡",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"CRC",
+                @"name_plural": @"Costa Rican colóns",
+                @"rate": @"0"
+                }},
+        @{@"CVE": @{
+                @"symbol": @"CV$",
+                @"name": @"Cape Verdean Escudo",
+                @"symbol_native": @"CV$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"CVE",
+                @"name_plural": @"Cape Verdean escudos",
+                @"rate": @"0"
+                }},
+        @{@"CZK": @{
+                @"symbol": @"Kč",
+                @"name": @"Czech Republic Koruna",
+                @"symbol_native": @"Kč",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"CZK",
+                @"name_plural": @"Czech Republic korunas",
+                @"rate": @"0"
+                }},
+        @{@"DJF": @{
+                @"symbol": @"Fdj",
+                @"name": @"Djiboutian Franc",
+                @"symbol_native": @"Fdj",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"DJF",
+                @"name_plural": @"Djiboutian francs",
+                @"rate": @"0"
+                }},
+        @{@"DKK": @{
+                @"symbol": @"Dkr",
+                @"name": @"Danish Krone",
+                @"symbol_native": @"kr",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"DKK",
+                @"name_plural": @"Danish kroner",
+                @"rate": @"0"
+                }},
+        @{@"DOP": @{
+                @"symbol": @"RD$",
+                @"name": @"Dominican Peso",
+                @"symbol_native": @"RD$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"DOP",
+                @"name_plural": @"Dominican pesos",
+                @"rate": @"0"
+                }},
+        @{@"DZD": @{
+                @"symbol": @"DA",
+                @"name": @"Algerian Dinar",
+                @"symbol_native": @"د.ج.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"DZD",
+                @"name_plural": @"Algerian dinars",
+                @"rate": @"0"
+                }},
+        @{@"EGP": @{
+                @"symbol": @"EGP",
+                @"name": @"Egyptian Pound",
+                @"symbol_native": @"ج.م.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"EGP",
+                @"name_plural": @"Egyptian pounds",
+                @"rate": @"0"
+                }},
+        @{@"ERN": @{
+                @"symbol": @"Nfk",
+                @"name": @"Eritrean Nakfa",
+                @"symbol_native": @"Nfk",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"ERN",
+                @"name_plural": @"Eritrean nakfas",
+                @"rate": @"0"
+                }},
+        @{@"ETB": @{
+                @"symbol": @"Br",
+                @"name": @"Ethiopian Birr",
+                @"symbol_native": @"Br",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"ETB",
+                @"name_plural": @"Ethiopian birrs",
+                @"rate": @"0"
+                }},
+        @{@"GBP": @{
+                @"symbol": @"£",
+                @"name": @"British Pound Sterling",
+                @"symbol_native": @"£",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"GBP",
+                @"name_plural": @"British pounds sterling",
+                @"rate": @"0"
+                }},
+        @{@"GEL": @{
+                @"symbol": @"GEL",
+                @"name": @"Georgian Lari",
+                @"symbol_native": @"GEL",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"GEL",
+                @"name_plural": @"Georgian laris",
+                @"rate": @"0"
+                }},
+        @{@"GHS": @{
+                @"symbol": @"GH₵",
+                @"name": @"Ghanaian Cedi",
+                @"symbol_native": @"GH₵",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"GHS",
+                @"name_plural": @"Ghanaian cedis",
+                @"rate": @"0"
+                }},
+        @{@"GNF": @{
+                @"symbol": @"FG",
+                @"name": @"Guinean Franc",
+                @"symbol_native": @"FG",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"GNF",
+                @"name_plural": @"Guinean francs",
+                @"rate": @"0"
+                }},
+        @{@"GTQ": @{
+                @"symbol": @"GTQ",
+                @"name": @"Guatemalan Quetzal",
+                @"symbol_native": @"Q",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"GTQ",
+                @"name_plural": @"Guatemalan quetzals",
+                @"rate": @"0"
+                }},
+        @{@"HKD": @{
+                @"symbol": @"HK$",
+                @"name": @"Hong Kong Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"HKD",
+                @"name_plural": @"Hong Kong dollars",
+                @"rate": @"0"
+                }},
+        @{@"HNL": @{
+                @"symbol": @"HNL",
+                @"name": @"Honduran Lempira",
+                @"symbol_native": @"L",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"HNL",
+                @"name_plural": @"Honduran lempiras",
+                @"rate": @"0"
+                }},
+        @{@"HRK": @{
+                @"symbol": @"kn",
+                @"name": @"Croatian Kuna",
+                @"symbol_native": @"kn",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"HRK",
+                @"name_plural": @"Croatian kunas",
+                @"rate": @"0"
+                }},
+        @{@"HUF": @{
+                @"symbol": @"Ft",
+                @"name": @"Hungarian Forint",
+                @"symbol_native": @"Ft",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"HUF",
+                @"name_plural": @"Hungarian forints",
+                @"rate": @"0"
+                }},
+        @{@"IDR": @{
+                @"symbol": @"Rp",
+                @"name": @"Indonesian Rupiah",
+                @"symbol_native": @"Rp",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"IDR",
+                @"name_plural": @"Indonesian rupiahs",
+                @"rate": @"0"
+                }},
+        @{@"ILS": @{
+                @"symbol": @"₪",
+                @"name": @"Israeli New Sheqel",
+                @"symbol_native": @"₪",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"ILS",
+                @"name_plural": @"Israeli new sheqels",
+                @"rate": @"0"
+                }},
+        @{@"INR": @{
+                @"symbol": @"Rs",
+                @"name": @"Indian Rupee",
+                @"symbol_native": @"টকা",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"INR",
+                @"name_plural": @"Indian rupees",
+                @"rate": @"0"
+                }},
+        @{@"IQD": @{
+                @"symbol": @"IQD",
+                @"name": @"Iraqi Dinar",
+                @"symbol_native": @"د.ع.‏",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"IQD",
+                @"name_plural": @"Iraqi dinars",
+                @"rate": @"0"
+                }},
+        @{@"IRR": @{
+                @"symbol": @"IRR",
+                @"name": @"Iranian Rial",
+                @"symbol_native": @"﷼",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"IRR",
+                @"name_plural": @"Iranian rials",
+                @"rate": @"0"
+                }},
+        @{@"ISK": @{
+                @"symbol": @"Ikr",
+                @"name": @"Icelandic Króna",
+                @"symbol_native": @"kr",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"ISK",
+                @"name_plural": @"Icelandic krónur",
+                @"rate": @"0"
+                }},
+        @{@"JMD": @{
+                @"symbol": @"J$",
+                @"name": @"Jamaican Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"JMD",
+                @"name_plural": @"Jamaican dollars",
+                @"rate": @"0"
+                }},
+        @{@"JOD": @{
+                @"symbol": @"JD",
+                @"name": @"Jordanian Dinar",
+                @"symbol_native": @"د.أ.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"JOD",
+                @"name_plural": @"Jordanian dinars",
+                @"rate": @"0"
+                }},
+        @{@"JPY": @{
+                @"symbol": @"¥",
+                @"name": @"Japanese Yen",
+                @"symbol_native": @"￥",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"JPY",
+                @"name_plural": @"Japanese yen",
+                @"rate": @"0"
+                }},
+        @{@"KES": @{
+                @"symbol": @"Ksh",
+                @"name": @"Kenyan Shilling",
+                @"symbol_native": @"Ksh",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"KES",
+                @"name_plural": @"Kenyan shillings",
+                @"rate": @"0"
+                }},
+        @{@"KHR": @{
+                @"symbol": @"KHR",
+                @"name": @"Cambodian Riel",
+                @"symbol_native": @"៛",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"KHR",
+                @"name_plural": @"Cambodian riels",
+                @"rate": @"0"
+                }},
+        @{@"KMF": @{
+                @"symbol": @"CF",
+                @"name": @"Comorian Franc",
+                @"symbol_native": @"FC",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"KMF",
+                @"name_plural": @"Comorian francs",
+                @"rate": @"0"
+                }},
+        @{@"KRW": @{
+                @"symbol": @"₩",
+                @"name": @"South Korean Won",
+                @"symbol_native": @"₩",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"KRW",
+                @"name_plural": @"South Korean won",
+                @"rate": @"0"
+                }},
+        @{@"KWD": @{
+                @"symbol": @"KD",
+                @"name": @"Kuwaiti Dinar",
+                @"symbol_native": @"د.ك.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"KWD",
+                @"name_plural": @"Kuwaiti dinars",
+                @"rate": @"0"
+                }},
+        @{@"KZT": @{
+                @"symbol": @"KZT",
+                @"name": @"Kazakhstani Tenge",
+                @"symbol_native": @"тңг.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"KZT",
+                @"name_plural": @"Kazakhstani tenges",
+                @"rate": @"0"
+                }},
+        @{@"LBP": @{
+                @"symbol": @"L.L.",
+                @"name": @"Lebanese Pound",
+                @"symbol_native": @"ل.ل.‏",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"LBP",
+                @"name_plural": @"Lebanese pounds",
+                @"rate": @"0"
+                }},
+        @{@"LKR": @{
+                @"symbol": @"SLRs",
+                @"name": @"Sri Lankan Rupee",
+                @"symbol_native": @"SL Re",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"LKR",
+                @"name_plural": @"Sri Lankan rupees",
+                @"rate": @"0"
+                }},
+        @{@"LYD": @{
+                @"symbol": @"LD",
+                @"name": @"Libyan Dinar",
+                @"symbol_native": @"د.ل.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"LYD",
+                @"name_plural": @"Libyan dinars",
+                @"rate": @"0"
+                }},
+        @{@"MAD": @{
+                @"symbol": @"MAD",
+                @"name": @"Moroccan Dirham",
+                @"symbol_native": @"د.م.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MAD",
+                @"name_plural": @"Moroccan dirhams",
+                @"rate": @"0"
+                }},
+        @{@"MDL": @{
+                @"symbol": @"MDL",
+                @"name": @"Moldovan Leu",
+                @"symbol_native": @"MDL",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MDL",
+                @"name_plural": @"Moldovan lei",
+                @"rate": @"0"
+                }},
+        @{@"MGA": @{
+                @"symbol": @"MGA",
+                @"name": @"Malagasy Ariary",
+                @"symbol_native": @"MGA",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"MGA",
+                @"name_plural": @"Malagasy Ariaries",
+                @"rate": @"0"
+                }},
+        @{@"MKD": @{
+                @"symbol": @"MKD",
+                @"name": @"Macedonian Denar",
+                @"symbol_native": @"MKD",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MKD",
+                @"name_plural": @"Macedonian denari",
+                @"rate": @"0"
+                }},
+        @{@"MMK": @{
+                @"symbol": @"MMK",
+                @"name": @"Myanma Kyat",
+                @"symbol_native": @"K",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"MMK",
+                @"name_plural": @"Myanma kyats",
+                @"rate": @"0"
+                }},
+        @{@"MOP": @{
+                @"symbol": @"MOP$",
+                @"name": @"Macanese Pataca",
+                @"symbol_native": @"MOP$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MOP",
+                @"name_plural": @"Macanese patacas",
+                @"rate": @"0"
+                }},
+        @{@"MUR": @{
+                @"symbol": @"MURs",
+                @"name": @"Mauritian Rupee",
+                @"symbol_native": @"MURs",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"MUR",
+                @"name_plural": @"Mauritian rupees",
+                @"rate": @"0"
+                }},
+        @{@"MXN": @{
+                @"symbol": @"MX$",
+                @"name": @"Mexican Peso",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MXN",
+                @"name_plural": @"Mexican pesos",
+                @"rate": @"0"
+                }},
+        @{@"MYR": @{
+                @"symbol": @"RM",
+                @"name": @"Malaysian Ringgit",
+                @"symbol_native": @"RM",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MYR",
+                @"name_plural": @"Malaysian ringgits",
+                @"rate": @"0"
+                }},
+        @{@"MZN": @{
+                @"symbol": @"MTn",
+                @"name": @"Mozambican Metical",
+                @"symbol_native": @"MTn",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"MZN",
+                @"name_plural": @"Mozambican meticals",
+                @"rate": @"0"
+                }},
+        @{@"NAD": @{
+                @"symbol": @"N$",
+                @"name": @"Namibian Dollar",
+                @"symbol_native": @"N$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NAD",
+                @"name_plural": @"Namibian dollars",
+                @"rate": @"0"
+                }},
+        @{@"NGN": @{
+                @"symbol": @"₦",
+                @"name": @"Nigerian Naira",
+                @"symbol_native": @"₦",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NGN",
+                @"name_plural": @"Nigerian nairas",
+                @"rate": @"0"
+                }},
+        @{@"NIO": @{
+                @"symbol": @"C$",
+                @"name": @"Nicaraguan Córdoba",
+                @"symbol_native": @"C$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NIO",
+                @"name_plural": @"Nicaraguan córdobas",
+                @"rate": @"0"
+                }},
+        @{@"NOK": @{
+                @"symbol": @"Nkr",
+                @"name": @"Norwegian Krone",
+                @"symbol_native": @"kr",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NOK",
+                @"name_plural": @"Norwegian kroner",
+                @"rate": @"0"
+                }},
+        @{@"NPR": @{
+                @"symbol": @"NPRs",
+                @"name": @"Nepalese Rupee",
+                @"symbol_native": @"नेरू",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NPR",
+                @"name_plural": @"Nepalese rupees",
+                @"rate": @"0"
+                }},
+        @{@"NZD": @{
+                @"symbol": @"NZ$",
+                @"name": @"New Zealand Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"NZD",
+                @"name_plural": @"New Zealand dollars",
+                @"rate": @"0"
+                }},
+        @{@"OMR": @{
+                @"symbol": @"OMR",
+                @"name": @"Omani Rial",
+                @"symbol_native": @"ر.ع.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"OMR",
+                @"name_plural": @"Omani rials",
+                @"rate": @"0"
+                }},
+        @{@"PAB": @{
+                @"symbol": @"B/.",
+                @"name": @"Panamanian Balboa",
+                @"symbol_native": @"B/.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"PAB",
+                @"name_plural": @"Panamanian balboas",
+                @"rate": @"0"
+                }},
+        @{@"PEN": @{
+                @"symbol": @"S/.",
+                @"name": @"Peruvian Nuevo Sol",
+                @"symbol_native": @"S/.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"PEN",
+                @"name_plural": @"Peruvian nuevos soles",
+                @"rate": @"0"
+                }},
+        @{@"PHP": @{
+                @"symbol": @"₱",
+                @"name": @"Philippine Peso",
+                @"symbol_native": @"₱",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"PHP",
+                @"name_plural": @"Philippine pesos",
+                @"rate": @"0"
+                }},
+        @{@"PKR": @{
+                @"symbol": @"PKRs",
+                @"name": @"Pakistani Rupee",
+                @"symbol_native": @"₨",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"PKR",
+                @"name_plural": @"Pakistani rupees",
+                @"rate": @"0"
+                }},
+        @{@"PLN": @{
+                @"symbol": @"zł",
+                @"name": @"Polish Zloty",
+                @"symbol_native": @"zł",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"PLN",
+                @"name_plural": @"Polish zlotys",
+                @"rate": @"0"
+                }},
+        @{@"PYG": @{
+                @"symbol": @"₲",
+                @"name": @"Paraguayan Guarani",
+                @"symbol_native": @"₲",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"PYG",
+                @"name_plural": @"Paraguayan guaranis",
+                @"rate": @"0"
+                }},
+        @{@"QAR": @{
+                @"symbol": @"QR",
+                @"name": @"Qatari Rial",
+                @"symbol_native": @"ر.ق.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"QAR",
+                @"name_plural": @"Qatari rials",
+                @"rate": @"0"
+                }},
+        @{@"RON": @{
+                @"symbol": @"RON",
+                @"name": @"Romanian Leu",
+                @"symbol_native": @"RON",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"RON",
+                @"name_plural": @"Romanian lei",
+                @"rate": @"0"
+                }},
+        @{@"RSD": @{
+                @"symbol": @"din.",
+                @"name": @"Serbian Dinar",
+                @"symbol_native": @"дин.",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"RSD",
+                @"name_plural": @"Serbian dinars",
+                @"rate": @"0"
+                }},
+        @{@"RUB": @{
+                @"symbol": @"RUB",
+                @"name": @"Russian Ruble",
+                @"symbol_native": @"₽.",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"RUB",
+                @"name_plural": @"Russian rubles",
+                @"rate": @"0"
+                }},
+        @{@"RWF": @{
+                @"symbol": @"RWF",
+                @"name": @"Rwandan Franc",
+                @"symbol_native": @"FR",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"RWF",
+                @"name_plural": @"Rwandan francs",
+                @"rate": @"0"
+                }},
+        @{@"SAR": @{
+                @"symbol": @"SR",
+                @"name": @"Saudi Riyal",
+                @"symbol_native": @"ر.س.‏",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"SAR",
+                @"name_plural": @"Saudi riyals",
+                @"rate": @"0"
+                }},
+        @{@"SDG": @{
+                @"symbol": @"SDG",
+                @"name": @"Sudanese Pound",
+                @"symbol_native": @"SDG",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"SDG",
+                @"name_plural": @"Sudanese pounds",
+                @"rate": @"0"
+                }},
+        @{@"SEK": @{
+                @"symbol": @"Skr",
+                @"name": @"Swedish Krona",
+                @"symbol_native": @"kr",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"SEK",
+                @"name_plural": @"Swedish kronor",
+                @"rate": @"0"
+                }},
+        @{@"SGD": @{
+                @"symbol": @"S$",
+                @"name": @"Singapore Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"SGD",
+                @"name_plural": @"Singapore dollars",
+                @"rate": @"0"
+                }},
+        @{@"SOS": @{
+                @"symbol": @"Ssh",
+                @"name": @"Somali Shilling",
+                @"symbol_native": @"Ssh",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"SOS",
+                @"name_plural": @"Somali shillings",
+                @"rate": @"0"
+                }},
+        @{@"SYP": @{
+                @"symbol": @"SY£",
+                @"name": @"Syrian Pound",
+                @"symbol_native": @"ل.س.‏",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"SYP",
+                @"name_plural": @"Syrian pounds",
+                @"rate": @"0"
+                }},
+        @{@"THB": @{
+                @"symbol": @"฿",
+                @"name": @"Thai Baht",
+                @"symbol_native": @"฿",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"THB",
+                @"name_plural": @"Thai baht",
+                @"rate": @"0"
+                }},
+        @{@"TND": @{
+                @"symbol": @"DT",
+                @"name": @"Tunisian Dinar",
+                @"symbol_native": @"د.ت.‏",
+                @"decimal_digits": @"3",
+                @"rounding": @"0",
+                @"code": @"TND",
+                @"name_plural": @"Tunisian dinars",
+                @"rate": @"0"
+                }},
+        @{@"TOP": @{
+                @"symbol": @"T$",
+                @"name": @"Tongan Paʻanga",
+                @"symbol_native": @"T$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"TOP",
+                @"name_plural": @"Tongan paʻanga",
+                @"rate": @"0"
+                }},
+        @{@"TRY": @{
+                @"symbol": @"TL",
+                @"name": @"Turkish Lira",
+                @"symbol_native": @"TL",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"TRY",
+                @"name_plural": @"Turkish Lira",
+                @"rate": @"0"
+                }},
+        @{@"TTD": @{
+                @"symbol": @"TT$",
+                @"name": @"Trinidad and Tobago Dollar",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"TTD",
+                @"name_plural": @"Trinidad and Tobago dollars",
+                @"rate": @"0"
+                }},
+        @{@"TWD": @{
+                @"symbol": @"NT$",
+                @"name": @"New Taiwan Dollar",
+                @"symbol_native": @"NT$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"TWD",
+                @"name_plural": @"New Taiwan dollars",
+                @"rate": @"0"
+                }},
+        @{@"TZS": @{
+                @"symbol": @"TSh",
+                @"name": @"Tanzanian Shilling",
+                @"symbol_native": @"TSh",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"TZS",
+                @"name_plural": @"Tanzanian shillings",
+                @"rate": @"0"
+                }},
+        @{@"UAH": @{
+                @"symbol": @"₴",
+                @"name": @"Ukrainian Hryvnia",
+                @"symbol_native": @"₴",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"UAH",
+                @"name_plural": @"Ukrainian hryvnias",
+                @"rate": @"0"
+                }},
+        @{@"UGX": @{
+                @"symbol": @"USh",
+                @"name": @"Ugandan Shilling",
+                @"symbol_native": @"USh",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"UGX",
+                @"name_plural": @"Ugandan shillings",
+                @"rate": @"0"
+                }},
+        @{@"UYU": @{
+                @"symbol": @"$U",
+                @"name": @"Uruguayan Peso",
+                @"symbol_native": @"$",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"UYU",
+                @"name_plural": @"Uruguayan pesos",
+                @"rate": @"0"
+                }},
+        @{@"UZS": @{
+                @"symbol": @"UZS",
+                @"name": @"Uzbekistan Som",
+                @"symbol_native": @"UZS",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"UZS",
+                @"name_plural": @"Uzbekistan som",
+                @"rate": @"0"
+                }},
+        @{@"VND": @{
+                @"symbol": @"₫",
+                @"name": @"Vietnamese Dong",
+                @"symbol_native": @"₫",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"VND",
+                @"name_plural": @"Vietnamese dong",
+                @"rate": @"0"
+                }},
+        @{@"XAF": @{
+                @"symbol": @"FCFA",
+                @"name": @"CFA Franc BEAC",
+                @"symbol_native": @"FCFA",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"XAF",
+                @"name_plural": @"CFA francs BEAC",
+                @"rate": @"0"
+                }},
+        @{@"XOF": @{
+                @"symbol": @"CFA",
+                @"name": @"CFA Franc BCEAO",
+                @"symbol_native": @"CFA",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"XOF",
+                @"name_plural": @"CFA francs BCEAO",
+                @"rate": @"0"
+                }},
+        @{@"YER": @{
+                @"symbol": @"YR",
+                @"name": @"Yemeni Rial",
+                @"symbol_native": @"ر.ي.‏",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"YER",
+                @"name_plural": @"Yemeni rials",
+                @"rate": @"0"
+                }},
+        @{@"ZAR": @{
+                @"symbol": @"R",
+                @"name": @"South African Rand",
+                @"symbol_native": @"R",
+                @"decimal_digits": @"2",
+                @"rounding": @"0",
+                @"code": @"ZAR",
+                @"name_plural": @"South African rand",
+                @"rate": @"0"
+                }},
+        @{@"ZWL": @{
+                @"symbol": @"ZWL$",
+                @"name": @"Zimbabwean Dollar",
+                @"symbol_native": @"ZWL$",
+                @"decimal_digits": @"0",
+                @"rounding": @"0",
+                @"code": @"ZWL",
+                @"name_plural": @"Zimbabwean Dollar",
+                @"rate": @"0"
+        }}
+        ];
+    return symbole;;
+}
++ (NSArray*)_Symbols {
     return [[NSArray alloc] initWithObjects:         @{
         @"Flag":@"https://www.currencyremitapp.com/wp-content//albania.png",
         @"CountryName": @"Kuwait",

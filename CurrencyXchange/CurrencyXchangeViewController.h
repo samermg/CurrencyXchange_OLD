@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *btnSelecte;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnLogout;
 @property (weak, nonatomic) IBOutlet UILabel *fromSymbol;
+@property (weak, nonatomic) IBOutlet UILabel *fromCurrencyName;
+@property (weak, nonatomic) IBOutlet UILabel *toCurrencyName;
+
 @property (weak, nonatomic) IBOutlet UILabel *toSymbol;
 
 

@@ -102,5 +102,6 @@ typedef enum {
 //Data
 + (NSData *)base64DataFromString: (NSString *)string;
 + (NSArray*)Countries;
++ (NSArray*)_Symbols;
 + (NSArray*)Symbols;
 @end
