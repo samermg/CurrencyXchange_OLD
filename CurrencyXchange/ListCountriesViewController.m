@@ -13,7 +13,7 @@ const CGFloat cornerRadius = 22;
     NSMutableArray* ratesKeys;
     NSMutableArray* ratesValues;
 }
-@property (strong,nonatomic)  NSArray* filteredCurrencies;
+@property (strong,nonatomic)  NSMutableArray* filteredCurrencies;
 @end
 
 @implementation ListCountriesViewController
@@ -36,7 +36,7 @@ const CGFloat cornerRadius = 22;
     dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
     dispatch_async(dwnQueue, ^ {
         //self->_symbols = [NSArray arrayWithArray:[Helper Symbols]];
-        self->_filteredCurrencies = [[NSArray alloc]initWithArray:self->_symbols];
+        self->_filteredCurrencies = [[NSMutableArray alloc]initWithArray:self->_symbols];
         dispatch_async(dispatch_get_main_queue(), ^{
             //            self->ratesKeys  =[[NSMutableArray alloc]initWithArray:[self.rates allKeys]];
             //            self->ratesValues=[[NSMutableArray alloc]initWithArray:[self.rates allValues]];
@@ -78,7 +78,7 @@ const CGFloat cornerRadius = 22;
     
     cell = (CurrencyCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     int row = (int)indexPath.row;
-    NSDictionary *country = (_fromSearch.text.length == 0) ? [_symbols objectAtIndex:row] : [_filteredCurrencies objectAtIndex:row] ;
+    NSDictionary *country = (_fromSearch.text.length == 0) ? [_symbols objectAtIndex:row] : [_symbols objectAtIndex:[[self.filteredCurrencies objectAtIndex:indexPath.item] integerValue]];
     NSArray* keys = [country allKeys];
     NSString* key = keys[0]; // Currency
     NSString* currency = [[country objectForKey:key] objectForKey:@"code"];
@@ -111,17 +111,59 @@ const CGFloat cornerRadius = 22;
 #pragma mark - UISearchBarDelegate
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     // This method gets called when the cancel button is clicked
-    self.filteredCurrencies = _symbols;
+    self.filteredCurrencies = [[NSMutableArray alloc]initWithArray:_symbols];
     [self.countries reloadData];
 }
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //Remove all objects first.
+    self.filteredCurrencies = [NSMutableArray array];
+    if(![searchBar isFirstResponder]) {
+        // user tapped the 'clear' button
+       // shouldBeginEditing = NO;
+        [self searchBarCancelButtonClicked:self.fromSearch];
+        // do whatever I want to happen when the user clears the search...
+    } else if ([searchText length] == 0) {
+        // The user clicked the [X] button or otherwise cleared the text.
+        [self.fromSearch performSelector: @selector(resignFirstResponder)
+                           withObject: nil
+                           afterDelay: 0.1];
+    }
+    if([searchText length] != 0) {
+       // isSearching = YES;
+        
+        for (int i=0; i<_symbols.count; i++) {
+            NSArray* keys = [[_symbols objectAtIndex:i] allKeys];
+            
+            NSString* key = keys[0]; // Currency
+            NSDictionary* dictionary = [[_symbols objectAtIndex:i] objectForKey:key];
+            NSString* name = [dictionary objectForKey:@"name"];
+            //NSString* name = [[_symbols objectAtIndex:i] Name];
+            if ([[name lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound) {
+                [_filteredCurrencies addObject:[NSNumber numberWithInt:i]];
+                 //NSLog(@"%ld",(long)i);
+            }
+        }
+        
+    }
+    else {
+        //isSearching = NO;
+    }
+    
+    
+    [self.countries reloadData];
+    [searchBar becomeFirstResponder];
+}
+/*
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length == 0) {
         self.filteredCurrencies = _symbols;
         [self.countries reloadData];
     } else {
         [self filterDataWithSearchQuery:_fromSearch.text];
+        
     }
 }
+ */
 - (BOOL)keyExistsInDictionary:(NSDictionary *)dictionary forKey:(NSString *)key {
     NSArray *allKeys = [dictionary allKeys];
     BOOL isKeyFound = [allKeys containsObject:key];
@@ -132,7 +174,7 @@ const CGFloat cornerRadius = 22;
     query = [query uppercaseString];
 
     if (query.length == 0) {
-        self.filteredCurrencies = self.symbols;
+        self.filteredCurrencies = [[NSMutableArray alloc] initWithArray: self.symbols];
     } else {
         NSMutableArray* filtered = [NSMutableArray array];
         for (NSDictionary *dictionary in _symbols) {
