@@ -130,7 +130,7 @@ const CGFloat cornerRadius = 22;
 
 - (void)filterDataWithSearchQuery:(NSString*)query {
     query = [query uppercaseString];
-    NSMutableArray* filtered = [NSMutableArray array];
+
     if (query.length == 0) {
         self.filteredCurrencies = self.symbols;
     } else {
