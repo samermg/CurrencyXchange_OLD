@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "CXLogog@1x.png",
+      "filename" : "forget.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CXLogog@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CXLogog@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

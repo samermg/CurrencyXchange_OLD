@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
+
 @interface DesignableUITextField : UITextField
 
 @property (nonatomic, strong) IBInspectable UIImage *leftImage;
@@ -12,7 +13,6 @@ IB_DESIGNABLE
 @end
 
 @implementation DesignableUITextField
-
 - (CGRect)leftViewRectForBounds:(CGRect)bounds {
     CGRect textRect = [super leftViewRectForBounds:bounds];
     textRect.origin.x += self.leftPadding;
@@ -26,13 +26,16 @@ IB_DESIGNABLE
 
 - (void)setLeftPadding:(CGFloat)leftPadding {
     _leftPadding = leftPadding;
+    _color = [UIColor lightGrayColor];
     [self updateView];
 }
 
-- (void)setColor:(UIColor *)color {
-    _color = color;
+
+- (void)setColor:(UIColor *)newColor {
+    _color = newColor;
     [self updateView];
 }
+
 
 - (void)updateView {
     if (self.leftImage) {
@@ -47,11 +50,7 @@ IB_DESIGNABLE
         self.leftView = nil;
     }
     
-    // Placeholder text color
-    NSString *placeholderText = (self.placeholder != nil) ? self.placeholder : @"";
-    NSDictionary *attributes = @{NSForegroundColorAttributeName: self.color};
-    NSAttributedString *attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholderText attributes:attributes];
-    self.attributedPlaceholder = attributedPlaceholder;
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder ? self.placeholder : @"" attributes:@{NSForegroundColorAttributeName: self.color}];
 }
 
 @end

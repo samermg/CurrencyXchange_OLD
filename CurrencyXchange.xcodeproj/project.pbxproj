@@ -16,6 +16,7 @@
 		A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD33C2BB8605900C333FF /* CurrencyCellView.m */; };
 		A89CD33F2BB8605900C333FF /* CurrencyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */; };
 		A89CD3422BB8B95900C333FF /* MainNavigationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */; };
+		A8BA26BC2BBCAB5E00EA4AB0 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BA26BB2BBCAB5E00EA4AB0 /* ForgetViewController.m */; };
 		A8C33B0E2BB6D56100C107CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B0D2BB6D56100C107CA /* AppDelegate.m */; };
 		A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B102BB6D56100C107CA /* SceneDelegate.m */; };
 		A8C33B142BB6D56100C107CA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B132BB6D56100C107CA /* LoginViewController.m */; };
@@ -52,7 +53,7 @@
 		A8C33B912BB6F86C00C107CA /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C33B832BB6F86C00C107CA /* Oxygen-Bold.ttf */; };
 		A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */; };
 		A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */; };
-		A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B722BB6F35F00C107CA /* ShadowView.h */; };
+		A8C33B942BB6F89400C107CA /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C33B722BB6F35F00C107CA /* ShadowView.m */; };
 		A8F147FE2BB8C99A00D673B5 /* GlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F147FD2BB8C99A00D673B5 /* GlobalSingleton.m */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCellView.xib; sourceTree = "<group>"; };
 		A89CD3402BB8B95900C333FF /* MainNavigationContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationContoller.h; sourceTree = "<group>"; };
 		A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavigationContoller.m; sourceTree = "<group>"; };
+		A8BA26BA2BBCAB5E00EA4AB0 /* ForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
+		A8BA26BB2BBCAB5E00EA4AB0 /* ForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetViewController.m; sourceTree = "<group>"; };
 		A8C33B092BB6D56100C107CA /* CurrencyXchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyXchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C33B0C2BB6D56100C107CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8C33B0D2BB6D56100C107CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -132,7 +135,7 @@
 		A8C33B632BB6D90000C107CA /* AlertCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCellView.m; sourceTree = "<group>"; };
 		A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignableUITextField.m; sourceTree = "<group>"; };
 		A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormTextField.m; sourceTree = "<group>"; };
-		A8C33B722BB6F35F00C107CA /* ShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
+		A8C33B722BB6F35F00C107CA /* ShadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
 		A8C33B762BB6F86C00C107CA /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
 		A8C33B772BB6F86C00C107CA /* WorkSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.otf"; sourceTree = "<group>"; };
 		A8C33B782BB6F86C00C107CA /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				A84B52C42BBCA54500898FB1 /* UIViewController+Alert.m */,
 				A8C33B122BB6D56100C107CA /* LoginViewController.h */,
 				A8C33B132BB6D56100C107CA /* LoginViewController.m */,
+				A8BA26BA2BBCAB5E00EA4AB0 /* ForgetViewController.h */,
+				A8BA26BB2BBCAB5E00EA4AB0 /* ForgetViewController.m */,
 				A89CD3402BB8B95900C333FF /* MainNavigationContoller.h */,
 				A89CD3412BB8B95900C333FF /* MainNavigationContoller.m */,
 				A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */,
@@ -329,7 +334,7 @@
 			children = (
 				A8C33B6C2BB6F26B00C107CA /* DesignableUITextField.m */,
 				A8C33B6F2BB6F2CC00C107CA /* FormTextField.m */,
-				A8C33B722BB6F35F00C107CA /* ShadowView.h */,
+				A8C33B722BB6F35F00C107CA /* ShadowView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -506,7 +511,7 @@
 				A84B52BE2BBC345700898FB1 /* LoginManager.m in Sources */,
 				A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */,
 				A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */,
-				A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */,
+				A8C33B942BB6F89400C107CA /* ShadowView.m in Sources */,
 				A8C33B532BB6D70300C107CA /* LoadingIndicator.m in Sources */,
 				A8C33B512BB6D70300C107CA /* SGAPI.m in Sources */,
 				A8C33B672BB6D90000C107CA /* AlertCellView.m in Sources */,
@@ -524,6 +529,7 @@
 				A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */,
 				A89CD3422BB8B95900C333FF /* MainNavigationContoller.m in Sources */,
 				A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */,
+				A8BA26BC2BBCAB5E00EA4AB0 /* ForgetViewController.m in Sources */,
 				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
 				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
 				A84B52C52BBCA54500898FB1 /* UIViewController+Alert.m in Sources */,

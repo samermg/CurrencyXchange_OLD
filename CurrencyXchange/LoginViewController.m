@@ -32,11 +32,12 @@
     
     // Set border color for username and password fields
     self.username.layer.borderColor = customColor.CGColor;
+    
     self.password.layer.borderColor = customColor.CGColor;
     
     // Set border width for username and password fields
-    self.username.layer.borderWidth = 1.0;
-    self.password.layer.borderWidth = 1.0;
+    self.username.layer.borderWidth = 0.5;
+    self.password.layer.borderWidth = 0.5;
     // Do any additional setup after loading the view.
 }
 - (void)setupSpinner {
@@ -75,6 +76,8 @@
                         [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
                     } else {
                         if (LoginResults.isValidCredentails) {
+                            self.username.text=@"";
+                            self.password.text = @"";
                             [self.loadingMe stopAnimating];
                             [self showMainViewController];
                         }
@@ -92,6 +95,13 @@
     } else {
         [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
     }
+}
+
+- (IBAction)forgetLogin:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; // Assuming your storyboard name is "Main"
+    ForgetViewController *ForgetVC = [storyboard instantiateViewControllerWithIdentifier:@"ForgetVC"]; // Make sure to set the Storyboard ID in the storyboard
+    // Present home view controller
+    [self presentViewController:ForgetVC animated:YES completion:nil];
 }
 
 -(void)updateUI:(BOOL) status {

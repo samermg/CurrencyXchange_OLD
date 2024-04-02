@@ -51,6 +51,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Usage Login
     [self CheckLoginSession];
     isFirstCall = YES;
@@ -297,12 +298,10 @@
     }
 }
 - (IBAction)logoutTapped:(id)sender {
-    [self CheckLoginSession];
-    /*
     LoginManager *loginManager = [LoginManager sharedInstance];
     [loginManager logout];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self showLoginViewController];*/
+    [self showLoginViewController];
 }
 - (void)showLoginViewController{
     // Instantiate home view controller from storyboard
