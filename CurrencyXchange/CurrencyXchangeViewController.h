@@ -31,8 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *toSymbol;
 
-
-- (IBAction)selectTapped:(id)sender;
 - (IBAction)logoutTapped:(id)sender;
 
 @end

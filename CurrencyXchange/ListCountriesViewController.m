@@ -24,7 +24,6 @@ const CGFloat cornerRadius = 22;
     self.countries.delegate = self;
     self.countries.dataSource=self;
     self.fromSearch.delegate = self;
-    
     //#############################################################//
     //##############Expand the Cell on rotation ###################//
     //#############################################################//
@@ -35,20 +34,17 @@ const CGFloat cornerRadius = 22;
     [self.countries registerNib:nib forCellReuseIdentifier:@"CurrencyCV"];
     dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
     dispatch_async(dwnQueue, ^ {
-        //self->_symbols = [NSArray arrayWithArray:[Helper Symbols]];
-        self->_filteredCurrencies = [[NSMutableArray alloc]initWithArray:self->_symbols];
+        //self->_filteredCurrencies = [[NSMutableArray alloc]initWithArray:self->_symbols];
         dispatch_async(dispatch_get_main_queue(), ^{
-            //            self->ratesKeys  =[[NSMutableArray alloc]initWithArray:[self.rates allKeys]];
-            //            self->ratesValues=[[NSMutableArray alloc]initWithArray:[self.rates allValues]];
+            self.title = [NSString stringWithFormat:@"%@ [%lu]",self.title,(unsigned long)self->_symbols.count];
             [self.countries reloadData];
         });
     });
-    //_currencies = [[NSArray alloc]initWithArray:[Helper Countries]];
 }
 #pragma TableView
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 60;
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_fromSearch.text.length > 0) {
@@ -61,13 +57,16 @@ const CGFloat cornerRadius = 22;
     int row = (int)indexPath.row;
     
     NSDictionary *CountryCell;
+    CurrencyCellView *cell = [self.countries cellForRowAtIndexPath:indexPath];
+    NSString* currency = cell.code.text;
     if (_fromSearch.text.length > 0) {
         CountryCell = [_filteredCurrencies objectAtIndex:row];
     } else {
         CountryCell = [_symbols objectAtIndex:row];
     }
+    NSDictionary*selectedCell = [[_symbols objectAtIndex:indexPath.row] objectForKey:currency];
     if ([self.UpdateFlagDelegate respondsToSelector:@selector(didSelectValue:SenderDelegate:)]) {
-        [self.UpdateFlagDelegate didSelectValue:CountryCell SenderDelegate:self.CurrencyFlag];
+        [self.UpdateFlagDelegate didSelectValue:selectedCell SenderDelegate:self.CurrencyFlag];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -86,7 +85,7 @@ const CGFloat cornerRadius = 22;
     int decimal = [[[country objectForKey:key] objectForKey:@"decimal_digits"] intValue];
     cell.name.text = [[country objectForKey:key] objectForKey:@"name"];
     cell.popularName.text = [[country objectForKey:key] objectForKey:@"name_plural"];
-    
+    cell.code.text = currency;
     //Flag View
     cell.flagView.layer.cornerRadius = cornerRadius;
     cell.flagView.clipsToBounds = YES;

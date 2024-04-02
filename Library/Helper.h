@@ -23,6 +23,7 @@ typedef enum {
         FromCurrency,
         ToCurrency
     } CurrencyCode;
+typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 // Dictionary Static Methods
 +(void) saveUserDefaultsForBooleanKey:(BOOL)value forKey:(NSString *)key;
@@ -105,4 +106,6 @@ typedef enum {
 + (NSArray*)Countries;
 + (NSArray*)_Symbols;
 + (NSArray*)Symbols;
++ (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName;
++ (void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block;
 @end

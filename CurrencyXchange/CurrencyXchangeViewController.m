@@ -20,14 +20,18 @@
 @property (strong,nonatomic) NSString* baseCurrency;
 @property (strong,nonatomic) NSDictionary* baseCurrencyDictionary;
 @property (strong,nonatomic) NSMutableArray*symbols;
-typedef void (^ResultsBlock)(NSDictionary*currency, int index);
+
 
 @end
 
 @implementation CurrencyXchangeViewController
 - (void)didSelectValue:(NSDictionary *)currency SenderDelegate:(CurrencyCode)sender {
     self.SenderDelegate = sender;
-    [self GetConversationRatesForBase:currency forCurrency:@"USD"];
+    if(sender == FromCurrency) {
+        [self GetConversationRatesForBase:currency forCurrency:[currency objectForKey:@"code"]];
+    } else {
+        [self UpdateDestinationCurrency:currency];
+    }
 }
 
 - (void)viewDidLoad {
@@ -90,20 +94,27 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 -(void)updateUI:(BOOL) status {
     
 }
+-(void)UpdateDestinationCurrency:(NSDictionary*)destinationCurrency {
+    NSString* currency = [destinationCurrency objectForKey:@"code"];
+    NSInteger selectedRow = [_destinationCurrencies indexOfObject:currency];
+    [_destinationPicker selectRow:selectedRow inComponent:0 animated:NO];
+    _lblTo.text = currency;
+    _toCurrencyName.text = [destinationCurrency objectForKey:@"name"];
+    NSString *symbol = [destinationCurrency objectForKey:@"symbol_native"];
+    symbol = [destinationCurrency objectForKey:@"symbol_native"];
+    self.toSymbol.text = symbol;
+    self.toCurrencyFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg", [currency lowercaseString]]];
+    [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
+}
 - (void)GetConversationRatesForBase:(NSDictionary*)dictionary forCurrency:(NSString*)currency {
     /*
      @"USD":
             @{
-                @"symbol": @"$",
-                @"name": @"US Dollar",
-                @"symbol_native": @"$",
-                @"decimal_digits": @"2",
-                @"rounding": @"0",
-                @"code": @"USD",
+                @"symbol": @"$", @"name": @"US Dollar", @"symbol_native": @"$",
+                @"decimal_digits": @"2", @"rounding": @"0", @"code": @"USD",
                 @"name_plural": @"US dollars"
             }
      */
-
     _baseCurrency = currency;
     _baseCurrencyDictionary = dictionary;
     if (currency.length <3) return;
@@ -121,24 +132,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     //    [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
     //}
 }
-- (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName {
-    NSInteger idx = 0;
-    for (NSString* key in array) {
-        if ([key isEqualToString:theName])
-            return idx;
-        ++idx;
-    }
-    return NSNotFound;
-}
-- (void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block {
-    int idx = 0;
-    for (NSDictionary* item in array) {
-        NSDictionary* currency = [item objectForKey:keyValue];
-        if ([[currency objectForKey:field] isEqualToString:keyValue])
-            block ([item objectForKey:keyValue], idx);
-        ++idx;
-    }
-}
+
 #pragma APIClient Delegate Methods
 - (void)APIRequest:(APIClient * _Nullable)load didFinishRequestWithContent:(NSDictionary * _Nullable)data {
     NSMutableArray* keys = [NSMutableArray array];
@@ -166,7 +160,7 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
         // Select the row in Source component (column)
         __block NSDictionary* RateCurrency;
         __block NSInteger indexItem;
-        [self getObjectIndexFromDictionary:_symbols forKey:_baseCurrency andFiledName:@"code" andResultBloch:^(NSDictionary *currency, int index) {
+        [Helper getObjectIndexFromDictionary:_symbols forKey:_baseCurrency andFiledName:@"code" andResultBloch:^(NSDictionary *currency, int index) {
             indexItem = index;
             RateCurrency = currency;
         }];
@@ -183,21 +177,14 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
         self.fromSymbol.text = symbol;
         
         if (isFirstCall) {
-            // Select the row in Destination component (column)
             NSInteger selectedRow = 52; // Change this to the index of the row you want to select
             NSString*destCurrency = self.destinationCurrencies[selectedRow];
-            [_destinationPicker selectRow:selectedRow inComponent:0 animated:animated];
-            _lblTo.text = destCurrency;
-            RateCurrency = [_symbols objectAtIndex:selectedRow];
-            _toCurrencyName.text = [[RateCurrency objectForKey:destCurrency] objectForKey:@"name"];
-            symbol = [[RateCurrency objectForKey:destCurrency] objectForKey:@"symbol_native"];
-            self.toSymbol.text = symbol;
-            //if (self.SenderDelegate == ToCurrency) {
-                self.toCurrencyFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg", [destCurrency lowercaseString]]];
-            //}
+            [self UpdateDestinationCurrency:[[_symbols objectAtIndex:52] objectForKey:destCurrency]];
             isFirstCall = NO;
+        } else {
+            [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
         }
-        [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
+        
     } else {
         [self showAlert:@"Currency Exchange" andWithMessage:@"Something went wrong! Please attempt your action again later."];
     }
@@ -321,7 +308,5 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
     // Present home view controller
     [self presentViewController:LoginVC animated:YES completion:nil];
 }
-- (IBAction)selectTapped:(id)sender {
-    [[GlobalSingleton sharedInstance] setCurrenciesRates:_rates];
-}
+
 @end

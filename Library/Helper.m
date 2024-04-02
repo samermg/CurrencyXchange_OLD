@@ -4879,4 +4879,22 @@ SystemSoundID completeSound;
     NSString *formattedString = [formatter stringFromNumber:@(number)];
     return formattedString;
 }
++ (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName {
+    NSInteger idx = 0;
+    for (NSString* key in array) {
+        if ([key isEqualToString:theName])
+            return idx;
+        ++idx;
+    }
+    return NSNotFound;
+}
++(void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block {
+    int idx = 0;
+    for (NSDictionary* item in array) {
+        NSDictionary* currency = [item objectForKey:keyValue];
+        if ([[currency objectForKey:field] isEqualToString:keyValue])
+            block ([item objectForKey:keyValue], idx);
+        ++idx;
+    }
+}
 @end
