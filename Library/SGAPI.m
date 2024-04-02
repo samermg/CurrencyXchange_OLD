@@ -28,7 +28,7 @@
         });
     }];
 }
-    
+
 - (void)callAPI:(NSString*)url completionHandler:(void (^)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler {
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -37,10 +37,10 @@
 }
 
 - (void)consume:(NSString*_Nonnull)strURL
-      method:(HttpMethod)method
-     headers:(NSDictionary*_Nullable)headers
-   andParams:(NSDictionary*_Nullable)params
-         res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler {
+         method:(HttpMethod)method
+        headers:(NSDictionary*_Nullable)headers
+      andParams:(NSDictionary*_Nullable)params
+            res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
     NSURL *url = [NSURL URLWithString:strURL];
@@ -61,18 +61,18 @@
     }
     [[session dataTaskWithRequest:request
                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    if (error) {
-                        completionHandler(nil, error);
-                        return;
-                    }
-                    NSError* error1;
-                    id json = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:kNilOptions
-                                                                error:&error1];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionHandler(json, error1);
-                    });
-                }] resume];
+        if (error) {
+            completionHandler(nil, error);
+            return;
+        }
+        NSError* error1;
+        id json = [NSJSONSerialization JSONObjectWithData:data
+                                                  options:kNilOptions
+                                                    error:&error1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(json, error1);
+        });
+    }] resume];
 }
 
 + (void)call:(NSString*_Nonnull)strURL
@@ -100,24 +100,24 @@
     }
     [[session dataTaskWithRequest:request
                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    if (error) {
-                        completionHandler(nil, error);
-                        return;
-                    }
-                    NSError* error1;
-                    id json = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:kNilOptions
-                                                                error:&error1];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionHandler(json, error1);
-                    });
-                }] resume];
+        if (error) {
+            completionHandler(nil, error);
+            return;
+        }
+        NSError* error1;
+        id json = [NSJSONSerialization JSONObjectWithData:data
+                                                  options:kNilOptions
+                                                    error:&error1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(json, error1);
+        });
+    }] resume];
 }
 + (void)QueryRequestCall:(NSString*_Nonnull)strURL
-      method:(HttpMethod)method
-     headers:(NSDictionary*_Nullable)headers
-   andParams:(NSDictionary*_Nullable)params
-         res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler {
+                  method:(HttpMethod)method
+                 headers:(NSDictionary*_Nullable)headers
+               andParams:(NSDictionary*_Nullable)params
+                     res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
     if (params) {
@@ -136,9 +136,7 @@
         strURL = query;
     }
     NSURL *url = [NSURL URLWithString:strURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     for (NSString *key in headers) {
@@ -146,20 +144,19 @@
     }
     NSString *httpMethod_ = (method == GET) ? @"GET" : @"POST";
     [request setHTTPMethod:httpMethod_];
-
-    [[session dataTaskWithRequest:request
-                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    if (error) {
-                        completionHandler(nil, error);
-                        return;
-                    }
-                    NSError* error1;
-                    id json = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:kNilOptions
-                                                                error:&error1];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionHandler(json, error1);
-                    });
-                }] resume];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            completionHandler(nil, error);
+            return;
+        }
+        NSError* error1;
+        id json = [NSJSONSerialization JSONObjectWithData:data
+                                                  options:kNilOptions
+                                                    error:&error1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(json, error1);
+        });
+    }] resume];
 }
 @end

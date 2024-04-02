@@ -7,11 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Helper.h"
+#import "APIClient.h"
 #import "ListCountriesViewController.h"
 #import "LoginViewController.h"
-NS_ASSUME_NONNULL_BEGIN
-
-@interface CurrencyXchangeViewController : UIViewController <APIClientDelegate, UIPickerViewDelegate>
+#import "LoginManager.h"
+typedef void (^CompletionHandler)(void);
+@interface CurrencyXchangeViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource, APIClientDelegate>
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
 @property (weak, nonatomic) IBOutlet UIPickerView *sourcePicker;
@@ -35,4 +36,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+

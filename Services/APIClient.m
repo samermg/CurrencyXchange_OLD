@@ -74,5 +74,32 @@
         });
     }
 }
-
+-(void)Login:(LoginServerBlock)block {
+    __block NSError *error;
+    if ([_FileURL isEqual:@""] || [_FileURL length]<10) {
+        error = [NSError errorWithDomain:@"com.example.CurrencyXchange"
+                    code:400
+                    userInfo:@{NSLocalizedDescriptionKey: @"URL Not Found",
+                    NSLocalizedFailureReasonErrorKey: @"The requested URL resource could not be found.",
+                    NSLocalizedRecoverySuggestionErrorKey: @"Please check the URL and try again."}];
+        block(nil,error);
+    } else {
+        dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
+        dispatch_async(dwnQueue, ^ {
+            [SGAPI QueryRequestCall:self->_FileURL method:self->_HttpMethod headers:self->_HttpHeaderFields andParams:self->_AdditionalParameters res:^(NSDictionary * _Nullable json, NSError * _Nullable error) {
+                NSDictionary*validation = [json objectForKey:@"validation"];
+                if ([[validation objectForKey:@"status"] isEqual:@"FAILED"]) {
+                    error = [NSError errorWithDomain:@"com.example.CurrencyXchange"
+                code:401
+                userInfo:@{NSLocalizedDescriptionKey: @"Invalid Credentails",
+                NSLocalizedFailureReasonErrorKey: [validation objectForKey:@"details"],
+                NSLocalizedRecoverySuggestionErrorKey: @"Please check the your credentails and try again."}];
+                }
+                block(json,error);
+            }];
+            
+            
+        });
+    }
+}
 @end

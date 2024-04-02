@@ -10,6 +10,7 @@
 #import "ListCountriesViewController.h"
 #import "MainNavigationContoller.h"
 #import "APIClient.h"
+#import "UIViewController+Alert.h"
 @interface CurrencyXchangeViewController ()<TableSelectionDelegate> {
     BOOL isFirstCall;
 }
@@ -33,9 +34,25 @@
         [self UpdateDestinationCurrency:currency];
     }
 }
-
+-(void)restSessionTime {
+    LoginManager *loginManager = [LoginManager sharedInstance];
+    [loginManager resetTimer];
+}
+-(void)CheckLoginSession {
+    LoginManager *loginManager = [LoginManager sharedInstance];
+    // Simulate activity for 15 minutes
+    
+    if (![loginManager isSessionValid]) {
+        [loginManager logout];
+        [self showAlertWithTitle:@"Session Expired" message:@"Your session has expired due to inactivity. Please log in again." buttonTitle:@"Logout" completionHandler:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Usage Login
+    [self CheckLoginSession];
     isFirstCall = YES;
     _symbols = [NSMutableArray arrayWithArray:[Helper Symbols]];
     //From Currency Flag Gesture
@@ -68,6 +85,7 @@
     // Do any additional setup after loading the view.
 }
 - (void)fromCurrencyFlagTapped:(UITapGestureRecognizer *)gestureRecognizer {
+    [self restSessionTime];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; 
     ListCountriesViewController *ListViewController = [storyboard instantiateViewControllerWithIdentifier:@"CurrenciesVC"];
     ListViewController.CurrencyFlag = FromCurrency;
@@ -77,6 +95,7 @@
     [self.navigationController pushViewController:ListViewController animated:YES];
 }
 - (void)toCurrencyFlagTapped:(UITapGestureRecognizer *)gestureRecognizer {
+    [self restSessionTime];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ListCountriesViewController *ListViewController = [storyboard instantiateViewControllerWithIdentifier:@"CurrenciesVC"];
     ListViewController.CurrencyFlag = ToCurrency;
@@ -95,6 +114,7 @@
     
 }
 -(void)UpdateDestinationCurrency:(NSDictionary*)destinationCurrency {
+    [self restSessionTime];
     NSString* currency = [destinationCurrency objectForKey:@"code"];
     NSInteger selectedRow = [_destinationCurrencies indexOfObject:currency];
     [_destinationPicker selectRow:selectedRow inComponent:0 animated:NO];
@@ -107,14 +127,7 @@
     [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
 }
 - (void)GetConversationRatesForBase:(NSDictionary*)dictionary forCurrency:(NSString*)currency {
-    /*
-     @"USD":
-            @{
-                @"symbol": @"$", @"name": @"US Dollar", @"symbol_native": @"$",
-                @"decimal_digits": @"2", @"rounding": @"0", @"code": @"USD",
-                @"name_plural": @"US dollars"
-            }
-     */
+    [self restSessionTime];
     _baseCurrency = currency;
     _baseCurrencyDictionary = dictionary;
     if (currency.length <3) return;
@@ -126,11 +139,6 @@
     [client setHTTPMethod:GET];
     [client setDelegate:self];
     [client Featch];
-    //}
-    //else {
-    
-    //    [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
-    //}
 }
 
 #pragma APIClient Delegate Methods
@@ -186,7 +194,7 @@
         }
         
     } else {
-        [self showAlert:@"Currency Exchange" andWithMessage:@"Something went wrong! Please attempt your action again later."];
+        [self showAlertWithTitle:@"Currency Exchange" message:@"Something went wrong! Please attempt your action again later." buttonTitle:@"OK" completionHandler:nil];
     }
     [self updateUI:true];
     [self.loadingMe stopAnimating];
@@ -194,19 +202,10 @@
 
 - (void)APIRequest:(APIClient * _Nullable)call didFinishRequestWithError:(NSString * _Nullable)error {
     [self.loadingMe stopAnimating];
-    [self showAlert:@"Currency Exchange" andWithMessage:error.description];
+    [self showAlertWithTitle:@"Currency Exchange" message:error.description buttonTitle:@"OK" completionHandler:nil];
 }
 #pragma End APIClient Delegate Methods
--(void)showAlert:(NSString*)title andWithMessage:(NSString*)message {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message  preferredStyle:UIAlertControllerStyleAlert];
-    //Button 1
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //code for performing acctions to be excuted when click Button1
-        NSLog(@"Button 1 Pressed");
-    }];
-    [alert addAction:actionOK];
-    [self presentViewController:alert animated:YES completion:nil];
-}
+
 #pragma TextFileds Events
 // Implement the textFieldDidChange: method to handle the value changed event
 - (void)textFieldDidChange:(UITextField *)textField {
@@ -298,8 +297,12 @@
     }
 }
 - (IBAction)logoutTapped:(id)sender {
+    [self CheckLoginSession];
+    /*
+    LoginManager *loginManager = [LoginManager sharedInstance];
+    [loginManager logout];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self showLoginViewController];
+    [self showLoginViewController];*/
 }
 - (void)showLoginViewController{
     // Instantiate home view controller from storyboard

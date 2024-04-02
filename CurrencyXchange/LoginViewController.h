@@ -6,9 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APIClient.h"
 #import "LoginViewController.h"
-@interface LoginViewController : UIViewController <UITextFieldDelegate, APIClientDelegate>
+#import "LoginManager.h"
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

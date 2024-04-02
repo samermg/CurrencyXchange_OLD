@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A8182E192BB7030700C0636A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8182E182BB7030700C0636A /* APIClient.m */; };
 		A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */; };
+		A84B52BE2BBC345700898FB1 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A84B52BD2BBC307F00898FB1 /* LoginManager.m */; };
+		A84B52C22BBC7DCB00898FB1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A84B52C12BBC7DCB00898FB1 /* User.m */; };
+		A84B52C52BBCA54500898FB1 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = A84B52C42BBCA54500898FB1 /* UIViewController+Alert.m */; };
 		A89CD3392BB85DF700C333FF /* ListCountriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD3382BB85DF700C333FF /* ListCountriesViewController.m */; };
 		A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89CD33C2BB8605900C333FF /* CurrencyCellView.m */; };
 		A89CD33F2BB8605900C333FF /* CurrencyCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89CD33D2BB8605900C333FF /* CurrencyCellView.xib */; };
@@ -75,6 +78,12 @@
 		A8182E182BB7030700C0636A /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyXchangeViewController.h; sourceTree = "<group>"; };
 		A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyXchangeViewController.m; sourceTree = "<group>"; };
+		A84B52BC2BBC307F00898FB1 /* LoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		A84B52BD2BBC307F00898FB1 /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
+		A84B52C02BBC7DCB00898FB1 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		A84B52C12BBC7DCB00898FB1 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		A84B52C32BBCA54500898FB1 /* UIViewController+Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
+		A84B52C42BBCA54500898FB1 /* UIViewController+Alert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
 		A89CD3372BB85DF700C333FF /* ListCountriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCountriesViewController.h; sourceTree = "<group>"; };
 		A89CD3382BB85DF700C333FF /* ListCountriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCountriesViewController.m; sourceTree = "<group>"; };
 		A89CD33B2BB8605900C333FF /* CurrencyCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyCellView.h; sourceTree = "<group>"; };
@@ -178,6 +187,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A85F65C82BBC26F10044B941 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A84B52BC2BBC307F00898FB1 /* LoginManager.h */,
+				A84B52BD2BBC307F00898FB1 /* LoginManager.m */,
+				A84B52C02BBC7DCB00898FB1 /* User.h */,
+				A84B52C12BBC7DCB00898FB1 /* User.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A89CD33A2BB8600700C333FF /* Currency */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +211,7 @@
 		A8C33B002BB6D56100C107CA = {
 			isa = PBXGroup;
 			children = (
+				A85F65C82BBC26F10044B941 /* Login */,
 				A8182E162BB702F000C0636A /* Services */,
 				A8C33B752BB6F86C00C107CA /* fonts */,
 				A8C33B6B2BB6F22F00C107CA /* CustomView */,
@@ -223,6 +244,8 @@
 				A8C33B0D2BB6D56100C107CA /* AppDelegate.m */,
 				A8C33B0F2BB6D56100C107CA /* SceneDelegate.h */,
 				A8C33B102BB6D56100C107CA /* SceneDelegate.m */,
+				A84B52C32BBCA54500898FB1 /* UIViewController+Alert.h */,
+				A84B52C42BBCA54500898FB1 /* UIViewController+Alert.m */,
 				A8C33B122BB6D56100C107CA /* LoginViewController.h */,
 				A8C33B132BB6D56100C107CA /* LoginViewController.m */,
 				A89CD3402BB8B95900C333FF /* MainNavigationContoller.h */,
@@ -396,6 +419,7 @@
 		A8C33B012BB6D56100C107CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					A8C33B082BB6D56100C107CA = {
@@ -412,7 +436,7 @@
 				};
 			};
 			buildConfigurationList = A8C33B042BB6D56100C107CA /* Build configuration list for PBXProject "CurrencyXchange" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -479,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84B52BE2BBC345700898FB1 /* LoginManager.m in Sources */,
 				A8C33B922BB6F89400C107CA /* DesignableUITextField.m in Sources */,
 				A8C33B932BB6F89400C107CA /* FormTextField.m in Sources */,
 				A8C33B942BB6F89400C107CA /* ShadowView.h in Sources */,
@@ -486,6 +511,7 @@
 				A8C33B512BB6D70300C107CA /* SGAPI.m in Sources */,
 				A8C33B672BB6D90000C107CA /* AlertCellView.m in Sources */,
 				A8F147FE2BB8C99A00D673B5 /* GlobalSingleton.m in Sources */,
+				A84B52C22BBC7DCB00898FB1 /* User.m in Sources */,
 				A8C33B5A2BB6D85800C107CA /* NotificationService.m in Sources */,
 				A8C33B142BB6D56100C107CA /* LoginViewController.m in Sources */,
 				A8C33B502BB6D70300C107CA /* UIDeviceHardware.m in Sources */,
@@ -500,6 +526,7 @@
 				A8C33B642BB6D90000C107CA /* NotificationsVC.m in Sources */,
 				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
 				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
+				A84B52C52BBCA54500898FB1 /* UIViewController+Alert.m in Sources */,
 				A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,7 +709,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,7 +738,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

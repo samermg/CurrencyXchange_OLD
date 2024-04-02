@@ -29,5 +29,5 @@
       method:(HttpMethod)method
      headers:(NSDictionary*_Nullable)headers
    andParams:(NSDictionary*_Nullable)params
-                     res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler;
+            res:(void (^_Nonnull)(NSDictionary * _Nullable json, NSError * _Nullable error))completionHandler;
 @end

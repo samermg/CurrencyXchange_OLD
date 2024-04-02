@@ -10,7 +10,7 @@
 #import "LoadingIndicator.h"
 #import "MainNavigationContoller.h"
 #import "Helper.h"
-#import "APIClient.h"
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet LoadingIndicator  *loadingMe;
 
@@ -19,7 +19,7 @@
 @implementation LoginViewController
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:self];
-    [self showMainViewController];
+    //[self showMainViewController];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,11 +29,11 @@
     [self setImageBackground];
     [self setupSpinner];
     UIColor *customColor = [UIColor whiteColor];
-
+    
     // Set border color for username and password fields
     self.username.layer.borderColor = customColor.CGColor;
     self.password.layer.borderColor = customColor.CGColor;
-
+    
     // Set border width for username and password fields
     self.username.layer.borderWidth = 1.0;
     self.password.layer.borderWidth = 1.0;
@@ -59,16 +59,37 @@
     if ((_username.text.length>3) && (_password.text.length>3)) {
         [self updateUI:false];
         [self.loadingMe startAnimating];
-        APIClient *client = [[APIClient alloc]init];
-        [client setFileURL:LOGIN_API];
-        [client setHTTPMethod:GET];
-        [client setDelegate:self];
-        [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
-        [client setAdditionalParameters:@{@"username":self.username.text, @"password":self.password.text}];
-        [client Featch];
-    }
-    else {
+        // Usage Example
         
+        // User login
+        __block NSString* name = self.username.text;
+        __block NSString *pass = self.password.text;
+        dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
+        dispatch_async(dwnQueue, ^ {
+            LoginManager *loginManager = [LoginManager sharedInstance];
+            [loginManager loginWithUsername:name password:pass LoginResults:^(User * _Nullable LoginResults, NSError* _Nonnull Error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateUI:true];
+                    if (Error != nil) {
+                        [self.loadingMe stopAnimating];
+                        [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
+                    } else {
+                        if (LoginResults.isValidCredentails) {
+                            [self.loadingMe stopAnimating];
+                            [self showMainViewController];
+                        }
+                    }
+                    
+                });
+            }];
+            
+        });
+        // Check if session is valid
+        
+        
+        // Simulate activity for 15 minutes
+       
+    } else {
         [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
     }
 }
@@ -79,36 +100,14 @@
     [self.password setEnabled:status];
 }
 
-#pragma APIClient Delegate Methods
-- (void)APIRequest:(APIClient * _Nullable)load didFinishRequestWithContent:(NSDictionary * _Nullable)data {
-    [self.loadingMe stopAnimating];
-    NSDictionary* validation = [NSDictionary dictionaryWithDictionary:[data objectForKey:@"validation"]];
-    BOOL isValidLogin = ([[validation objectForKey:@"status"]  isEqual: @"SUCCESS"]) ? TRUE : FALSE;
-    
-    if (isValidLogin) {
-        //NSDictionary* user = [NSDictionary dictionaryWithDictionary:[data objectForKey:@"user"]];
-        //NSString*userID = [user objectForKey:@"userID"];
-        //NSString*first = [user objectForKey:@"firstName"];
-        //NSString*last = [user objectForKey:@"lastName"];
-        //[self showCurrencyXchangeViewController:first last:last];
-        [self showMainViewController];
-        //[self showAlert:@"Login" andWithMessage:[NSString stringWithFormat:@"[%@]  Login - Welcome, %@ %@", isValidLogin? @"Valid" : @"Invalid", first,last]];
-    } else {
-        [self showAlert:@"Login" andWithMessage:@"Incorrect username or password. Please verify your credentials."];
-    }
-    //NSLog(@"%@",data);
-    [self updateUI:true];
-}
-- (void)APIRequest:(APIClient * _Nullable)call didFinishRequestWithError:(NSString * _Nullable)error {
-    [self.loadingMe stopAnimating];
-    [self showAlert:@"Login" andWithMessage:error.description];
-}
+
+
 #pragma End APIClient Delegate Methods
 -(void)showMainViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; // Assuming your storyboard name is "Main"
     MainNavigationContoller *mainNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"MainNav"];
-
+    
     [self presentViewController:mainNavigationController animated:YES completion:nil];
 }
 - (void)showCurrencyXchangeViewController:(NSString*)first last:(NSString*)last{
@@ -125,11 +124,12 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message  preferredStyle:UIAlertControllerStyleAlert];
     //Button 1
     UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    //code for performing acctions to be excuted when click Button1
+        //code for performing acctions to be excuted when click Button1
         NSLog(@"Button 1 Pressed");
     }];
     [alert addAction:actionOK];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 
 @end

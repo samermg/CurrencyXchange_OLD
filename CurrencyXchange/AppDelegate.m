@@ -238,6 +238,7 @@
         __block NSString* ios_version;
         __block NSString* bundle_id;
         __block int isactive;
+        
         __block NSNumber* is_active;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             device_token = [deviceToken hexadecimalString];

@@ -108,4 +108,5 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 + (NSArray*)Symbols;
 + (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName;
 + (void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block;
+
 @end
