@@ -8,6 +8,7 @@
 #import "CurrencyXchangeViewController.h"
 #import "LoginViewController.h"
 #import "LoadingIndicator.h"
+#import "UIViewController+Alert.h"
 #import "MainNavigationContoller.h"
 #import "Helper.h"
 
@@ -93,7 +94,7 @@
         // Simulate activity for 15 minutes
        
     } else {
-        [self showAlert:@"Login" andWithMessage:@"Please provide your login credentials"];
+        [self showAlertWithTitle:@"Login" message:@"Please provide your login credentials" buttonTitle:@"OK" completionHandler:nil];
     }
 }
 
@@ -115,10 +116,16 @@
 #pragma End APIClient Delegate Methods
 -(void)showMainViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; // Assuming your storyboard name is "Main"
     MainNavigationContoller *mainNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"MainNav"];
     
+    //MainNavigationContoller *viewControllerToPresent = [[MainNavigationContoller alloc] init];
+    mainNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    mainNavigationController.modalPresentationCapturesStatusBarAppearance = YES;
     [self presentViewController:mainNavigationController animated:YES completion:nil];
+    
+    //[self presentViewController:mainNavigationController animated:YES completion:nil];
 }
 - (void)showCurrencyXchangeViewController:(NSString*)first last:(NSString*)last{
     // Instantiate home view controller from storyboard
