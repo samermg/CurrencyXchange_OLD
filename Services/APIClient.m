@@ -97,8 +97,6 @@
                 }
                 block(json,error);
             }];
-            
-            
         });
     }
 }

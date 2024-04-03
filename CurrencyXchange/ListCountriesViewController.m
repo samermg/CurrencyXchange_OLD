@@ -57,14 +57,12 @@ const CGFloat cornerRadius = 22;
     int row = (int)indexPath.row;
     
     NSDictionary *CountryCell;
-    CurrencyCellView *cell = [self.countries cellForRowAtIndexPath:indexPath];
-    NSString* currency = cell.code.text;
     if (_fromSearch.text.length > 0) {
         CountryCell = [_filteredCurrencies objectAtIndex:row];
     } else {
         CountryCell = [_symbols objectAtIndex:row];
     }
-    NSDictionary*selectedCell = [[_symbols objectAtIndex:indexPath.row] objectForKey:currency];
+    NSDictionary *selectedCell = (_fromSearch.text.length == 0) ? [_symbols objectAtIndex:row] : [_symbols objectAtIndex:[[self.filteredCurrencies objectAtIndex:indexPath.item] integerValue]];
     if ([self.UpdateFlagDelegate respondsToSelector:@selector(didSelectValue:SenderDelegate:)]) {
         [self.UpdateFlagDelegate didSelectValue:selectedCell SenderDelegate:self.CurrencyFlag];
     }

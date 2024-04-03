@@ -29,9 +29,10 @@
 - (void)didSelectValue:(NSDictionary *)currency SenderDelegate:(CurrencyCode)sender {
     self.SenderDelegate = sender;
     if(sender == FromCurrency) {
-        [self GetConversationRatesForBase:currency forCurrency:[currency objectForKey:@"code"]];
+        [self GetConversationRatesForBase:currency];
     } else {
-        [self UpdateDestinationCurrency:currency];
+        NSArray* keys = [currency allKeys];
+        [self UpdateDestinationCurrency:[currency objectForKey:[keys objectAtIndex:0]]];
     }
 }
 -(void)restSessionTime {
@@ -80,7 +81,7 @@
         @"code": @"USD",
         @"name_plural": @"US dollars"
     }};
-    [self GetConversationRatesForBase:currencyDic forCurrency:@"USD"];
+    [self GetConversationRatesForBase:currencyDic];
 
     
     // Do any additional setup after loading the view.
@@ -127,16 +128,17 @@
     self.toCurrencyFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg", [currency lowercaseString]]];
     [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
 }
-- (void)GetConversationRatesForBase:(NSDictionary*)dictionary forCurrency:(NSString*)currency {
+- (void)GetConversationRatesForBase:(NSDictionary*)dictionary {
     [self restSessionTime];
-    _baseCurrency = currency;
+    NSArray* keys = [dictionary allKeys];
+    _baseCurrency = [keys objectAtIndex:0];
     _baseCurrencyDictionary = dictionary;
-    if (currency.length <3) return;
+    if (_baseCurrency.length <3) return;
     //if ((_username.text.length>3) && (_password.text.length>3)) {
     [self updateUI:false];
     [self.loadingMe startAnimating];
     APIClient *client = [[APIClient alloc]init];
-    [client setFileURL:[NSString stringWithFormat:@"%@/%@/latest/%@", CXChange_API, CXChange_KEY,currency]];
+    [client setFileURL:[NSString stringWithFormat:@"%@/%@/latest/%@", CXChange_API, CXChange_KEY,_baseCurrency]];
     [client setHTTPMethod:GET];
     [client setDelegate:self];
     [client Featch];
@@ -277,13 +279,15 @@
     if (pickerView == self.sourcePicker) {
         selectedData = self.sourceCurrencies[row];
         flag = [[NSString stringWithFormat:@"%@.svg",selectedData] lowercaseString];
+        NSDictionary* currencyDic = [_symbols objectAtIndex:row];
         symolDic = [[_symbols objectAtIndex:row] objectForKey:selectedData];
+        
         _fromCurrencyName.text = [symolDic objectForKey:@"name"];
         _lblFrom.text = selectedData;
         NSString *symbol = [symolDic objectForKey:@"symbol_native"];
         self.fromSymbol.text = symbol;
         self.fromCurrencyFlag.image = [UIImage imageNamed:flag];
-        [self GetConversationRatesForBase:symolDic forCurrency:selectedData] ;
+        [self GetConversationRatesForBase:currencyDic] ;
     } else if (pickerView == self.destinationPicker) {
         selectedData = self.destinationCurrencies[row];
         symolDic = [[_symbols objectAtIndex:row] objectForKey:selectedData];
