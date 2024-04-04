@@ -7,6 +7,7 @@
 
 #import "LoginManager.h"
 #import "APIClient.h"
+#import "MailObject.h"
 @implementation LoginManager {
     NSTimer *sessionTimer;
 }
@@ -33,7 +34,7 @@
     [client setHTTPMethod:GET];
     [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
     [client setAdditionalParameters:@{@"username":username, @"password":password}];
-    [client Login:^(NSDictionary * _Nullable results, NSError * _Nonnull error) {
+    [client Execute:^(NSDictionary * _Nullable results, NSError * _Nonnull error) {
         id user = [results objectForKey:@"user"];
         if (user != [NSNull null]) {
             self->_loggedInUser = [[User alloc]init];
@@ -49,7 +50,7 @@
             self->_loggedInUser.isValidCredentails = [[user objectForKey:@"validCredentails"] boolValue];
             self->_isLoggedIn = self->_loggedInUser.isValidCredentails;
             self->_loginTime = [NSDate date];
-            block(self->_loggedInUser,nil);
+            block(self->_loggedInUser,error);
         } else {
             self->_isLoggedIn = NO;
             block(self->_loggedInUser,error);
@@ -57,7 +58,31 @@
         
     }];
 }
-
+- (void)SendMessageToEmail:(NSString *)emailAddress Username:(NSString *)username SendMailResults:(SendMalResultsBlock)block {
+    APIClient *client = [[APIClient alloc]init];
+    [client setFileURL:LOGIN_API];
+    [client setHTTPMethod:GET];
+    [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
+    MailBody *mail = [[MailBody alloc]init];
+    mail.From = @"CurrencyXchanger@cwtjo.org";
+    mail.To = emailAddress;
+    mail.Subject = @"Pssword Reset";
+    mail.Body = Email_Template(username, @"http://webapi.cwtjo.org/", @"http://webapi.cwtjo.org/", @"24 Hours");
+    MailServer *Server = [[MailServer alloc]init];
+    Server.SMTPServer=@"mail.cwtjo.org";
+    Server.SMTPPort = 223;
+    Server.SenderEmail=@"info@cwtjo.org";
+    Server.SenderPassword = @"sam2000";
+    mail.Server = Server;
+    [client setAdditionalParameters:@{@"username":username, @"email":emailAddress}];
+    [client Execute:^(NSDictionary * _Nullable results, NSError * _Nonnull error) {
+        if (results != nil) {
+            block(results,error);
+        } else {
+            block(results,error);
+        }
+    }];
+}
 - (void)resetTimer {
     // Invalidate previous timer
     [sessionTimer invalidate];

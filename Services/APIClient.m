@@ -74,7 +74,7 @@
         });
     }
 }
--(void)Login:(LoginServerBlock)block {
+-(void)Execute:(WebAPIServerResponse)block {
     __block NSError *error;
     if ([_FileURL isEqual:@""] || [_FileURL length]<10) {
         error = [NSError errorWithDomain:@"com.example.CurrencyXchange"

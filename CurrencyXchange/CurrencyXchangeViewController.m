@@ -50,11 +50,12 @@
         }];
     }
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _lblSlagon.text = [Helper Slogan];
     // Usage Login
-    [self CheckLoginSession];
+    //[self CheckLoginSession];
     isFirstCall = YES;
     _symbols = [NSMutableArray arrayWithArray:[Helper Symbols]];
     //From Currency Flag Gesture
@@ -63,7 +64,8 @@
     //To Currency Flag Gesture
     UITapGestureRecognizer *ToCurrencyFlagtapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toCurrencyFlagTapped:)];
     [self.toCurrencyFlag addGestureRecognizer:ToCurrencyFlagtapGestureRecognizer];
-    
+    self.toAmount.delegate = self;
+    self.fromAmount.delegate=self;
     self.sourcePicker.delegate = self;
     self.destinationPicker.delegate = self;
 
@@ -220,7 +222,48 @@
     NSString* rateKey   = self.destinationCurrencies[selectedRowInDestination];
     double rateValue = [[_rates valueForKey:rateKey] doubleValue];
     double converted = amount * rateValue;
-    _toAmount.text = [Helper formateNumber:converted];
+    __block NSDictionary*RateCurrency;
+    __block int indexItem;
+    [Helper getObjectIndexFromDictionary:_symbols forKey:rateKey andFiledName:@"code" andResultBloch:^(NSDictionary *currency, int index) {
+        indexItem = index;
+        RateCurrency = currency;
+    }];
+    NSDictionary* toDic = [_symbols objectAtIndex:indexItem];
+    int toDecimal = [[[toDic objectForKey:_lblTo.text] objectForKey:@"decimal_digits"] intValue];
+    
+    _toAmount.text = [Helper formateNumber:converted decimal:toDecimal];
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == _toAmount) return NO;
+    // Allow backspace
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    
+    // Allow only digits and a single decimal point
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet];
+    return ([string rangeOfCharacterFromSet:allowedCharacters].location == NSNotFound);
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    CGRect frame = textField.frame;
+    frame.origin.y -= 30; // Adjust this value based on your layout
+    [UIView animateWithDuration:0.3 animations:^{
+        textField.frame = frame;
+    }];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    CGRect frame = textField.frame;
+    frame.origin.y += 30; // Adjust this value based on your layout
+    [UIView animateWithDuration:0.3 animations:^{
+        textField.frame = frame;
+    }];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 #pragma Surce Currencies Delegate Methods
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -230,7 +273,7 @@
         label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentCenter; // Set text alignment
         label.textColor = (pickerView == _sourcePicker) ? [UIColor systemOrangeColor] : [UIColor systemBlueColor]; // Set font color
-        label.font = [UIFont systemFontOfSize:17]; // Set font size
+        label.font = [UIFont systemFontOfSize:22]; // Set font size
     }
     NSString *title;
     if (pickerView == self.sourcePicker) {
@@ -301,6 +344,47 @@
         [self performSelector:@selector(textFieldDidChange:) withObject:_fromAmount];
     }
 }
+- (IBAction)swapCurrencies:(id)sender {
+    NSString*from;
+    NSString* to;
+    __block NSDictionary*RateCurrency;
+    __block int indexItem;
+    from = _lblFrom.text;
+    to   = _lblTo.text;
+    //Currency
+    _lblFrom.text = to;
+    _lblTo.text   = from;
+    //Flags
+    _fromCurrencyFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg", [to lowercaseString]]];
+    _toCurrencyFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.svg", [from lowercaseString]]];
+    //Symbol
+    from = _fromSymbol.text;
+    to   = _toSymbol.text;
+    _fromSymbol.text = to;
+    _toSymbol.text = from;
+    
+    //Currency Full Name
+    from = _fromCurrencyName.text;
+    to   = _toCurrencyName.text;
+    _fromCurrencyName.text = to;
+    _toCurrencyName.text = from;
+    
+    [Helper getObjectIndexFromDictionary:_symbols forKey:_lblFrom.text andFiledName:@"code" andResultBloch:^(NSDictionary *currency, int index) {
+        indexItem = index;
+        RateCurrency = currency;
+    }];
+    RateCurrency = [_symbols objectAtIndex:indexItem];
+    //Symbols
+    
+    [self GetConversationRatesForBase:RateCurrency];
+    
+    [Helper getObjectIndexFromDictionary:_symbols forKey:_lblTo.text andFiledName:@"code" andResultBloch:^(NSDictionary *currency, int index) {
+        indexItem = index;
+        RateCurrency = currency;
+    }];
+    [self.destinationPicker selectRow:indexItem inComponent:0 animated:NO];
+}
+
 - (IBAction)logoutTapped:(id)sender {
     LoginManager *loginManager = [LoginManager sharedInstance];
     [loginManager logout];

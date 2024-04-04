@@ -14,6 +14,7 @@
 #else
 #define GregorianCalendar NSGregorianCalendar
 #endif
+static NSArray* slagons = @[@"Currency conversion made seamless.",@"Your passport to global transactions.",@"Exchange with confidence, anywhere.",@"Unlock the world's currency markets.",@"Seize opportunities in every exchange.",@"Empowering your international transactions.",@"Navigate global currencies effortlessly.",@"Stay ahead with real-time currency rates.",@"Exchange smarter, not harder.",@"Where currency meets convenience.",@"Simplify your currency conversions.",@"Borderless currency solutions at your fingertips.",@"The smart choice for currency exchange.",@"Exchange rates tailored to your needs.",@"Precision in every currency transaction.",@"Your trusted partner in currency exchange.",@"Exchange currencies like a pro.",@"Secure. Swift. Seamless exchange.",@"Redefining currency conversion for you.",@"Elevate your currency transactions with us.",@"Global currency, local convenience.",@"Exchange rates reimagined for you.",@"Effortless currency conversions, always.",@"Transforming the way you exchange.",@"The hub for hassle-free currency swaps.",@"Currency exchange made simple.",@"Navigate currencies with ease.",@"Your gateway to seamless transactions.",@"Empower your finances, exchange with ease.",@"Precision currency conversions, every time.",@"Exchange confidently, wherever you are.",@"Innovating currency exchange for the modern world.",@"Experience currency exchange, elevated.",@"Maximize your currency potential.",@"Unlock the power of global currency markets.",@"Your currency partner, your way.",@"Efficiency meets precision in currency exchange.",@"Streamline your currency transactions effortlessly.",@"Trustworthy currency exchange, guaranteed.",@"Exchange smarter, exchange with us."];
 @interface Helper : NSObject
 typedef enum {
         GET,
@@ -101,12 +102,12 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 
 
 //Data
-+(NSString*)formateNumber:(double)number;
++(NSString*)formateNumber:(double)number decimal:(int)decimal;
 + (NSData *)base64DataFromString: (NSString *)string;
 + (NSArray*)Countries;
 + (NSArray*)_Symbols;
 + (NSArray*)Symbols;
 + (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName;
 + (void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block;
-
++ (NSString*)Slogan;
 @end

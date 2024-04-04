@@ -9,8 +9,8 @@
 #import "ForgetViewController.h"
 #import "LoadingIndicator.h"
 #import "MainNavigationContoller.h"
-#import "Helper.h"
 
+#import "Helper.h"
 @interface ForgetViewController ()
 @property (weak, nonatomic) IBOutlet LoadingIndicator *loadingMe;
 @end
@@ -58,8 +58,35 @@
     if ((_username.text.length>3) && (_email.text.length>3)) {
         [self updateUI:false];
         [self.loadingMe startAnimating];
+        // User login
+        __block NSString* name = self.username.text;
+        __block NSString *email = self.email.text;
+        dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
+        dispatch_async(dwnQueue, ^ {
+            LoginManager *loginManager = [LoginManager sharedInstance];
+            [loginManager SendMessageToEmail:email Username:name SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateUI:true];
+                    if (Error != nil) {
+                        [self.loadingMe stopAnimating];
+                        [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
+                    } else {
+                        if ([[SendMailResults objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                            self.username.text=@"";
+                            self.email.text = @"";
+                            [self showAlertWithTitle:@"Forget Password" message:@"" buttonTitle:@"OK" completionHandler:^{
+                                [self.loadingMe stopAnimating];
+                                [self dismissViewControllerAnimated:YES completion:nil];
+
+                            }];
+                        }
+                    }
+                    
+                });
+            }];
+        });
     } else {
-        [self showAlert:@"Login" andWithMessage:@"Please provide your Account Details"];
+        [self showAlertWithTitle:@"Login" message:@"Please provide your Account details" buttonTitle:@"OK" completionHandler:nil];
     }
 }
 
@@ -73,7 +100,15 @@
     [self.email setEnabled:status];
 }
 
+#pragma UITextFiled
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 #pragma End APIClient Delegate Methods
 -(void)showMainViewController {

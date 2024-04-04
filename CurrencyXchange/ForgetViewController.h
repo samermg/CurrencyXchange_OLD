@@ -8,7 +8,9 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "ForgetViewController.h"
+#import "UIViewController+Alert.h"
 #import "LoginManager.h"
+
 @interface ForgetViewController : UIViewController <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *email;

@@ -20,7 +20,7 @@
 @implementation LoginViewController
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:self];
-    //[self showMainViewController];
+    [self showMainViewController];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,7 +112,15 @@
 }
 
 
+#pragma UITextFiled
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma End APIClient Delegate Methods
 -(void)showMainViewController {
     [self dismissViewControllerAnimated:YES completion:nil];

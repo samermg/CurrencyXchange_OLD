@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)APIRequest:(APIClient*_Nullable)call didFinishRequestWithError:(NSString*_Nullable)error;
 -(void)APIRequest:(APIClient*_Nullable)load didFinishRequestWithContent:(NSDictionary*_Nullable)data;
 @end
-typedef void (^LoginServerBlock)(NSDictionary* _Nullable results, NSError* _Nullable error);
+typedef void (^WebAPIServerResponse)(NSDictionary* _Nullable results, NSError* _Nullable error);
 
 @interface APIClient : NSObject {
     NSString* _FileURL;
@@ -44,7 +44,7 @@ typedef void (^LoginServerBlock)(NSDictionary* _Nullable results, NSError* _Null
 -(void)setAdditionalParameters:(NSDictionary*)additionalParameters;
 -(NSDictionary*)getAdditionalParameter;
 -(void)Featch;
--(void)Login:(LoginServerBlock)block;
+-(void)Execute:(WebAPIServerResponse)block;
 
 @end
 
