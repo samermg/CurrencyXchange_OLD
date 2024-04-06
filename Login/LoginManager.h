@@ -16,6 +16,7 @@ typedef void (^ResetResultsBlock)(NSDictionary* _Nullable results, NSError* _Nul
 @property (nonatomic, assign) BOOL isLoggedIn;
 @property (nonatomic, strong) NSDate * _Nullable loginTime;
 @property (nonatomic, strong) User * _Nullable loggedInUser;
+@property (nonatomic, assign) BOOL isLoginRequired;
 + (instancetype _Nullable )sharedInstance;
 - (void)loginWithUsername:(NSString *_Nullable)username password:(NSString *_Nullable)password LoginResults:(LoginResultsBlock _Nullable)block;
 - (void)requestPasswordResetForUser:(NSString *_Nullable)username email:(NSString *_Nullable)email ResetResults:(ResetResultsBlock _Nullable)block;

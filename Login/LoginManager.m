@@ -26,6 +26,7 @@
     if (self) {
         _isLoggedIn = NO;
         _loggedInUser=nil;
+        _isLoginRequired = YES;
     }
     return self;
 }
@@ -52,6 +53,7 @@
             self->_loggedInUser.isValidCredentails = [[user objectForKey:@"validCredentails"] boolValue];
             self->_isLoggedIn = self->_loggedInUser.isValidCredentails;
             self->_loginTime = [NSDate date];
+            [Helper StoreUserLoginDateTime];
             block(self->_loggedInUser,error);
         } else {
             self->_isLoggedIn = NO;
@@ -122,9 +124,19 @@
 - (void)logout {
     _isLoggedIn = NO;
     _loggedInUser = nil;
+    _isLoginRequired = YES;
+    [Helper RemoveFromUserDefaultKey:@"LoginDate"];
     NSLog(@"User logged out");
 }
-
+- (BOOL)isLoginRequired {
+    NSDate *loginDate = [Helper RetrivedFromUserDefaultForKey:@"LoginDate"];
+    if (!loginDate) {
+        return YES;
+    } else if ([Helper CheckDifferenceBetweenTwoDates:loginDate forDays:5]) {
+        return NO;
+    }
+    return YES;
+}
 - (BOOL)isSessionValid {
     if (_isLoggedIn) {
         NSDate *currentTime = [NSDate date];

@@ -20,7 +20,10 @@
 @implementation LoginViewController
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:self];
-    //[self showMainViewController];
+    LoginManager *loginManager = [LoginManager sharedInstance];
+    if (!loginManager.isLoginRequired) {
+        [self showMainViewController:NO];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,7 +83,7 @@
                             self.username.text=@"";
                             self.password.text = @"";
                             [self.loadingMe stopAnimating];
-                            [self showMainViewController];
+                            [self showMainViewController:YES];
                         }
                     }
                     
@@ -122,7 +125,7 @@
     return YES;
 }
 #pragma End APIClient Delegate Methods
--(void)showMainViewController {
+-(void)showMainViewController:(BOOL)animation {
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; // Assuming your storyboard name is "Main"
@@ -131,7 +134,7 @@
     //MainNavigationContoller *viewControllerToPresent = [[MainNavigationContoller alloc] init];
     mainNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
     mainNavigationController.modalPresentationCapturesStatusBarAppearance = YES;
-    [self presentViewController:mainNavigationController animated:YES completion:nil];
+    [self presentViewController:mainNavigationController animated:animation completion:nil];
     
     //[self presentViewController:mainNavigationController animated:YES completion:nil];
 }

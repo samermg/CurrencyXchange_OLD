@@ -4916,4 +4916,93 @@ SystemSoundID completeSound;
 
     return [NSDictionary dictionaryWithDictionary:dict];
 }
++ (void)StoreUserLoginDateTime {
+    // Store login datetime
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *loginDate = [NSDate date]; // Assuming you have the login datetime
+
+    NSError *error = nil;
+    NSData *loginDateData = [NSKeyedArchiver archivedDataWithRootObject:loginDate
+                                                  requiringSecureCoding:YES
+                                                                  error:&error];
+    if (error) {
+        NSLog(@"Error archiving login date: %@", error);
+    } else {
+        [defaults setObject:loginDateData forKey:@"LoginDate"];
+        [defaults synchronize]; // Ensure changes are saved immediately
+    }
+}
++ (NSDate*)RetriveLoginDate {
+    // Retrieve login datetime
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *storedLoginDateData = [defaults objectForKey:@"LoginDate"];
+    NSDate *storedLoginDate = nil;
+
+    if (storedLoginDateData) {
+        NSError *error = nil;
+        storedLoginDate = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDate class]
+                                                            fromData:storedLoginDateData
+                                                               error:&error];
+        if (error) {
+            NSLog(@"Error unarchiving login date: %@", error);
+        }
+    }
+    return storedLoginDate;
+}
++ (void)StoreInUserDefaultKey:(NSString*)key Value:(id)value {
+    // Store Key Value
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSError *error = nil;
+    NSData *valueData = [NSKeyedArchiver archivedDataWithRootObject:value
+                                                  requiringSecureCoding:YES
+                                                                  error:&error];
+    if (error) {
+        NSLog(@"Error archiving login date: %@", error);
+    } else {
+        [defaults setObject:valueData forKey:key];
+        [defaults synchronize]; // Ensure changes are saved immediately
+    }
+}
++ (id)RetrivedFromUserDefaultForKey:(NSString*)key {
+    // Retrieve Key Value
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *storedKeyData = [defaults objectForKey:key];
+    NSDate *storedData = nil;
+
+    if (storedKeyData) {
+        NSError *error = nil;
+        storedData = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDate class]
+                                                            fromData:storedKeyData
+                                                               error:&error];
+        if (error) {
+            NSLog(@"Error unarchiving login date: %@", error);
+        }
+    }
+    return storedData;
+}
++ (BOOL)CheckDifferenceBetweenTwoDates:(NSDate*)startDate forDays:(int)days {
+    // Create NSCalendar and NSDateComponents objects
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay
+                                                fromDate:startDate
+                                                  toDate:[NSDate now]
+                                                 options:0];
+
+    // Check if the difference in days is less than X days
+    BOOL isDifferenceLessThan5Days = (components.day < days);
+
+    if (isDifferenceLessThan5Days) {
+        NSLog(@"Difference between the dates is less than 5 days.");
+        return YES;
+    } else {
+        NSLog(@"Difference between the dates is greater than or equal to 5 days.");
+        return NO;;
+    }
+}
++ (void)RemoveFromUserDefaultKey:(NSString *)key {
+    // Remove object from UserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:key];
+    [defaults synchronize]; // Ensure changes are saved immediately
+}
 @end

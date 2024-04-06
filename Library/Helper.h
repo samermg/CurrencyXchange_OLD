@@ -113,4 +113,10 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 + (NSString*)Slogan;
 //Add this utility method in your class.
 + (NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
++ (void)StoreUserLoginDateTime;
++ (NSDate*)RetriveLoginDate;
++ (void)StoreInUserDefaultKey:(NSString*)key Value:(id)value;
++ (id)RetrivedFromUserDefaultForKey:(NSString*)key;
++ (BOOL)CheckDifferenceBetweenTwoDates:(NSDate*)startDate forDays:(int)days;
++ (void)RemoveFromUserDefaultKey:(NSString*)key;
 @end
