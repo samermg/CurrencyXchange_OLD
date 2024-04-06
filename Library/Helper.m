@@ -4899,4 +4899,21 @@ SystemSoundID completeSound;
     int randomSlagon = arc4random_uniform(20) + 1;
     return slagons[randomSlagon];
 }
+//Add this utility method in your class.
++ (NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
+    unsigned count;
+    objc_property_t *properties = class_copyPropertyList([obj class], &count);
+
+    for (int i = 0; i < count; i++) {
+        NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];
+        [dict setObject:[obj valueForKey:key] forKey:key];
+    }
+
+    free(properties);
+
+    return [NSDictionary dictionaryWithDictionary:dict];
+}
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Definitions.h"
 #import <AudioToolbox/AudioServices.h>
+#import <objc/runtime.h>
 #ifdef __IPHONE_8_0
 #define GregorianCalendar NSCalendarIdentifierGregorian
 #else
@@ -110,4 +111,6 @@ typedef void (^ResultsBlock)(NSDictionary*currency, int index);
 + (NSInteger)getObjectIndex:(NSArray *)array byName:(NSString *)theName;
 + (void)getObjectIndexFromDictionary:(NSArray *)array forKey:(NSString *)keyValue andFiledName:(NSString*)field andResultBloch:(ResultsBlock)block;
 + (NSString*)Slogan;
+//Add this utility method in your class.
++ (NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
 @end

@@ -45,6 +45,7 @@ typedef void (^WebAPIServerResponse)(NSDictionary* _Nullable results, NSError* _
 -(NSDictionary*)getAdditionalParameter;
 -(void)Featch;
 -(void)Execute:(WebAPIServerResponse)block;
+-(void)ExecutePOST:(WebAPIServerResponse)block;
 
 @end
 

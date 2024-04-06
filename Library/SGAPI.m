@@ -93,6 +93,7 @@
     }
     NSString *httpMethod_ = (method == GET) ? @"GET" : @"POST";
     [request setHTTPMethod:httpMethod_];
+    
     if (params) {
         NSError *error;
         NSData *body = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
@@ -158,5 +159,23 @@
             completionHandler(json, error1);
         });
     }] resume];
+}
+
+//Add this utility method in your class.
+- (NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
+    unsigned count;
+    objc_property_t *properties = class_copyPropertyList([obj class], &count);
+
+    for (int i = 0; i < count; i++) {
+        NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];
+        [dict setObject:[obj valueForKey:key] forKey:key];
+    }
+
+    free(properties);
+
+    return [NSDictionary dictionaryWithDictionary:dict];
 }
 @end

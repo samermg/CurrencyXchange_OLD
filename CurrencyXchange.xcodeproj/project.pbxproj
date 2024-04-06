@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A815DF8F2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = A815DF8E2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.m */; };
 		A8182E192BB7030700C0636A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8182E182BB7030700C0636A /* APIClient.m */; };
 		A823989E2BB78B9D003F63AE /* CurrencyXchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823989D2BB78B9D003F63AE /* CurrencyXchangeViewController.m */; };
 		A84B52BE2BBC345700898FB1 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A84B52BD2BBC307F00898FB1 /* LoginManager.m */; };
@@ -76,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A815DF8D2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+DictionaryRepresentation.h"; sourceTree = "<group>"; };
+		A815DF8E2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DictionaryRepresentation.m"; sourceTree = "<group>"; };
 		A8182E172BB7030700C0636A /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8182E182BB7030700C0636A /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		A823989C2BB78B9D003F63AE /* CurrencyXchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyXchangeViewController.h; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 				A8C33B4E2BB6D70200C107CA /* NSData+Conversion.m */,
 				A8C33B4F2BB6D70200C107CA /* SGAPI.h */,
 				A8C33B462BB6D6FC00C107CA /* SGAPI.m */,
+				A815DF8D2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.h */,
+				A815DF8E2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.m */,
 				A8C33B482BB6D6FD00C107CA /* UIDeviceHardware.h */,
 				A8C33B452BB6D6FB00C107CA /* UIDeviceHardware.m */,
 				A8F147FC2BB8C99A00D673B5 /* GlobalSingleton.h */,
@@ -547,6 +552,7 @@
 				A8182E192BB7030700C0636A /* APIClient.m in Sources */,
 				A8C33B112BB6D56100C107CA /* SceneDelegate.m in Sources */,
 				A84B52C52BBCA54500898FB1 /* UIViewController+Alert.m in Sources */,
+				A815DF8F2BC17A5E003960F3 /* NSObject+DictionaryRepresentation.m in Sources */,
 				A89CD33E2BB8605900C333FF /* CurrencyCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

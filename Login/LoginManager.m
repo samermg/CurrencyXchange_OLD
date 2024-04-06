@@ -8,6 +8,7 @@
 #import "LoginManager.h"
 #import "APIClient.h"
 #import "MailObject.h"
+#import "NSObject+DictionaryRepresentation.h"
 @implementation LoginManager {
     NSTimer *sessionTimer;
 }
@@ -29,6 +30,7 @@
     return self;
 }
 - (void)loginWithUsername:(NSString *_Nullable)username password:(NSString *_Nullable)password LoginResults:(LoginResultsBlock _Nullable)block{
+    //user/login
     APIClient *client = [[APIClient alloc]init];
     [client setFileURL:LOGIN_API];
     [client setHTTPMethod:GET];
@@ -58,24 +60,45 @@
         
     }];
 }
-- (void)SendMessageToEmail:(NSString *)emailAddress Username:(NSString *)username SendMailResults:(SendMalResultsBlock)block {
+- (void)requestPasswordResetForUser:(NSString *)username email:(NSString *)email ResetResults:(ResetResultsBlock)block {
+    //RESET_PASSWORD_API
     APIClient *client = [[APIClient alloc]init];
-    [client setFileURL:LOGIN_API];
+    [client setFileURL:GUID_API];
     [client setHTTPMethod:GET];
     [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
-    MailBody *mail = [[MailBody alloc]init];
-    mail.From = @"CurrencyXchanger@cwtjo.org";
-    mail.To = emailAddress;
-    mail.Subject = @"Pssword Reset";
-    mail.Body = Email_Template(username, @"http://webapi.cwtjo.org/", @"http://webapi.cwtjo.org/", @"24 Hours");
-    MailServer *Server = [[MailServer alloc]init];
-    Server.SMTPServer=@"mail.cwtjo.org";
-    Server.SMTPPort = 223;
-    Server.SenderEmail=@"info@cwtjo.org";
-    Server.SenderPassword = @"sam2000";
-    mail.Server = Server;
-    [client setAdditionalParameters:@{@"username":username, @"email":emailAddress}];
+    [client setAdditionalParameters:@{@"username":username}];
     [client Execute:^(NSDictionary * _Nullable results, NSError * _Nonnull error) {
+        block(results,error);
+    }];
+    
+}
+- (void)SendMessageToEmail:(NSString *)emailAddress Username:(NSString *)username GUID:(NSString*)GUID SendMailResults:(SendMalResultsBlock)block {
+    APIClient *client = [[APIClient alloc]init];
+    [client setFileURL:PASSWORD_RESET_API];
+    [client setHTTPMethod:POST];
+    [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
+    NSString* resetPasswordURL = [NSString stringWithFormat:@"https://exchanger.cwtjo.org/?un=%@&uid=%@",username, GUID];
+    NSString *Body = Email_Template(username, resetPasswordURL, resetPasswordURL, @"24 Hours");
+    
+    
+    NSMutableDictionary* mail = [[NSMutableDictionary alloc]init];
+    [mail setObject:username forKey:@"username"];
+    [mail setValue:@"currencyXchanger@cwtjo.org" forKey:@"fromEmail"];
+    [mail setObject:@"Currency Xchanger" forKey:@"fromName"];
+    [mail setValue:emailAddress forKey:@"toEmail"];
+    [mail setValue:@"eXchanger User" forKey:@"toName"];
+    [mail setValue:@"Password Reset" forKey:@"subject"];
+    [mail setValue:Body forKey:@"body"];
+    [mail setValue:@YES forKey:@"isHTMLBody"];
+    [mail setValue:@"mail.cwtjo.org" forKey:@"smtpServer"];
+    NSNumber *numberValue = [NSNumber numberWithInt:25];
+    [mail setValue:numberValue forKey:@"smtpPort"];
+    [mail setValue:@"currencyXchanger@cwtjo.org" forKey:@"senderEmail"];
+    [mail setValue:@"$Samer1974$" forKey:@"senderPassword"];
+    [mail setValue:@NO forKey:@"enableSSL"];
+
+    [client setAdditionalParameters:mail];
+    [client ExecutePOST:^(NSDictionary * _Nullable results, NSError * _Nonnull error) {
         if (results != nil) {
             block(results,error);
         } else {

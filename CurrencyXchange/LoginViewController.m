@@ -20,7 +20,7 @@
 @implementation LoginViewController
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:self];
-    [self showMainViewController];
+    //[self showMainViewController];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

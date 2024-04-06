@@ -54,6 +54,39 @@
     [self.view addSubview:imageView];
     [self.view sendSubviewToBack:imageView];
 }
+/*
+- (IBAction)verify:(id)sender{
+    if ((_username.text.length>3) && (_email.text.length>3)) {
+        [self updateUI:false];
+        [self.loadingMe startAnimating];
+        // User login
+        NSString* name = self.username.text;
+        NSString *email = self.email.text;
+        NSString* GUID;
+        LoginManager *loginManager;
+        loginManager = [[LoginManager alloc]init];
+        [loginManager SendMessageToEmail:email Username:name GUID:@"b8c662a4-92e6-4303-a94e-4e9fb9838d35" SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateUI:true];
+                [self.loadingMe stopAnimating];
+                if (Error != nil) {
+                        [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
+                } else {
+                    if ([[SendMailResults objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                        self.username.text=@"";
+                        self.email.text = @"";
+                        [self showAlertWithTitle:@"Forget Password" message:@"" buttonTitle:@"OK" completionHandler:^{
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        }];
+                    }
+                }
+            });
+        }];
+    } else {
+        [self showAlertWithTitle:@"Login" message:@"Please provide your Account details" buttonTitle:@"OK" completionHandler:nil];
+    }
+}
+*/
 - (IBAction)verify:(id)sender {
     if ((_username.text.length>3) && (_email.text.length>3)) {
         [self updateUI:false];
@@ -61,35 +94,110 @@
         // User login
         __block NSString* name = self.username.text;
         __block NSString *email = self.email.text;
-        dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
-        dispatch_async(dwnQueue, ^ {
-            LoginManager *loginManager = [LoginManager sharedInstance];
-            [loginManager SendMessageToEmail:email Username:name SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+        __block NSString* GUID;
+        __block LoginManager *loginManager;
+
+        // Create a group for each task you want to wait for
+        dispatch_group_t group1 = dispatch_group_create();
+        // Call your first task on the first group
+        dispatch_group_enter(group1);
+        loginManager = [[LoginManager alloc]init];
+        [loginManager requestPasswordResetForUser:name email:email ResetResults:^(NSDictionary * _Nullable results, NSError * _Nullable Error) {
+            if ([[results objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                GUID = [results objectForKey:@"details"];
+            } else if ([[results objectForKey:@"status"] isEqual:@"FAILED"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self updateUI:true];
-                    if (Error != nil) {
-                        [self.loadingMe stopAnimating];
-                        [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
-                    } else {
-                        if ([[SendMailResults objectForKey:@"status"] isEqual:@"SUCCESS"]) {
-                            self.username.text=@"";
-                            self.email.text = @"";
-                            [self showAlertWithTitle:@"Forget Password" message:@"" buttonTitle:@"OK" completionHandler:^{
-                                [self.loadingMe stopAnimating];
-                                [self dismissViewControllerAnimated:YES completion:nil];
-
-                            }];
-                        }
-                    }
-                    
+                    [self.loadingMe stopAnimating];
+                    [self showAlertWithTitle:@"Account Reset" message:[results objectForKey:@"message"] buttonTitle:@"Ok" completionHandler:^{
+                            return;
+                    }];
                 });
-            }];
+            }
+            dispatch_group_leave(group1);
+        }];
+        dispatch_group_notify(group1,dispatch_get_main_queue(),^{
+            //METHOD 2
+            if (GUID && ![GUID isEqualToString:@""]) {
+                [loginManager SendMessageToEmail:email Username:name GUID:GUID SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.loadingMe stopAnimating];
+                        [self updateUI:true];
+                        if (Error != nil) {
+                            [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
+                        } else {
+                            if ([[SendMailResults objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                                self.username.text=@"";
+                                self.email.text = @"";
+                                [self showAlertWithTitle:[SendMailResults objectForKey:@"message"] message:[SendMailResults objectForKey:@"details"] buttonTitle:@"OK" completionHandler:^{
+                                    [self dismissViewControllerAnimated:YES completion:^{
+                                        return;
+                                    }];
+                                }];
+                            }
+                        }
+                    });
+                }];
+            } else {
+                [self.loadingMe stopAnimating];
+                [self updateUI:true];
+            }
         });
     } else {
         [self showAlertWithTitle:@"Login" message:@"Please provide your Account details" buttonTitle:@"OK" completionHandler:nil];
     }
 }
 
+/*
+- (IBAction)verify:(id)sender {
+    if ((_username.text.length>3) && (_email.text.length>3)) {
+        [self updateUI:false];
+        [self.loadingMe startAnimating];
+        // User login
+        __block NSString* name = self.username.text;
+        __block NSString *email = self.email.text;
+        __block NSString* GUID;
+        __block LoginManager *loginManager;
+        dispatch_queue_t dwnQueue = dispatch_queue_create("StartQ", NULL);
+        dispatch_async(dwnQueue, ^ {
+            loginManager = [[LoginManager alloc]init];
+            [loginManager requestPasswordResetForUser:name email:email ResetResults:^(NSDictionary * _Nullable results, NSError * _Nullable Error) {
+                if ([[results objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                    GUID = [results objectForKey:@"details"];
+                } else if ([[results objectForKey:@"status"] isEqual:@"FAILED"]) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self showAlertWithTitle:[results objectForKey:@"message"] message:[results objectForKey:@"details"] buttonTitle:@"Ok" completionHandler:^{
+                            return;
+                        }];
+                    });
+                }
+            }];
+            [loginManager SendMessageToEmail:email Username:name GUID:GUID SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateUI:true];
+                    [self.loadingMe stopAnimating];
+                    if (Error != nil) {
+                        
+                        [self showAlert:[Error localizedDescription] andWithMessage:[Error localizedFailureReason]];
+                    } else {
+                        if ([[SendMailResults objectForKey:@"status"] isEqual:@"SUCCESS"]) {
+                            self.username.text=@"";
+                            self.email.text = @"";
+                            [self showAlertWithTitle:@"Forget Password" message:@"" buttonTitle:@"OK" completionHandler:^{
+                                [self dismissViewControllerAnimated:YES completion:nil];
+
+                            }];
+                        }
+                    }
+                });
+            }];
+            
+        });
+    } else {
+        [self showAlertWithTitle:@"Login" message:@"Please provide your Account details" buttonTitle:@"OK" completionHandler:nil];
+    }
+}
+ */
 - (IBAction)backLogin:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

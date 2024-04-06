@@ -385,7 +385,7 @@
                                     <action selector="verify:" destination="Ye7-67-oxs" eventType="touchUpInside" id="u04-wq-wxO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-99-2EN" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="samer" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-99-2EN" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="272" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="4qJ-D9-RaQ"/>
@@ -407,14 +407,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-aV-pql" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="samermg@hotmail.com" placeholder=" Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-aV-pql" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="352" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="AEM-D1-v9U"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -484,7 +484,7 @@
             <size key="intrinsicContentSize" width="101.5" height="22"/>
         </designable>
         <designable name="5F8-aV-pql">
-            <size key="intrinsicContentSize" width="133" height="22"/>
+            <size key="intrinsicContentSize" width="195" height="23.5"/>
         </designable>
         <designable name="cYy-99-2EN">
             <size key="intrinsicContentSize" width="106.5" height="23.5"/>

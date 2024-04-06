@@ -10,20 +10,35 @@
 - (instancetype)init {
    self = [super init];
    if (self) {
-      _From = @"";
-       _To = @"";
-       _Subject=@"";
-       _Body=@"";
-       _IsHTMLBody=NO;
-       _Server = [[MailServer alloc]init];
+    _FromName = @"";
+    _FromName = @"";
+    _ToEmail = @"";
+    _ToName = @"";
+    _Subject=@"";
+    _Body=@"";
+    _IsHTMLBody=NO;
+    _SMTPServer=@"";
+    _SMTPPort=0;
+    _SenderEmail=@"";
+    _SenderPassword=@"";
+    _EnableSSL = false;
    }
    return self;
 }
--(NSString*)From {
-    return _From;
+-(NSString*)Username {
+    return _Username;
 }
--(NSString*)To {
-    return _To;
+-(NSString*)FromEmail {
+    return _FromEmail;
+}
+-(NSString*)FromName {
+    return _FromName;
+}
+-(NSString*)ToEmail {
+    return _ToEmail;
+}
+-(NSString*)ToName {
+    return _ToName;
 }
 -(NSString*)Subject {
     return _Subject;
@@ -33,22 +48,6 @@
 }
 -(BOOL)IsHTMLBody {
     return _IsHTMLBody;
-}
--(MailServer*)Server {
-    return _Server;
-}
-@end
-
-@implementation MailServer
-- (instancetype)init {
-   self = [super init];
-   if (self) {
-       _SMTPServer=@"";
-       _SMTPPort=0;
-       _SenderEmail=@"";
-       _SenderPassword=@"";
-   }
-   return self;
 }
 -(NSString*)SMTPServer {
     return _SMTPServer;
@@ -61,5 +60,8 @@
 }
 -(NSString*)SenderPassword {
     return _SenderPassword;
+}
+-(BOOL)EnableSSL {
+    return _EnableSSL;
 }
 @end
