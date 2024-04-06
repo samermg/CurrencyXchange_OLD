@@ -92,9 +92,10 @@
         [self updateUI:false];
         [self.loadingMe startAnimating];
         // User login
-        __block NSString* name = self.username.text;
+        __block NSString* username = self.username.text;
         __block NSString *email = self.email.text;
         __block NSString* GUID;
+        __block NSString* NAME;
         __block LoginManager *loginManager;
 
         // Create a group for each task you want to wait for
@@ -102,9 +103,10 @@
         // Call your first task on the first group
         dispatch_group_enter(group1);
         loginManager = [[LoginManager alloc]init];
-        [loginManager requestPasswordResetForUser:name email:email ResetResults:^(NSDictionary * _Nullable results, NSError * _Nullable Error) {
+        [loginManager requestPasswordResetForUser:username email:email ResetResults:^(NSDictionary * _Nullable results, NSError * _Nullable Error) {
             if ([[results objectForKey:@"status"] isEqual:@"SUCCESS"]) {
                 GUID = [results objectForKey:@"details"];
+                NAME = [results objectForKey:@"message"];
             } else if ([[results objectForKey:@"status"] isEqual:@"FAILED"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self updateUI:true];
@@ -119,7 +121,7 @@
         dispatch_group_notify(group1,dispatch_get_main_queue(),^{
             //METHOD 2
             if (GUID && ![GUID isEqualToString:@""]) {
-                [loginManager SendMessageToEmail:email Username:name GUID:GUID SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
+                [loginManager SendMessageToEmail:email Username:username AccountHolder:NAME GUID:GUID SendMailResults:^(NSDictionary * _Nullable SendMailResults, NSError * _Nullable Error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.loadingMe stopAnimating];
                         [self updateUI:true];

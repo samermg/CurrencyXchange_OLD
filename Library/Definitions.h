@@ -19,6 +19,7 @@
 #define GUID_API                     @"https://webapi.cwtjo.org/restfull/v1/user/UniqueId"
 
 #define API_KEY                         @"6CBxzdYcEgNDrRhMbDpkBF7e4d4Kib46dwL9ZE5egiL0iL5Y3dzREUBSUYVUwUkN"
+#define eXchange_Domain                 @"https://exchanger.cwtjo.org/"
 #define READALL                         @"http://www.cwtjo.org/VBNET/APIs/students/rest-api/items/read.php"
 #define NOTIFICATION_REG_URL            @"https://webapi.cwtjo.org/restfull/v1/register/device"
 #define API_URL                         @"http://cwtapps.com/CFOs/APIs/securedRequest.php"

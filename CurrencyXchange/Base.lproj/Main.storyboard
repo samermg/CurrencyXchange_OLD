@@ -43,7 +43,7 @@
                                     <action selector="login:" destination="gx4-LN-JSQ" eventType="touchUpInside" id="PvT-R8-TIX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="samer" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-nn-r0L" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-nn-r0L" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="272" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ItO-JO-MtX"/>
@@ -65,7 +65,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sam2000" placeholder=" Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42N-oT-FyO" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42N-oT-FyO" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="352" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Y6J-7u-UZJ"/>
@@ -385,7 +385,7 @@
                                     <action selector="verify:" destination="Ye7-67-oxs" eventType="touchUpInside" id="u04-wq-wxO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="samer" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-99-2EN" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-99-2EN" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="272" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="4qJ-D9-RaQ"/>
@@ -407,7 +407,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="samermg@hotmail.com" placeholder=" Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-aV-pql" customClass="DesignableUITextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-aV-pql" customClass="DesignableUITextField">
                                 <rect key="frame" x="46" y="352" width="322" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="AEM-D1-v9U"/>
@@ -484,7 +484,7 @@
             <size key="intrinsicContentSize" width="101.5" height="22"/>
         </designable>
         <designable name="5F8-aV-pql">
-            <size key="intrinsicContentSize" width="195" height="23.5"/>
+            <size key="intrinsicContentSize" width="133" height="23.5"/>
         </designable>
         <designable name="cYy-99-2EN">
             <size key="intrinsicContentSize" width="106.5" height="23.5"/>

@@ -72,28 +72,26 @@
     }];
     
 }
-- (void)SendMessageToEmail:(NSString *)emailAddress Username:(NSString *)username GUID:(NSString*)GUID SendMailResults:(SendMalResultsBlock)block {
+- (void)SendMessageToEmail:(NSString *)emailAddress Username:(NSString *)username AccountHolder:(NSString*_Nullable)NAME GUID:(NSString*)GUID SendMailResults:(SendMalResultsBlock)block {
     APIClient *client = [[APIClient alloc]init];
     [client setFileURL:PASSWORD_RESET_API];
     [client setHTTPMethod:POST];
     [client setHttpHeaderFields:@{@"x-api-key":API_KEY}];
-    NSString* resetPasswordURL = [NSString stringWithFormat:@"https://exchanger.cwtjo.org/?un=%@&uid=%@",username, GUID];
-    NSString *Body = Email_Template(username, resetPasswordURL, resetPasswordURL, @"24 Hours");
-    
-    
+    NSString* resetURL = [NSString stringWithFormat:@"%@?un=%@&uid=%@",eXchange_Domain,username, GUID];
+    NSString *Body = Email_Template(NAME, resetURL, resetURL, @"24 Hours");
     NSMutableDictionary* mail = [[NSMutableDictionary alloc]init];
     [mail setObject:username forKey:@"username"];
-    [mail setValue:@"currencyXchanger@cwtjo.org" forKey:@"fromEmail"];
-    [mail setObject:@"Currency Xchanger" forKey:@"fromName"];
+    [mail setValue:@"CurrencyXchange@cwtjo.org" forKey:@"fromEmail"];
+    [mail setObject:@"Currency Xchange" forKey:@"fromName"];
     [mail setValue:emailAddress forKey:@"toEmail"];
-    [mail setValue:@"eXchanger User" forKey:@"toName"];
+    [mail setValue:NAME forKey:@"toName"];
     [mail setValue:@"Password Reset" forKey:@"subject"];
     [mail setValue:Body forKey:@"body"];
     [mail setValue:@YES forKey:@"isHTMLBody"];
     [mail setValue:@"mail.cwtjo.org" forKey:@"smtpServer"];
     NSNumber *numberValue = [NSNumber numberWithInt:25];
     [mail setValue:numberValue forKey:@"smtpPort"];
-    [mail setValue:@"currencyXchanger@cwtjo.org" forKey:@"senderEmail"];
+    [mail setValue:@"CurrencyXchange@cwtjo.org" forKey:@"senderEmail"];
     [mail setValue:@"$Samer1974$" forKey:@"senderPassword"];
     [mail setValue:@NO forKey:@"enableSSL"];
 

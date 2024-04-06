@@ -19,7 +19,7 @@ typedef void (^ResetResultsBlock)(NSDictionary* _Nullable results, NSError* _Nul
 + (instancetype _Nullable )sharedInstance;
 - (void)loginWithUsername:(NSString *_Nullable)username password:(NSString *_Nullable)password LoginResults:(LoginResultsBlock _Nullable)block;
 - (void)requestPasswordResetForUser:(NSString *_Nullable)username email:(NSString *_Nullable)email ResetResults:(ResetResultsBlock _Nullable)block;
-- (void)SendMessageToEmail:(NSString *_Nullable)emailAddress Username:(NSString *_Nullable)username GUID:(NSString *_Nullable)GUID SendMailResults:(SendMalResultsBlock _Nullable)block;
+- (void)SendMessageToEmail:(NSString *_Nullable)emailAddress Username:(NSString *_Nullable)username AccountHolder:(NSString*_Nullable)NAME GUID:(NSString *_Nullable)GUID SendMailResults:(SendMalResultsBlock _Nullable)block;
 - (BOOL)isLoggedIn;
 - (void)resetTimer;
 - (void)logout;
