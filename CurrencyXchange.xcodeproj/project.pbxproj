@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -442,7 +442,6 @@
 		A8C33B012BB6D56100C107CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					A8C33B082BB6D56100C107CA = {
@@ -459,7 +458,7 @@
 				};
 			};
 			buildConfigurationList = A8C33B042BB6D56100C107CA /* Build configuration list for PBXProject "CurrencyXchange" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -730,7 +729,7 @@
 				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyXchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
+				INFOPLIST_KEY_CFBundleDisplayName = eXchanger;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -759,7 +758,7 @@
 				DEVELOPMENT_TEAM = 9YVRVJ5GF3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyXchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CurrencyXchange;
+				INFOPLIST_KEY_CFBundleDisplayName = eXchanger;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -20,7 +20,7 @@ const CGFloat cornerRadius = 22;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
     self.countries.delegate = self;
     self.countries.dataSource=self;
     self.fromSearch.delegate = self;

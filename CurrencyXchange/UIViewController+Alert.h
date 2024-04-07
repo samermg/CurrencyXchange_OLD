@@ -10,4 +10,5 @@
 @interface UIViewController (Alert)
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString*)buttonTitle completionHandler:(void (^)(void))completionHandler;
+- (void)showConfirmationTitle:(NSString *)title message:(NSString *)message YesTitle:(NSString*)yesTitle NoTitle:(NSString*)noTitle completionHandler:(void (^)(BOOL confirmed))completionHandler;
 @end

@@ -110,12 +110,12 @@
     [self.navigationController pushViewController:ListViewController animated:YES];
 }
 - (void)setupSpinner {
-    self.loadingMe.lineWidth = 3;
-    self.loadingMe.spinnerColors = @[[Helper colorWithHexString:@"0000FF"]];
+    self.loadingMe.lineWidth = 4;
+    self.loadingMe.spinnerColors = @[[Helper colorWithHexString:@"FFFFFF"]];//0000FF
     self.loadingMe.hidesWhenStopped = YES;
 }
 -(void)updateUI:(BOOL) status {
-    
+    _btnSwap.hidden = status;
 }
 -(void)UpdateDestinationCurrency:(NSDictionary*)destinationCurrency {
     [self restSessionTime];
@@ -137,7 +137,7 @@
     _baseCurrencyDictionary = dictionary;
     if (_baseCurrency.length <3) return;
     //if ((_username.text.length>3) && (_password.text.length>3)) {
-    [self updateUI:false];
+    [self updateUI:true];
     [self.loadingMe startAnimating];
     APIClient *client = [[APIClient alloc]init];
     [client setFileURL:[NSString stringWithFormat:@"%@/%@/latest/%@", CXChange_API, CXChange_KEY,_baseCurrency]];
@@ -201,13 +201,14 @@
     } else {
         [self showAlertWithTitle:@"Currency Exchange" message:@"Something went wrong! Please attempt your action again later." buttonTitle:@"OK" completionHandler:nil];
     }
-    [self updateUI:true];
+    [self updateUI:false];
     [self.loadingMe stopAnimating];
 }
 
 - (void)APIRequest:(APIClient * _Nullable)call didFinishRequestWithError:(NSString * _Nullable)error {
     [self.loadingMe stopAnimating];
     [self showAlertWithTitle:@"Currency Exchange" message:error.description buttonTitle:@"OK" completionHandler:nil];
+    [self updateUI:false];
 }
 #pragma End APIClient Delegate Methods
 
@@ -386,10 +387,14 @@
 }
 
 - (IBAction)logoutTapped:(id)sender {
-    LoginManager *loginManager = [LoginManager sharedInstance];
-    [loginManager logout];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self showLoginViewController];
+    [self showConfirmationTitle:@"Logout" message:@"Are you sure you want to logout?" YesTitle:@"Yes" NoTitle:@"No" completionHandler:^(BOOL confirmed) {
+        if (confirmed) {
+            LoginManager *loginManager = [LoginManager sharedInstance];
+            [loginManager logout];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [self showLoginViewController];
+        }
+    }];
 }
 - (void)showLoginViewController{
     // Instantiate home view controller from storyboard
